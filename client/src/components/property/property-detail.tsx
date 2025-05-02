@@ -145,7 +145,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <h3 className="text-lg font-semibold mb-1">Bedrooms</h3>
-                    <p className="text-2xl font-bold text-primary">{property.bedrooms}</p>
+                    <p className="text-2xl font-bold text-gold">{property.bedrooms}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -154,7 +154,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <h3 className="text-lg font-semibold mb-1">Bathrooms</h3>
-                    <p className="text-2xl font-bold text-primary">{property.bathrooms}</p>
+                    <p className="text-2xl font-bold text-gold">{property.bathrooms}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -167,7 +167,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <h3 className="text-lg font-semibold mb-1">Offices</h3>
-                    <p className="text-2xl font-bold text-primary">{property.offices}</p>
+                    <p className="text-2xl font-bold text-gold">{property.offices}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -176,7 +176,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 <CardContent className="pt-6">
                   <div className="text-center">
                     <h3 className="text-lg font-semibold mb-1">Parking Spots</h3>
-                    <p className="text-2xl font-bold text-primary">{property.parking}</p>
+                    <p className="text-2xl font-bold text-gold">{property.parking}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -197,7 +197,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {property.features.map((feature, index) => (
                 <div key={index} className="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gold" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span>{feature}</span>
@@ -227,9 +227,9 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
         <Separator className="my-8" />
         
         {/* Contact Section */}
-        <div className="bg-neutral-lightest p-6 rounded-lg">
-          <h2 className="text-xl font-semibold mb-4">Interested in this property?</h2>
-          <p className="mb-4">Contact us to schedule a viewing or request more information about this property.</p>
+        <div className="bg-gold p-6 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4 text-white">Interested in this property?</h2>
+          <p className="mb-4 text-white">Contact us to schedule a viewing or request more information about this property.</p>
           <div className="flex flex-wrap gap-4">
             <Button 
               className="bg-secondary hover:bg-secondary-light"
