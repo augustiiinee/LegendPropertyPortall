@@ -114,7 +114,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.9, y: 20 }}
             transition={{ type: "spring", bounce: 0.3 }}
-            className="bg-white rounded-xl shadow-2xl w-full max-w-[95%] md:max-w-3xl h-[75vh] md:h-auto overflow-hidden"
+            className="bg-white rounded-xl shadow-2xl w-full max-w-[95%] md:max-w-3xl h-[70vh] md:h-auto overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="bg-gold text-white p-3 sm:p-4 flex justify-between items-center sticky top-0 z-10">
@@ -129,11 +129,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
             
             <div className="p-2 sm:p-4 overflow-y-auto">
               {/* Mobile view: Tabs */}
-              <div className="flex md:hidden overflow-x-auto pb-2 mb-2">
+              <div className="flex md:hidden overflow-x-auto pb-2 mb-2 scrollbar-hide">
                 {officeLocations.map((location, index) => (
                   <button
                     key={location.name}
-                    className={`flex-shrink-0 px-3 py-1.5 mr-2 rounded-full text-xs transition-all ${
+                    className={`flex-shrink-0 px-2 py-1 mr-1.5 rounded-full text-xs transition-all ${
                       activeLocation === index 
                         ? "bg-gold text-white font-medium shadow-md" 
                         : "bg-neutral-100 text-neutral-800"
@@ -255,25 +255,25 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     transition={{ duration: 0.2 }}
                     className="bg-white rounded-lg p-3 shadow-sm border"
                   >
-                    <div className="flex items-center mb-3">
-                      <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-white mr-3">
-                        <MapPin className="h-4 w-4" />
+                    <div className="flex items-center mb-2">
+                      <div className="w-7 h-7 rounded-full bg-gold flex items-center justify-center text-white mr-2">
+                        <MapPin className="h-3.5 w-3.5" />
                       </div>
                       <div>
-                        <h3 className="font-montserrat font-semibold text-base text-primary">
+                        <h3 className="font-montserrat font-semibold text-sm text-primary">
                           {currentLocation.name} Office
                         </h3>
-                        <p className="text-neutral-500 text-sm">{currentLocation.region}</p>
+                        <p className="text-neutral-500 text-xs">{currentLocation.region}</p>
                       </div>
                     </div>
                     
-                    <div className="space-y-3 text-sm">
+                    <div className="space-y-2 text-sm">
                       <div className="flex">
-                        <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center text-gold mr-3 flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-neutral-100 flex items-center justify-center text-gold mr-2 flex-shrink-0">
                           <MapPin className="h-3 w-3" />
                         </div>
                         <div>
-                          <h4 className="font-montserrat font-medium text-primary-light text-sm mb-1">Address</h4>
+                          <h4 className="font-montserrat font-medium text-primary-light text-xs mb-0.5">Address</h4>
                           {currentLocation.address.map((line, i) => (
                             <p key={i} className="text-neutral-600 text-xs leading-tight">{line}</p>
                           ))}
@@ -281,11 +281,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       </div>
                       
                       <div className="flex">
-                        <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center text-gold mr-3 flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-neutral-100 flex items-center justify-center text-gold mr-2 flex-shrink-0">
                           <Phone className="h-3 w-3" />
                         </div>
                         <div>
-                          <h4 className="font-montserrat font-medium text-primary-light text-sm mb-1">Contact</h4>
+                          <h4 className="font-montserrat font-medium text-primary-light text-xs mb-0.5">Contact</h4>
                           {currentLocation.telephone.map((line, i) => (
                             <p key={i} className="text-neutral-600 text-xs leading-tight">{line}</p>
                           ))}
@@ -293,11 +293,11 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                       </div>
                       
                       <div className="flex">
-                        <div className="w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center text-gold mr-3 flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full bg-neutral-100 flex items-center justify-center text-gold mr-2 flex-shrink-0">
                           <Mail className="h-3 w-3" />
                         </div>
                         <div>
-                          <h4 className="font-montserrat font-medium text-primary-light text-sm mb-1">Email</h4>
+                          <h4 className="font-montserrat font-medium text-primary-light text-xs mb-0.5">Email</h4>
                           <p className="text-neutral-600 text-xs">propertylegendke@gmail.com</p>
                         </div>
                       </div>
