@@ -14,6 +14,11 @@ import {
 } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 
+type FilterOptions = {
+  locations: string[];
+  propertyTypes: string[];
+};
+
 type PropertyFiltersProps = {
   onFilterChange: (filters: {
     location: string;
@@ -33,7 +38,7 @@ export default function PropertyFilters({ onFilterChange, initialFilters }: Prop
   const [priceRange, setPriceRange] = useState(initialFilters?.priceRange || 'all');
   
   // Fetch filter options (locations, property types)
-  const { data: filterOptions } = useQuery({
+  const { data: filterOptions, isLoading } = useQuery<FilterOptions>({
     queryKey: ['/api/properties/filter-options'],
     // Default queryFn will be used from queryClient
   });
@@ -46,11 +51,16 @@ export default function PropertyFilters({ onFilterChange, initialFilters }: Prop
     });
   };
   
-  // Apply filters when changed
+  // Apply filters when component mounts
   useEffect(() => {
     handleApplyFilters();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  
+  // Capitalize property types for display
+  const formatPropertyType = (type: string): string => {
+    return type.charAt(0).toUpperCase() + type.slice(1);
+  };
   
   return (
     <Card className="bg-white rounded-lg shadow-md p-4 mb-10">
@@ -67,16 +77,9 @@ export default function PropertyFilters({ onFilterChange, initialFilters }: Prop
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Locations</SelectItem>
-                {filterOptions?.locations && filterOptions.locations.map((loc: string) => (
+                {filterOptions?.locations?.map((loc: string) => (
                   <SelectItem key={loc} value={loc}>{loc}</SelectItem>
                 ))}
-                {!filterOptions?.locations && (
-                  <>
-                    <SelectItem value="downtown">Downtown</SelectItem>
-                    <SelectItem value="city-center">City Center</SelectItem>
-                    <SelectItem value="suburbs">Suburbs</SelectItem>
-                  </>
-                )}
               </SelectContent>
             </Select>
           </div>
@@ -92,16 +95,9 @@ export default function PropertyFilters({ onFilterChange, initialFilters }: Prop
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">All Types</SelectItem>
-                {filterOptions?.propertyTypes && filterOptions.propertyTypes.map((type: string) => (
-                  <SelectItem key={type} value={type}>{type}</SelectItem>
+                {filterOptions?.propertyTypes?.map((type: string) => (
+                  <SelectItem key={type} value={type.toLowerCase()}>{formatPropertyType(type)}</SelectItem>
                 ))}
-                {!filterOptions?.propertyTypes && (
-                  <>
-                    <SelectItem value="residential">Residential</SelectItem>
-                    <SelectItem value="commercial">Commercial</SelectItem>
-                    <SelectItem value="land">Land</SelectItem>
-                  </>
-                )}
               </SelectContent>
             </Select>
           </div>
@@ -117,10 +113,11 @@ export default function PropertyFilters({ onFilterChange, initialFilters }: Prop
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">Any Price</SelectItem>
-                <SelectItem value="100000-250000">$100k - $250k</SelectItem>
-                <SelectItem value="250000-500000">$250k - $500k</SelectItem>
-                <SelectItem value="500000-1000000">$500k - $1M</SelectItem>
-                <SelectItem value="1000000-99999999">$1M+</SelectItem>
+                <SelectItem value="100000-250000">KES 100k - 250k</SelectItem>
+                <SelectItem value="250000-500000">KES 250k - 500k</SelectItem>
+                <SelectItem value="500000-1000000">KES 500k - 1M</SelectItem>
+                <SelectItem value="1000000-10000000">KES 1M - 10M</SelectItem>
+                <SelectItem value="10000000-99999999">KES 10M+</SelectItem>
               </SelectContent>
             </Select>
           </div>

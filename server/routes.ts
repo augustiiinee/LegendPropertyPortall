@@ -6,6 +6,7 @@ import { eq, like, and, or, between, desc } from "drizzle-orm";
 import { 
   properties, 
   PropertyStatus,
+  PropertyType,
   inquiries, 
   InquiryStatus,
   directors 
