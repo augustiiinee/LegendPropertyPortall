@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useLocation, useSearch } from 'wouter';
 import { Property } from '@shared/types';
 
 import Header from '@/components/layout/header';
@@ -11,10 +12,15 @@ import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 
 export default function PropertiesPage() {
+  // Get URL search parameters
+  const search = useSearch();
+  const searchParams = new URLSearchParams(search);
+  const typeParam = searchParams.get('type');
+  
   // Filters
   const [filters, setFilters] = useState({
     location: 'all',
-    propertyType: 'all',
+    propertyType: typeParam || 'all',
     priceRange: 'all'
   });
   
@@ -58,12 +64,18 @@ export default function PropertiesPage() {
       <main className="flex-grow py-16 bg-neutral-lightest">
         <div className="container mx-auto px-4">
           <SectionHeading
-            title="Our Properties"
+            title={typeParam ? 
+              `${typeParam.charAt(0).toUpperCase() + typeParam.slice(1)} Properties` : 
+              "Our Properties"
+            }
             description="Browse our exclusive selection of properties available for sale and management."
           />
           
           {/* Property Filters */}
-          <PropertyFilters onFilterChange={handleFilterChange} />
+          <PropertyFilters 
+            onFilterChange={handleFilterChange} 
+            initialFilters={filters}
+          />
           
           {/* Properties Grid */}
           {isLoading ? (

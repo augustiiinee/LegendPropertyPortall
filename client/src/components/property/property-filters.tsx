@@ -20,12 +20,17 @@ type PropertyFiltersProps = {
     propertyType: string;
     priceRange: string;
   }) => void;
+  initialFilters?: {
+    location?: string;
+    propertyType?: string;
+    priceRange?: string;
+  }
 };
 
-export default function PropertyFilters({ onFilterChange }: PropertyFiltersProps) {
-  const [location, setLocation] = useState('all');
-  const [propertyType, setPropertyType] = useState('all');
-  const [priceRange, setPriceRange] = useState('all');
+export default function PropertyFilters({ onFilterChange, initialFilters }: PropertyFiltersProps) {
+  const [location, setLocation] = useState(initialFilters?.location || 'all');
+  const [propertyType, setPropertyType] = useState(initialFilters?.propertyType || 'all');
+  const [priceRange, setPriceRange] = useState(initialFilters?.priceRange || 'all');
   
   // Fetch filter options (locations, property types)
   const { data: filterOptions } = useQuery({
