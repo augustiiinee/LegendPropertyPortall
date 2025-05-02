@@ -36,31 +36,30 @@ export default function Header() {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/">
-            <a className="h-12 w-48 bg-primary flex items-center justify-center text-white font-montserrat font-bold">
-              LEGEND MANAGEMENT
-            </a>
+          <Link href="/" className="h-12 w-48 bg-primary flex items-center justify-center text-white font-montserrat font-bold">
+            LEGEND MANAGEMENT
           </Link>
         </div>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.path}>
-              <a 
-                className={`font-montserrat font-medium ${isActiveLink(item.path) ? 'text-secondary' : 'text-primary hover:text-secondary'} transition`}
-              >
-                {item.name}
-              </a>
+            <Link 
+              key={item.name} 
+              href={item.path}
+              className={`font-montserrat font-medium ${isActiveLink(item.path) ? 'text-secondary' : 'text-primary hover:text-secondary'} transition`}
+            >
+              {item.name}
             </Link>
           ))}
           
           {user ? (
             <div className="flex items-center space-x-4">
-              <Link href="/admin">
-                <a className="font-montserrat font-medium text-primary hover:text-secondary transition">
-                  Admin
-                </a>
+              <Link 
+                href="/admin"
+                className="font-montserrat font-medium text-primary hover:text-secondary transition"
+              >
+                Admin
               </Link>
               <Button 
                 variant="outline" 
@@ -72,10 +71,11 @@ export default function Header() {
               </Button>
             </div>
           ) : (
-            <Link href="/auth">
-              <a className="font-montserrat font-medium text-primary hover:text-secondary transition">
-                Login
-              </a>
+            <Link 
+              href="/auth"
+              className="font-montserrat font-medium text-primary hover:text-secondary transition"
+            >
+              Login
             </Link>
           )}
         </nav>
