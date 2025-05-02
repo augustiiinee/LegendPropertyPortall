@@ -101,10 +101,44 @@ export default {
             height: "0",
           },
         },
+        "slide-down": {
+          from: {
+            height: "0",
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          to: {
+            height: "var(--radix-accordion-content-height)",
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+        "slide-up": {
+          from: {
+            height: "var(--radix-accordion-content-height)",
+            opacity: "1",
+          },
+          to: {
+            height: "0",
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+        },
+        "fade-in": {
+          from: {
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slideDown": "slide-down 0.3s ease-out",
+        "slideUp": "slide-up 0.3s ease-out",
+        "fadeIn": "fade-in 0.4s ease-out",
       },
     },
   },
