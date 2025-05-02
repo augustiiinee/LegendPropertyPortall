@@ -112,6 +112,19 @@ async function seed() {
         parking: 10,
         features: ["Elevator", "Security System", "Meeting Rooms", "Kitchenette", "High-speed Internet"],
         images: ["https://images.unsplash.com/photo-1577415124269-fc1140a69e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"]
+      },
+      {
+        title: "Prime Residential Maisonette - Chuna Estate",
+        description: "An excellent opportunity to acquire a partially completed five-bedroom all-ensuite maisonette, located in the serene and secure Chuna Estate, Kitengela. The property sits on a corner plot in Elite Avenue and features a detached DSQ, and a rooftop terrace, in a controlled gated community environment. Key features include: All-ensuite 5-bedroom Maisonette with rooftop terrace, Detached 2-Room Servant's Quarters with own facilities, Plinth area of approx. 316 sqm (main house) and 26 sqm (DSQ), High-quality construction with stone walls, concrete slab roof, and tiled wet areas, Electric fence and razor wire perimeter wall, Solar water heating system with 300-litre tank, 9,000-litre total water storage capacity in PVC tanks, Bio-digester sewage system, Partially complete – 88% done; pending final finishes, cabinetry, and fittings. Located in a secure, gated residential estate with 24/7 security. Proximity to Quickmart, Tarikiville Mall, ICC Kitengela, and schools. Easily accessible to Kitengela, Athi River, and Nairobi CBD via Namanga Road. High rental and resale potential in a growing neighbourhood. Ideal for family home, rental investment, or resale upon completion.",
+        price: 19000000,
+        location: "Chuna Estate, House No. B173, Elite Avenue, Kitengela, Kajiado County",
+        type: "residential" as PropertyType,
+        status: "for sale" as PropertyStatus,
+        size: 316, // main house size in sqm
+        bedrooms: 5,
+        bathrooms: 5, // all-ensuite
+        features: ["All-Ensuite", "Rooftop Terrace", "Detached DSQ", "Solar Water Heating", "Electric Fence", "Bio-digester Sewage System", "9,000L Water Storage", "Corner Plot", "Gated Community", "Title Deed Available"],
+        images: ["https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"] // Placeholder image, will be replaced with actual property images
       }
     ];
     
