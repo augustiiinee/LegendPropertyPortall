@@ -14,7 +14,7 @@ export default function Footer() {
               className="flex items-center mb-4"
             >
               <img 
-                src="/logo.png" 
+                src="/images/logo.png" 
                 alt="Legend Management Ltd" 
                 className="h-12 w-auto"
               />
