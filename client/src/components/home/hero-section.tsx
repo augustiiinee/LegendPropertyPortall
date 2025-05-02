@@ -10,15 +10,15 @@ type HeroSlide = {
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    imageUrl: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'
+    imageUrl: '/images/hero/hero1.jpeg'
   },
   {
     id: 2,
-    imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'
+    imageUrl: '/images/hero/hero2.jpeg'
   },
   {
     id: 3,
-    imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'
+    imageUrl: '/images/hero/hero3.jpeg'
   }
 ];
 
@@ -46,9 +46,14 @@ export default function HeroSection() {
           <div 
             key={slide.id}
             className={`carousel-slide absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`} 
-            style={{ backgroundImage: `url('${slide.imageUrl}')` }}
+            style={{ 
+              backgroundImage: `url('${slide.imageUrl}')`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat'
+            }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
           </div>
         ))}
         
@@ -69,10 +74,10 @@ export default function HeroSection() {
         {/* Hero Content Overlay */}
         <div className="absolute inset-0 flex items-center justify-center text-center px-4 z-20">
           <div className="max-w-4xl">
-            <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6">
+            <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
               Absolute Property Solutions
             </h1>
-            <p className="font-inter text-xl text-white mb-8 max-w-3xl mx-auto">
+            <p className="font-inter text-xl text-white mb-8 max-w-3xl mx-auto drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
               Legend Management Ltd delivers exceptional property management services and exclusive sales opportunities
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
