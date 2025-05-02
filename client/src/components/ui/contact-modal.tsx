@@ -224,7 +224,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                           </div>
                           <div>
                             <h4 className="font-montserrat font-medium text-primary-light mb-2">Email</h4>
-                            <p className="text-neutral-600">propertylegendke@gmail.com</p>
+                            <p className="text-neutral-600">info@propertylegend.com</p>
                           </div>
                         </div>
                         
@@ -298,7 +298,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                         </div>
                         <div>
                           <h4 className="font-montserrat font-medium text-primary-light text-xs mb-0.5">Email</h4>
-                          <p className="text-neutral-600 text-xs">propertylegendke@gmail.com</p>
+                          <p className="text-neutral-600 text-xs">info@propertylegend.com</p>
                         </div>
                       </div>
                     </div>
