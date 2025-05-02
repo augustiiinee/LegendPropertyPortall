@@ -32,9 +32,9 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215 16% 47%;
     
-    /* Accent */
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Changed to the golden color from logo - #D99B32 */
+    --accent: 35 71% 52%;
+    --accent-foreground: 0 0% 100%;
     
     /* Destructive */
     --destructive: 0 84.2% 60.2%;
@@ -43,11 +43,16 @@
     /* Ring */
     --ring: 204 70% 53%;
     
-    /* Neutral - Modified to match design - #7F8C8D */
-    --neutral-lightest: 220 13% 95%;
-    --neutral-light: 218 16% 90%;
+    /* Neutral - Modified colors */
+    --neutral-lightest: 35 71% 96%;
+    --neutral-light: 35 71% 90%;
     --neutral: 184 6% 53%;
     --neutral-dark: 210 29% 29%;
+    
+    /* Brand Golden - Added from logo - #D99B32 */
+    --brand-gold: 35 71% 52%;
+    --brand-gold-light: 35 71% 75%;
+    --brand-gold-dark: 35 71% 40%;
     
     /* Radius */
     --radius: 0.5rem;

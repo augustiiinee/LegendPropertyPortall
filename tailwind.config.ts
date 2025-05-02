@@ -54,6 +54,12 @@ export default {
           light: "hsl(var(--neutral-light))",
           dark: "hsl(var(--neutral-dark))",
         },
+        // Brand gold colors from logo
+        gold: {
+          DEFAULT: "hsl(var(--brand-gold))",
+          light: "hsl(var(--brand-gold-light))",
+          dark: "hsl(var(--brand-gold-dark))",
+        },
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",

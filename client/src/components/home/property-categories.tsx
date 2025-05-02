@@ -35,12 +35,14 @@ const propertyCategories: PropertyCategory[] = [
 
 export default function PropertyCategories() {
   return (
-    <section id="categories" className="py-16 md:py-24 bg-neutral-lightest">
+    <section id="categories" className="py-16 md:py-24 bg-gold">
       <div className="container mx-auto px-4">
         <SectionHeading
           title="Our Property Categories"
           description="Explore our diverse range of property offerings"
           alignment="center"
+          titleClass="text-white"
+          descriptionClass="text-white"
         />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
