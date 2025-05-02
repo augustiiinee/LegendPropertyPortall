@@ -19,7 +19,7 @@ export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
 // ----- PROPERTIES -----
-export type PropertyStatus = "for sale" | "sold" | "pending";
+export type PropertyStatus = "For Sale" | "For Rent" | "For Lease" | "Sold" | "Pending";
 export type PropertyType = "residential" | "commercial" | "land";
 
 export const properties = pgTable("properties", {

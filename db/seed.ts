@@ -75,59 +75,25 @@ async function seed() {
     console.log("Creating properties...");
     const propertiesData = [
       {
-        title: "Modern Downtown Apartment",
-        description: "Stunning modern apartment in the heart of downtown. This spacious apartment features high ceilings, large windows with abundant natural light, and premium finishes throughout. The open concept living and dining area is perfect for entertaining, while the gourmet kitchen includes stainless steel appliances and quartz countertops. The master suite offers a walk-in closet and ensuite bathroom with dual vanities. Additional features include in-unit laundry, central air conditioning, and secure building access. Walking distance to shops, restaurants, and public transportation.",
-        price: 425000,
-        location: "123 City Center, Downtown",
-        type: "residential" as PropertyType,
-        status: "for sale" as PropertyStatus,
-        size: 1200,
-        bedrooms: 3,
-        bathrooms: 2,
-        features: ["Air Conditioning", "In-unit Laundry", "Hardwood Floors", "Stainless Steel Appliances", "Walk-in Closet"],
-        images: ["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"]
-      },
-      {
-        title: "Spacious Family Home",
-        description: "Beautiful family home in a desirable suburban neighborhood. This well-maintained property offers plenty of space for the whole family with 4 bedrooms and 3 bathrooms. The main level features a formal living room, dining room, and a large family room that opens to the updated kitchen with granite countertops and stainless steel appliances. Upstairs you'll find the primary suite with a luxurious bathroom and walk-in closet, plus three additional bedrooms and a full bathroom. The finished basement provides additional living space perfect for a recreation room or home office. Outside, enjoy the spacious backyard with a covered patio, perfect for outdoor entertaining. Excellent school district and convenient access to shopping and highways.",
-        price: 675000,
-        location: "456 Maple Street, Suburbs",
-        type: "residential" as PropertyType,
-        status: "for sale" as PropertyStatus,
-        size: 2400,
-        bedrooms: 4,
-        bathrooms: 3,
-        features: ["Finished Basement", "Garage", "Fenced Backyard", "Fireplace", "Central Heating"],
-        images: ["https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"]
-      },
-      {
-        title: "Commercial Office Space",
-        description: "Prime commercial office space in the heart of the business district. This versatile property offers a modern, open-concept layout that can be configured to suit a variety of business needs. Features include 5 private offices, a spacious reception area, conference room, staff kitchen, and open work area. The property has been recently renovated with new flooring, lighting, and HVAC systems. Ample parking with 10 dedicated spaces makes this an ideal location for professional services, tech companies, or corporate headquarters. Excellent visibility and easy access to major highways, restaurants, and amenities.",
-        price: 1250000,
-        location: "789 Business Park, Commercial District",
-        type: "commercial" as PropertyType,
-        status: "for sale" as PropertyStatus,
-        size: 3500,
-        offices: 5,
-        parking: 10,
-        features: ["Elevator", "Security System", "Meeting Rooms", "Kitchenette", "High-speed Internet"],
-        images: ["https://images.unsplash.com/photo-1577415124269-fc1140a69e91?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"]
-      },
-      {
         title: "Prime Residential Maisonette - Chuna Estate",
         description: "An excellent opportunity to acquire a partially completed five-bedroom all-ensuite maisonette, located in the serene and secure Chuna Estate, Kitengela. The property sits on a corner plot in Elite Avenue and features a detached DSQ, and a rooftop terrace, in a controlled gated community environment. Key features include: All-ensuite 5-bedroom Maisonette with rooftop terrace, Detached 2-Room Servant's Quarters with own facilities, Plinth area of approx. 316 sqm (main house) and 26 sqm (DSQ), High-quality construction with stone walls, concrete slab roof, and tiled wet areas, Electric fence and razor wire perimeter wall, Solar water heating system with 300-litre tank, 9,000-litre total water storage capacity in PVC tanks, Bio-digester sewage system, Partially complete – 88% done; pending final finishes, cabinetry, and fittings. Located in a secure, gated residential estate with 24/7 security. Proximity to Quickmart, Tarikiville Mall, ICC Kitengela, and schools. Easily accessible to Kitengela, Athi River, and Nairobi CBD via Namanga Road. High rental and resale potential in a growing neighbourhood. Ideal for family home, rental investment, or resale upon completion.",
         price: 19000000,
         location: "Chuna Estate, House No. B173, Elite Avenue, Kitengela, Kajiado County",
         type: "residential" as PropertyType,
-        status: "for sale" as PropertyStatus,
+        status: "For Sale" as PropertyStatus,
         size: 316, // main house size in sqm
         bedrooms: 5,
         bathrooms: 5, // all-ensuite
         features: ["All-Ensuite", "Rooftop Terrace", "Detached DSQ", "Solar Water Heating", "Electric Fence", "Bio-digester Sewage System", "9,000L Water Storage", "Corner Plot", "Gated Community", "Title Deed Available"],
         images: [
-          "/images/properties/chuna-estate/exterior.jpeg",
-          "/images/properties/chuna-estate/interior.jpeg",
-          "/images/properties/chuna-estate/garden.jpeg"
+          "/images/properties/chuna-estate/exterior1.jpg",
+          "/images/properties/chuna-estate/exterior2.jpg",
+          "/images/properties/chuna-estate/living-room.jpg",
+          "/images/properties/chuna-estate/dining.jpg",
+          "/images/properties/chuna-estate/kitchen.jpg", 
+          "/images/properties/chuna-estate/garden.jpg",
+          "/images/properties/chuna-estate/backyard.jpg",
+          "/images/properties/chuna-estate/dsq.jpg"
         ]
       }
     ];
