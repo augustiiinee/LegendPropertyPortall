@@ -70,8 +70,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         conditions.push(between(properties.price, minPrice, maxPrice));
       }
       
-      // Default condition to show for sale properties
-      conditions.push(eq(properties.status, "for sale" as PropertyStatus));
+      // Default condition to show For Sale properties
+      conditions.push(eq(properties.status, "For Sale" as PropertyStatus));
       
       // Get properties with pagination
       const queryCondition = conditions.length ? and(...conditions) : undefined;
