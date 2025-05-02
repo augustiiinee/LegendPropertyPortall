@@ -186,6 +186,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Missing required fields" });
       }
       
+      // Save to database
       const newInquiry = await storage.createInquiry({
         name,
         email,
@@ -195,6 +196,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
         propertyId: null, // Add propertyId as null for contact form submissions
         status: "new" as InquiryStatus,
       });
+
+      // Send email using SendGrid
+      try {
+        const { sendEmail, formatContactEmail } = await import('./email');
+        const formattedEmail = formatContactEmail({ name, email, phone, subject, message });
+        
+        const emailSent = await sendEmail({
+          to: 'propertylegendke@gmail.com',
+          subject: `New Contact Form: ${subject || 'Website Inquiry'}`,
+          text: formattedEmail.text,
+          html: formattedEmail.html,
+          replyTo: email
+        });
+
+        if (!emailSent) {
+          console.warn("Email delivery failed, but contact was saved to database");
+        }
+      } catch (emailError) {
+        console.error("Error sending email:", emailError);
+        // We'll still return success since we saved to the database
+      }
       
       res.status(201).json(newInquiry);
     } catch (error) {
@@ -231,7 +253,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Type filter
       if (type && type !== "all") {
-        conditions.push(eq(properties.type, type));
+        conditions.push(eq(properties.type, type as PropertyType));
       }
       
       const queryCondition = conditions.length ? and(...conditions) : undefined;
