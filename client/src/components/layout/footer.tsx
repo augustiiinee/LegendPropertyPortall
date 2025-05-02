@@ -9,10 +9,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
             {/* Logo */}
-            <Link href="/">
-              <a className="h-12 w-48 bg-primary flex items-center justify-center text-white font-montserrat font-bold mb-4">
-                LEGEND MANAGEMENT
-              </a>
+            <Link 
+              href="/"
+              className="h-12 w-48 bg-primary flex items-center justify-center text-white font-montserrat font-bold mb-4"
+            >
+              LEGEND MANAGEMENT
             </Link>
             <p className="text-white text-opacity-80 mb-4">
               Premier property management and sales services, delivering excellence and value to our clients.
@@ -45,28 +46,43 @@ export default function Footer() {
             <h3 className="font-montserrat font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/">
-                  <a className="text-white text-opacity-80 hover:text-secondary transition">Home</a>
+                <Link 
+                  href="/"
+                  className="text-white text-opacity-80 hover:text-secondary transition"
+                >
+                  Home
                 </Link>
               </li>
               <li>
-                <Link href="/#about">
-                  <a className="text-white text-opacity-80 hover:text-secondary transition">About Us</a>
+                <Link 
+                  href="/#about"
+                  className="text-white text-opacity-80 hover:text-secondary transition"
+                >
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/properties">
-                  <a className="text-white text-opacity-80 hover:text-secondary transition">Properties</a>
+                <Link 
+                  href="/properties"
+                  className="text-white text-opacity-80 hover:text-secondary transition"
+                >
+                  Properties
                 </Link>
               </li>
               <li>
-                <Link href="/#directors">
-                  <a className="text-white text-opacity-80 hover:text-secondary transition">Our Team</a>
+                <Link 
+                  href="/#directors"
+                  className="text-white text-opacity-80 hover:text-secondary transition"
+                >
+                  Our Team
                 </Link>
               </li>
               <li>
-                <Link href="/#contact">
-                  <a className="text-white text-opacity-80 hover:text-secondary transition">Contact</a>
+                <Link 
+                  href="/#contact"
+                  className="text-white text-opacity-80 hover:text-secondary transition"
+                >
+                  Contact
                 </Link>
               </li>
             </ul>
