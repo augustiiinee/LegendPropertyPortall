@@ -87,7 +87,7 @@ export default function ContactSection() {
     
     const text = `*New Contact Request*%0A%0A*Name:* ${formValues.name}%0A*Email:* ${formValues.email}%0A*Phone:* ${formValues.phone}%0A*Subject:* ${formValues.subject}%0A*Message:* ${formValues.message}`;
     
-    return `https://wa.me/254746369798?text=${text}`;
+    return `https://wa.me/254729229955?text=${text}`;
   };
   
   return (
@@ -125,7 +125,7 @@ export default function ContactSection() {
                   </div>
                   <div className="ml-4">
                     <h4 className="font-montserrat font-medium text-primary-light">Phone</h4>
-                    <p className="text-neutral-dark">+254 746 369 798</p>
+                    <p className="text-neutral-dark">+254 020-2713445/6<br />Mobile: 0729 229955</p>
                   </div>
                 </div>
                 
