@@ -118,6 +118,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
   
+  // Get featured properties endpoint
+  app.get("/api/properties/featured", async (req, res) => {
+    try {
+      const featuredProperties = await storage.getFeaturedProperties();
+      res.json(featuredProperties);
+    } catch (error) {
+      console.error("Error fetching featured properties:", error);
+      res.status(500).json({ message: "Failed to fetch featured properties" });
+    }
+  });
+  
   // Property detail endpoint
   app.get("/api/properties/:id", async (req, res) => {
     try {
@@ -293,6 +304,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error updating property:", error);
       res.status(500).json({ message: "Failed to update property" });
+    }
+  });
+  
+  // Toggle featured status of a property
+  app.patch("/api/properties/:id/featured", isAuthenticated, async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { featured } = req.body;
+      
+      if (featured === undefined) {
+        return res.status(400).json({ message: "Featured status is required" });
+      }
+      
+      const updatedProperty = await storage.updateProperty(parseInt(id), { featured });
+      
+      if (!updatedProperty) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      res.json(updatedProperty);
+    } catch (error) {
+      console.error("Error toggling featured status:", error);
+      res.status(500).json({ message: "Failed to toggle featured status" });
     }
   });
 

@@ -44,6 +44,7 @@ export interface IStorage {
   deleteProperty(id: number): Promise<void>;
   getPropertyLocations(): Promise<string[]>;
   getPropertyTypes(): Promise<string[]>;
+  getFeaturedProperties(limit?: number): Promise<Property[]>;
   
   // Director methods
   getDirectors(): Promise<Director[]>;
@@ -156,6 +157,18 @@ class DatabaseStorage implements IStorage {
       .from(properties);
     
     return result.map(row => row.type);
+  }
+  
+  async getFeaturedProperties(limit: number = 6): Promise<Property[]> {
+    return await db
+      .select()
+      .from(properties)
+      .where(and(
+        eq(properties.featured, true),
+        eq(properties.status, "For Sale" as PropertyStatus)
+      ))
+      .orderBy(desc(properties.createdAt))
+      .limit(limit);
   }
   
   // ----- DIRECTOR METHODS -----

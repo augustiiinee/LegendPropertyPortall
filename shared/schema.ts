@@ -37,6 +37,7 @@ export const properties = pgTable("properties", {
   parking: integer("parking"),
   features: jsonb("features").$type<string[]>(),
   images: jsonb("images").$type<string[]>(),
+  featured: boolean("featured").default(false).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
