@@ -61,7 +61,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Property type filter
       if (propertyType !== "all") {
-        conditions.push(eq(properties.type, propertyType));
+        // Convert to lowercase to match the PropertyType enum values
+        conditions.push(eq(properties.type, propertyType.toLowerCase() as PropertyType));
       }
       
       // Price range filter
@@ -253,7 +254,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Type filter
       if (type && type !== "all") {
-        conditions.push(eq(properties.type, type as PropertyType));
+        conditions.push(eq(properties.type, type.toLowerCase() as PropertyType));
       }
       
       const queryCondition = conditions.length ? and(...conditions) : undefined;
