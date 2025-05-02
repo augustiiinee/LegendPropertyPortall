@@ -11,9 +11,13 @@ export default function Footer() {
             {/* Logo */}
             <Link 
               href="/"
-              className="h-12 w-48 bg-primary flex items-center justify-center text-white font-montserrat font-bold mb-4"
+              className="flex items-center mb-4"
             >
-              LEGEND MANAGEMENT
+              <img 
+                src="/images/logo.png" 
+                alt="Legend Management" 
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-white text-opacity-80 mb-4">
               Premier property management and sales services, delivering excellence and value to our clients.

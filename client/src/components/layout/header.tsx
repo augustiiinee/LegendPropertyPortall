@@ -36,8 +36,12 @@ export default function Header() {
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="h-12 w-48 bg-primary flex items-center justify-center text-white font-montserrat font-bold">
-            LEGEND MANAGEMENT
+          <Link href="/" className="flex items-center">
+            <img 
+              src="/images/logo.png" 
+              alt="Legend Management" 
+              className="h-12 w-auto"
+            />
           </Link>
         </div>
         
