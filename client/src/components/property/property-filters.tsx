@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'wouter';
 import { 
   Card,
   CardContent 
 } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import {
   Select,
   SelectTrigger,
@@ -123,12 +123,12 @@ export default function PropertyFilters({ onFilterChange, initialFilters }: Prop
           </div>
           
           <div className="w-full md:w-auto flex items-end">
-            <Button 
-              onClick={handleApplyFilters}
-              className="w-full bg-secondary hover:bg-secondary-light text-white font-montserrat font-medium"
+            <Link
+              href="/properties"
+              className="w-full px-4 py-2 bg-secondary hover:bg-secondary-light text-white font-montserrat font-medium rounded-md text-center flex items-center justify-center transition-colors duration-200"
             >
-              Filter Properties
-            </Button>
+              View Properties
+            </Link>
           </div>
         </div>
       </CardContent>
