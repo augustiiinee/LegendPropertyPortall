@@ -17,25 +17,24 @@ export default function MobileMenu({ isOpen, onClose, navigation, user, onLogout
     <div className="md:hidden bg-white border-t border-neutral-light">
       <div className="px-4 py-2 space-y-3">
         {navigation.map((item) => (
-          <Link key={item.name} href={item.path}>
-            <a 
-              className="block font-montserrat font-medium text-primary hover:text-secondary transition py-2"
-              onClick={onClose}
-            >
-              {item.name}
-            </a>
+          <Link 
+            key={item.name} 
+            href={item.path}
+            className="block font-montserrat font-medium text-primary hover:text-secondary transition py-2"
+            onClick={onClose}
+          >
+            {item.name}
           </Link>
         ))}
         
         {user ? (
           <>
-            <Link href="/admin">
-              <a 
-                className="block font-montserrat font-medium text-primary hover:text-secondary transition py-2"
-                onClick={onClose}
-              >
-                Admin Dashboard
-              </a>
+            <Link 
+              href="/admin"
+              className="block font-montserrat font-medium text-primary hover:text-secondary transition py-2"
+              onClick={onClose}
+            >
+              Admin Dashboard
             </Link>
             <Button 
               variant="outline" 
@@ -50,13 +49,12 @@ export default function MobileMenu({ isOpen, onClose, navigation, user, onLogout
             </Button>
           </>
         ) : (
-          <Link href="/auth">
-            <a 
-              className="block font-montserrat font-medium text-primary hover:text-secondary transition py-2"
-              onClick={onClose}
-            >
-              Login
-            </a>
+          <Link 
+            href="/auth"
+            className="block font-montserrat font-medium text-primary hover:text-secondary transition py-2"
+            onClick={onClose}
+          >
+            Login
           </Link>
         )}
       </div>
