@@ -15,7 +15,7 @@ import { Property } from '@shared/types';
 // Recommended Properties Slider Component - exported for reuse
 export function RecommendedPropertiesSlider() {
   const { data: allProperties, isLoading } = useQuery<Property[]>({
-    queryKey: ['/api/properties'],
+    queryKey: ['/api/properties/featured'],
     // Default queryFn will be used from queryClient
   });
   
@@ -200,7 +200,7 @@ export default function PropertyShowcase() {
   const [accordionValue, setAccordionValue] = useState<string>("item-1"); // Default to open
   
   const { data: properties, isLoading } = useQuery<Property[]>({
-    queryKey: ['/api/properties', { limit: 3 }],
+    queryKey: ['/api/properties/featured'],
     // Default queryFn will be used from queryClient
   });
   

@@ -105,6 +105,7 @@ export default function PropertyForm() {
       parking: 0,
       features: [],
       images: [],
+      featured: false,
     },
   });
   
@@ -125,6 +126,7 @@ export default function PropertyForm() {
         parking: property.parking || 0,
         features: property.features || [],
         images: property.images || [],
+        featured: property.featured || false,
       });
       setImageURLs(property.images || []);
     }
@@ -168,7 +170,8 @@ export default function PropertyForm() {
     // Ensure images array is included in the data
     const formData = {
       ...data,
-      images: imageURLs
+      images: imageURLs,
+      type: data.type as PropertyType
     };
     savePropertyMutation.mutate(formData);
   };
@@ -509,6 +512,31 @@ export default function PropertyForm() {
                         />
                       </div>
                     )}
+                    
+                    <FormField
+                      control={form.control}
+                      name="featured"
+                      render={({ field }) => (
+                        <FormItem className="mb-6">
+                          <div className="flex flex-row items-start space-x-3 space-y-0 p-4 border border-border rounded-md">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="text-sm font-medium">
+                                Featured Property
+                              </FormLabel>
+                              <FormDescription className="text-xs">
+                                Featured properties will be displayed prominently on the homepage
+                              </FormDescription>
+                            </div>
+                          </div>
+                        </FormItem>
+                      )}
+                    />
                     
                     <FormField
                       control={form.control}
