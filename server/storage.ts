@@ -58,11 +58,11 @@ export interface IStorage {
   getDashboardStats(): Promise<DashboardStats>;
   
   // Session store
-  sessionStore: session.SessionStore;
+  sessionStore: any;
 }
 
 class DatabaseStorage implements IStorage {
-  sessionStore: session.SessionStore;
+  sessionStore: any;
   
   constructor() {
     this.sessionStore = new PostgresSessionStore({
@@ -258,7 +258,7 @@ class DatabaseStorage implements IStorage {
     const recentActivity: RecentActivity[] = recentInquiries.map(inquiry => ({
       type: 'inquiry',
       message: `New inquiry from ${inquiry.name} about ${inquiry.subject}`,
-      time: inquiry.createdAt,
+      time: inquiry.createdAt instanceof Date ? inquiry.createdAt.toISOString() : String(inquiry.createdAt),
     }));
     
     return {

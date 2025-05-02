@@ -56,6 +56,7 @@ const propertyFormSchema = z.object({
   parking: z.coerce.number().optional(),
   features: z.array(z.string()).optional(),
   images: z.array(z.string()).optional(),
+  featured: z.boolean().default(false),
 });
 
 // Feature options
