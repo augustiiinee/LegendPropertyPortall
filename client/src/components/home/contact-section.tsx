@@ -113,7 +113,7 @@ export default function ContactSection() {
                   </div>
                   <div className="ml-4">
                     <h4 className="font-montserrat font-medium text-primary-light">Our Office</h4>
-                    <p className="text-neutral-dark">123 Business Avenue<br />City Center, State 12345</p>
+                    <p className="text-neutral-dark">NHIF Building, 3rd floor<br />Off Ragati Road, Community/Upperhill<br />P. O. Box 47155-00100<br />Nairobi, Kenya</p>
                   </div>
                 </div>
                 
@@ -138,7 +138,7 @@ export default function ContactSection() {
                   </div>
                   <div className="ml-4">
                     <h4 className="font-montserrat font-medium text-primary-light">Email</h4>
-                    <p className="text-neutral-dark">propertylegendke@gmail.com</p>
+                    <p className="text-neutral-dark">info@propertylegend.com</p>
                   </div>
                 </div>
                 
