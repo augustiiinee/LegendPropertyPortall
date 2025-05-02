@@ -100,24 +100,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Property detail endpoint
-  app.get("/api/properties/:id", async (req, res) => {
-    try {
-      const { id } = req.params;
-      const property = await storage.getPropertyById(parseInt(id));
-      
-      if (!property) {
-        return res.status(404).json({ message: "Property not found" });
-      }
-      
-      res.json(property);
-    } catch (error) {
-      console.error("Error fetching property:", error);
-      res.status(500).json({ message: "Failed to fetch property" });
-    }
-  });
-
-  // Property filter options endpoint
+  // Property filter options endpoint - MUST be before :id route to avoid conflict
   app.get("/api/properties/filter-options", async (req, res) => {
     try {
       const locations = await storage.getPropertyLocations();
@@ -130,6 +113,30 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error fetching filter options:", error);
       res.status(500).json({ message: "Failed to fetch filter options" });
+    }
+  });
+  
+  // Property detail endpoint
+  app.get("/api/properties/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const parsedId = parseInt(id);
+      
+      // Check if id is a valid number
+      if (isNaN(parsedId)) {
+        return res.status(400).json({ message: "Invalid property ID" });
+      }
+      
+      const property = await storage.getPropertyById(parsedId);
+      
+      if (!property) {
+        return res.status(404).json({ message: "Property not found" });
+      }
+      
+      res.json(property);
+    } catch (error) {
+      console.error("Error fetching property:", error);
+      res.status(500).json({ message: "Failed to fetch property" });
     }
   });
 
@@ -159,7 +166,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         phone,
         subject: subject || "General Inquiry",
         message,
-        propertyId: propertyId ? parseInt(propertyId) : undefined,
+        propertyId: propertyId ? parseInt(propertyId) : null, // Use null instead of undefined
         status: "new" as InquiryStatus,
       });
       
@@ -185,6 +192,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         phone,
         subject: subject || "Contact Form Submission",
         message,
+        propertyId: null, // Add propertyId as null for contact form submissions
         status: "new" as InquiryStatus,
       });
       

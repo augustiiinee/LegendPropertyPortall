@@ -76,8 +76,8 @@ export default function Inquiries() {
   };
   
   // Format date
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+  const formatDate = (dateString: string | Date) => {
+    const date = typeof dateString === 'string' ? new Date(dateString) : dateString;
     return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
       month: 'short',
