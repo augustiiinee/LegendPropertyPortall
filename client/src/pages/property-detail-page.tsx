@@ -188,6 +188,22 @@ export default function PropertyDetailPage() {
                         )}
                       />
                       
+                      {/* Property Reference ID */}
+                      <div className="mb-4 p-3 bg-neutral-50 rounded-md border border-neutral-200">
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0 mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                            </svg>
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium text-primary">Property Reference ID</p>
+                            <p className="text-sm text-neutral-700">LML-{property?.id}</p>
+                            <p className="text-xs text-neutral-500 mt-1">Include this ID in all communications about this property</p>
+                          </div>
+                        </div>
+                      </div>
+
                       <FormField
                         control={form.control}
                         name="message"

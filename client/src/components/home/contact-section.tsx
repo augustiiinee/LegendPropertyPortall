@@ -87,7 +87,7 @@ export default function ContactSection() {
     
     const text = `*New Contact Request*%0A%0A*Name:* ${formValues.name}%0A*Email:* ${formValues.email}%0A*Phone:* ${formValues.phone}%0A*Subject:* ${formValues.subject}%0A*Message:* ${formValues.message}`;
     
-    return `https://wa.me/254729229955?text=${text}`;
+    return `https://wa.me/254746369798?text=${text}`;
   };
   
   return (
