@@ -124,7 +124,11 @@ async function seed() {
         bedrooms: 5,
         bathrooms: 5, // all-ensuite
         features: ["All-Ensuite", "Rooftop Terrace", "Detached DSQ", "Solar Water Heating", "Electric Fence", "Bio-digester Sewage System", "9,000L Water Storage", "Corner Plot", "Gated Community", "Title Deed Available"],
-        images: ["https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"] // Placeholder image, will be replaced with actual property images
+        images: [
+          "/images/properties/chuna-estate/exterior.jpeg",
+          "/images/properties/chuna-estate/interior.jpeg",
+          "/images/properties/chuna-estate/garden.jpeg"
+        ]
       }
     ];
     
