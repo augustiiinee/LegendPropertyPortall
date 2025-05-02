@@ -76,7 +76,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         </div>
         
         <div className="flex justify-between items-center">
-          <span className="text-primary font-montserrat font-bold text-xl">${property.price.toLocaleString()}</span>
+          <span className="text-primary font-montserrat font-bold text-xl">Ksh {property.price.toLocaleString()}</span>
           <Link href={`/property/${property.id}`} className="text-secondary hover:text-secondary-light font-medium transition">
             View Details
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 inline-block ml-1" viewBox="0 0 20 20" fill="currentColor">

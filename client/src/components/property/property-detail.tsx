@@ -122,9 +122,9 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
           </div>
           
           <div className="flex flex-wrap items-center mb-2">
-            <span className="text-primary font-bold text-2xl md:text-3xl mr-4">${property.price.toLocaleString()}</span>
+            <span className="text-primary font-bold text-2xl md:text-3xl mr-4">Ksh {property.price.toLocaleString()}</span>
             {/* Calculate price per square foot */}
-            <span className="text-neutral text-sm">(${(property.price / property.size).toFixed(2)}/sq ft)</span>
+            <span className="text-neutral text-sm">(Ksh {(property.price / property.size).toFixed(2)}/sq ft)</span>
           </div>
         </div>
         
