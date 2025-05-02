@@ -33,15 +33,19 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-1 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-2 sm:py-1 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-3">
             <img 
               src="/images/logo.png" 
               alt="Legend Management Ltd" 
-              className="h-20 w-auto object-contain"
+              className="h-14 sm:h-20 w-auto object-contain"
             />
+            <div>
+              <h1 className="font-montserrat font-bold text-lg sm:text-2xl text-primary leading-tight tracking-tight">Legend Management Ltd</h1>
+              <p className="text-xs sm:text-sm font-medium text-secondary">Absolute Property Solutions</p>
+            </div>
           </Link>
         </div>
         
