@@ -60,6 +60,12 @@ export default {
           light: "hsl(var(--brand-gold-light))",
           dark: "hsl(var(--brand-gold-dark))",
         },
+        // Brand maroon colors for footer
+        maroon: {
+          DEFAULT: "hsl(var(--brand-maroon))",
+          light: "hsl(var(--brand-maroon-light))",
+          dark: "hsl(var(--brand-maroon-dark))",
+        },
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",

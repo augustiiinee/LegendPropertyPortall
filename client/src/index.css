@@ -54,6 +54,11 @@
     --brand-gold-light: 35 71% 75%;
     --brand-gold-dark: 35 71% 40%;
     
+    /* Brand Maroon - Added for footer - #800000 */
+    --brand-maroon: 0 100% 25%;
+    --brand-maroon-light: 0 100% 30%;
+    --brand-maroon-dark: 0 100% 20%;
+    
     /* Radius */
     --radius: 0.5rem;
     
