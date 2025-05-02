@@ -108,7 +108,7 @@ export default function Footer() {
                 <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Property Maintenance</a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-secondary transition">Tenant Placement</a>
+                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Tenant Placement</a>
               </li>
             </ul>
           </div>
@@ -126,7 +126,7 @@ export default function Footer() {
               />
               <button 
                 type="submit" 
-                className="bg-secondary hover:bg-secondary-light px-4 py-2 rounded-r-md transition"
+                className="bg-gold hover:bg-gold-light px-4 py-2 rounded-r-md transition"
                 aria-label="Subscribe"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
