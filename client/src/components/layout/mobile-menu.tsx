@@ -27,7 +27,7 @@ export default function MobileMenu({ isOpen, onClose, navigation, user, onLogout
           </Link>
         ))}
         
-        {user ? (
+        {user && (
           <>
             <Link 
               href="/admin"
@@ -48,14 +48,6 @@ export default function MobileMenu({ isOpen, onClose, navigation, user, onLogout
               Logout
             </Button>
           </>
-        ) : (
-          <Link 
-            href="/auth"
-            className="block font-montserrat font-medium text-primary hover:text-secondary transition py-2"
-            onClick={onClose}
-          >
-            Login
-          </Link>
         )}
       </div>
     </div>

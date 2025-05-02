@@ -61,7 +61,7 @@ export default function Header() {
             </Link>
           ))}
           
-          {user ? (
+          {user && (
             <div className="flex items-center space-x-4">
               <Link 
                 href="/admin"
@@ -78,13 +78,6 @@ export default function Header() {
                 Logout
               </Button>
             </div>
-          ) : (
-            <Link 
-              href="/auth"
-              className="font-montserrat font-medium text-primary hover:text-secondary transition"
-            >
-              Login
-            </Link>
           )}
         </nav>
         

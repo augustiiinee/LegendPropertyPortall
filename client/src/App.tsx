@@ -4,7 +4,6 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/home-page";
-import AuthPage from "@/pages/auth-page";
 import PropertiesPage from "@/pages/properties-page";
 import PropertyDetailPage from "@/pages/property-detail-page";
 import DirectorsPage from "@/pages/directors-page";
@@ -24,7 +23,6 @@ function Router() {
       <Route path="/property/:id" component={PropertyDetailPage} />
       <Route path="/directors" component={DirectorsPage} />
       <Route path="/about" component={AboutPage} />
-      <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/admin" component={Dashboard} />
       <ProtectedRoute path="/admin/properties" component={PropertyList} />
       <ProtectedRoute path="/admin/properties/new" component={PropertyForm} />
