@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import PropertyCard from '@/components/property/property-card';
 import SectionHeading from '@/components/ui/section-heading';
 import {
@@ -11,6 +11,190 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Property } from '@shared/types';
+
+// Recommended Properties Slider Component - exported for reuse
+export function RecommendedPropertiesSlider() {
+  const { data: allProperties, isLoading } = useQuery<Property[]>({
+    queryKey: ['/api/properties'],
+    // Default queryFn will be used from queryClient
+  });
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  
+  const properties = allProperties || [];
+  // Responsive visible properties: 1 on mobile, 2 on desktop
+  const [visibleProperties, setVisibleProperties] = useState(2);
+  
+  // Update visible properties based on screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setVisibleProperties(window.innerWidth < 768 ? 1 : 2);
+    };
+    
+    // Initial calculation
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  
+  // Calculate max index based on number of properties
+  const maxIndex = Math.max(0, properties.length - visibleProperties);
+  
+  // Use useCallback to prevent recreating function on each render
+  const nextSlide = useCallback(() => {
+    setCurrentIndex(prev => Math.min(prev + 1, maxIndex));
+  }, [maxIndex]);
+  
+  const prevSlide = useCallback(() => {
+    setCurrentIndex(prev => Math.max(prev - 1, 0));
+  }, []);
+  
+  // Handle slider transform effect
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.style.transform = `translateX(-${currentIndex * (100 / visibleProperties)}%)`;
+    }
+  }, [currentIndex, visibleProperties]);
+  
+  // Touch swipe functionality for mobile
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+    
+    let startX: number;
+    let isDragging = false;
+    
+    const handleTouchStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    };
+    
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isDragging) return;
+      const currentX = e.touches[0].clientX;
+      const diff = startX - currentX;
+      
+      // Prevent scroll when swiping horizontally
+      if (Math.abs(diff) > 5) {
+        e.preventDefault();
+      }
+    };
+    
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (!isDragging) return;
+      
+      const currentX = e.changedTouches[0].clientX;
+      const diff = startX - currentX;
+      
+      // Swipe right to left (next)
+      if (diff > 50 && currentIndex < maxIndex) {
+        nextSlide();
+      }
+      
+      // Swipe left to right (previous)
+      if (diff < -50 && currentIndex > 0) {
+        prevSlide();
+      }
+      
+      isDragging = false;
+    };
+    
+    slider.addEventListener('touchstart', handleTouchStart, { passive: true });
+    slider.addEventListener('touchmove', handleTouchMove, { passive: false });
+    slider.addEventListener('touchend', handleTouchEnd, { passive: true });
+    
+    return () => {
+      slider.removeEventListener('touchstart', handleTouchStart);
+      slider.removeEventListener('touchmove', handleTouchMove);
+      slider.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [currentIndex, maxIndex, nextSlide, prevSlide]);
+  
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center py-8">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+  
+  if (!properties.length) {
+    return (
+      <div className="text-center py-4">
+        <p>No properties available at the moment.</p>
+      </div>
+    );
+  }
+  
+  return (
+    <div className="relative px-4">
+      {/* Slider Navigation Title */}
+      <div className="flex justify-between items-center mb-6">
+        <h5 className="text-gray-700 font-medium">Browse Featured Properties</h5>
+        <div className="flex space-x-2">
+          <button 
+            onClick={prevSlide}
+            disabled={currentIndex === 0}
+            className={`p-2 rounded-full bg-white shadow-md text-primary hover:bg-gray-50 transition-colors ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}`}
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button 
+            onClick={nextSlide}
+            disabled={currentIndex >= maxIndex}
+            className={`p-2 rounded-full bg-white shadow-md text-primary hover:bg-gray-50 transition-colors ${currentIndex >= maxIndex ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}`}
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+      
+      {/* Slider Container */}
+      <div className="overflow-hidden">
+        <div 
+          ref={sliderRef}
+          className="flex transition-transform duration-300 ease-in-out"
+          style={{ width: `${properties.length * (100 / visibleProperties)}%` }}
+        >
+          {properties.map((property) => (
+            <div 
+              key={property.id} 
+              className="px-2"
+              style={{ width: `${100 / visibleProperties}%` }}
+            >
+              <PropertyCard property={property} />
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Pagination Dots */}
+      <div className="flex justify-center mt-6 mb-2">
+        {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 mx-1.5 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? 'bg-primary scale-110 shadow-sm' 
+                : 'bg-gray-300 hover:bg-gray-400'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function PropertyShowcase() {
   const [accordionValue, setAccordionValue] = useState<string>("item-1"); // Default to open
@@ -84,8 +268,16 @@ export default function PropertyShowcase() {
                     <PropertyCard key={property.id} property={property} />
                   ))
                 ) : (
-                  <div className="col-span-1 md:col-span-2 lg:col-span-3 text-center py-8">
-                    <p className="text-neutral-dark">No properties found matching your criteria.</p>
+                  <div className="col-span-1 md:col-span-2 lg:col-span-3 py-4">
+                    <div className="text-center mb-6">
+                      <p className="text-neutral-dark">No properties found matching your criteria.</p>
+                      <h4 className="text-lg font-semibold text-primary mt-6 mb-4">Featured Listings You Might Like</h4>
+                    </div>
+                    
+                    {/* Recommended Properties Carousel */}
+                    <div className="mt-4">
+                      <RecommendedPropertiesSlider />
+                    </div>
                   </div>
                 )}
               </div>
