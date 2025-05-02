@@ -10,6 +10,7 @@ import PropertyFilters from '@/components/property/property-filters';
 import SectionHeading from '@/components/ui/section-heading';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
+import { RecommendedPropertiesSlider } from '@/components/home/property-showcase';
 
 export default function PropertiesPage() {
   // Get URL search parameters
@@ -92,17 +93,27 @@ export default function PropertiesPage() {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-16">
-                  <h3 className="text-xl font-semibold mb-2">No properties found</h3>
-                  <p className="text-neutral-dark mb-8">
-                    We couldn't find any properties matching your criteria. Try adjusting your filters.
-                  </p>
-                  <Button 
-                    onClick={() => setFilters({ location: 'all', propertyType: 'all', priceRange: 'all' })}
-                    variant="outline"
-                  >
-                    Reset Filters
-                  </Button>
+                <div className="py-8">
+                  <div className="text-center mb-8">
+                    <h3 className="text-xl font-semibold mb-2">No properties found</h3>
+                    <p className="text-neutral-dark mb-8">
+                      We couldn't find any properties matching your criteria. Try adjusting your filters or explore our featured listings below.
+                    </p>
+                    <Button 
+                      onClick={() => setFilters({ location: 'all', propertyType: 'all', priceRange: 'all' })}
+                      variant="outline"
+                      className="mb-8"
+                    >
+                      Reset Filters
+                    </Button>
+                    
+                    <h4 className="text-lg font-semibold text-primary mt-10 mb-6">Featured Listings You Might Like</h4>
+                  </div>
+                  
+                  {/* Recommended Properties Carousel */}
+                  <div className="mt-4 max-w-5xl mx-auto">
+                    <RecommendedPropertiesSlider />
+                  </div>
                 </div>
               )}
               
