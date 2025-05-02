@@ -75,7 +75,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/#directors"
+                  href="/directors"
                   className="text-white text-opacity-80 hover:text-secondary transition"
                 >
                   Our Team
