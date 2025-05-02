@@ -70,10 +70,10 @@ export default function HeroSection() {
         <div className="absolute inset-0 flex items-center justify-center text-center px-4 z-20">
           <div className="max-w-4xl">
             <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6">
-              Premier Property Management & Sales
+              Absolute Property Solutions
             </h1>
             <p className="font-inter text-xl text-white mb-8 max-w-3xl mx-auto">
-              Legend Management Limited delivers exceptional property management services and exclusive sales opportunities
+              Legend Management Ltd delivers exceptional property management services and exclusive sales opportunities
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link href="/properties">

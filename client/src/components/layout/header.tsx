@@ -38,8 +38,8 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <img 
-              src="/images/logo.png" 
-              alt="Legend Management" 
+              src="/logo.png" 
+              alt="Legend Management Ltd" 
               className="h-12 w-auto"
             />
           </Link>

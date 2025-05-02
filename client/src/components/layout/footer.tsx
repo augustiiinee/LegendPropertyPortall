@@ -14,13 +14,13 @@ export default function Footer() {
               className="flex items-center mb-4"
             >
               <img 
-                src="/images/logo.png" 
-                alt="Legend Management" 
+                src="/logo.png" 
+                alt="Legend Management Ltd" 
                 className="h-12 w-auto"
               />
             </Link>
             <p className="text-white text-opacity-80 mb-4">
-              Premier property management and sales services, delivering excellence and value to our clients.
+              Absolute Property Solutions, delivering excellence and value to our clients.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-white hover:text-secondary transition" aria-label="Facebook">
@@ -139,7 +139,7 @@ export default function Footer() {
         
         <div className="border-t border-white border-opacity-20 pt-6 text-center">
           <p className="text-white text-opacity-80 text-sm">
-            &copy; {currentYear} Legend Management Limited. All rights reserved.
+            &copy; {currentYear} Legend Management Ltd. All rights reserved.
           </p>
         </div>
       </div>
