@@ -9,18 +9,8 @@ export default function AboutSection() {
           description=""
         />
         
-        <div className="flex flex-col md:flex-row gap-12 items-center">
-          <div className="md:w-1/2">
-            <img 
-              className="rounded-lg shadow-xl w-full h-auto object-cover" 
-              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-              alt="Team meeting" 
-              width="600" 
-              height="400"
-            />
-          </div>
-          
-          <div className="md:w-1/2">
+        <div className="max-w-5xl mx-auto">
+          <div className="w-full">
             <h3 className="font-montserrat font-semibold text-2xl text-primary mb-4">About Us</h3>
             <p className="text-neutral-dark mb-6">
               Legend Management is a property management and valuation company established in 2007. With years of experience in both residential and commercial real estate, we provide professional, reliable services tailored to meet the needs of property owners and tenants alike.
