@@ -3,7 +3,6 @@ import Footer from '@/components/layout/footer';
 import HeroSection from '@/components/home/hero-section';
 import AboutSection from '@/components/home/about-section';
 import PropertyShowcase from '@/components/home/property-showcase';
-import PropertyCategories from '@/components/home/property-categories';
 import ContactSection from '@/components/home/contact-section';
 import AdminDashboardPreview from '@/components/home/admin-dashboard-preview';
 
@@ -14,7 +13,6 @@ export default function HomePage() {
       <main className="flex-grow">
         <HeroSection />
         <AboutSection />
-        <PropertyCategories />
         <PropertyShowcase />
         <ContactSection />
         <AdminDashboardPreview />
