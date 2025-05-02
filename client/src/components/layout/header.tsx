@@ -33,14 +33,14 @@ export default function Header() {
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-1 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <img 
               src="/images/logo.png" 
               alt="Legend Management Ltd" 
-              className="h-12 w-auto"
+              className="h-20 w-auto object-contain"
             />
           </Link>
         </div>

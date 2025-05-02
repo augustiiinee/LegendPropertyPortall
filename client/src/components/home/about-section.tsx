@@ -21,9 +21,14 @@ export default function AboutSection() {
           </div>
           
           <div className="md:w-1/2">
-            <h3 className="font-montserrat font-semibold text-2xl text-primary mb-4">Our Mission</h3>
+            <h3 className="font-montserrat font-semibold text-2xl text-primary mb-4">About Us</h3>
             <p className="text-neutral-dark mb-6">
-              At Legend Management Limited, we're dedicated to providing exceptional property management services that exceed client expectations. With years of industry experience, our team delivers tailored solutions for property owners and investors.
+              Legend Management is a property management and valuation company established in 2007. With years of experience in both residential and commercial real estate, we provide professional, reliable services tailored to meet the needs of property owners and tenants alike.
+            </p>
+            
+            <h3 className="font-montserrat font-semibold text-2xl text-primary mb-4">Our Vision & Mission</h3>
+            <p className="text-neutral-dark mb-6">
+              Our mission is to deliver dependable property solutions with integrity, while our vision is to be a trusted leader in Kenya's real estate sector.
             </p>
             
             <h3 className="font-montserrat font-semibold text-2xl text-primary mb-4">What Sets Us Apart</h3>
