@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-maroon text-white pt-12 pb-6">
+    <footer className="bg-primary text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
@@ -60,7 +60,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/#about"
-                  className="text-white text-opacity-80 hover:text-secondary transition"
+                  className="text-white text-opacity-80 hover:text-gold transition"
                 >
                   About Us
                 </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/properties"
-                  className="text-white text-opacity-80 hover:text-secondary transition"
+                  className="text-white text-opacity-80 hover:text-gold transition"
                 >
                   Properties
                 </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/directors"
-                  className="text-white text-opacity-80 hover:text-secondary transition"
+                  className="text-white text-opacity-80 hover:text-gold transition"
                 >
                   Our Team
                 </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/#contact"
-                  className="text-white text-opacity-80 hover:text-secondary transition"
+                  className="text-white text-opacity-80 hover:text-gold transition"
                 >
                   Contact
                 </Link>
@@ -96,16 +96,16 @@ export default function Footer() {
             <h3 className="font-montserrat font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-secondary transition">Property Management</a>
+                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Property Management</a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-secondary transition">Property Sales</a>
+                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Property Sales</a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-secondary transition">Investment Consulting</a>
+                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Investment Consulting</a>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-secondary transition">Property Maintenance</a>
+                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Property Maintenance</a>
               </li>
               <li>
                 <a href="#" className="text-white text-opacity-80 hover:text-secondary transition">Tenant Placement</a>
