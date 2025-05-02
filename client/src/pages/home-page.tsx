@@ -4,7 +4,6 @@ import HeroSection from '@/components/home/hero-section';
 import AboutSection from '@/components/home/about-section';
 import PropertyShowcase from '@/components/home/property-showcase';
 import ContactSection from '@/components/home/contact-section';
-import AdminDashboardPreview from '@/components/home/admin-dashboard-preview';
 
 export default function HomePage() {
   return (
@@ -15,7 +14,6 @@ export default function HomePage() {
         <AboutSection />
         <PropertyShowcase />
         <ContactSection />
-        <AdminDashboardPreview />
       </main>
       <Footer />
     </div>
