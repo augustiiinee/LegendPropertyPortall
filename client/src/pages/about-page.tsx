@@ -36,9 +36,9 @@ export default function AboutPage() {
       <main className="flex-grow">
         <div className="bg-gold py-20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 animate-on-scroll opacity-0">About Legend Management</h1>
-            <p className="text-white text-xl max-w-3xl mx-auto animate-on-scroll opacity-0" style={{ animationDelay: '200ms' }}>
-              Absolute Property Solutions
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-on-scroll opacity-0">About Legend Management</h1>
+            <p className="text-white text-lg md:text-xl max-w-4xl mx-auto leading-relaxed animate-on-scroll opacity-0 shadow-sm p-4 bg-gold/90 rounded-lg" style={{ animationDelay: '200ms' }}>
+              A premier real estate consultancy with over 22 years of experience providing integrated property solutions across Kenya. Our expertise spans valuation, facility management, leasing, project oversight, and dispute resolution—all delivered with professional integrity.
             </p>
           </div>
         </div>
