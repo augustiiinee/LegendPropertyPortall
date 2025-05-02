@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
+import { ContactModal } from '@/components/ui/contact-modal';
 
 type HeroSlide = {
   id: number;
@@ -24,6 +25,7 @@ const heroSlides: HeroSlide[] = [
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   
   // Auto-advance slides
   useEffect(() => {
@@ -36,6 +38,14 @@ export default function HeroSection() {
   
   const handleIndicatorClick = (index: number) => {
     setCurrentSlide(index);
+  };
+  
+  const openContactModal = () => {
+    setIsContactModalOpen(true);
+  };
+  
+  const closeContactModal = () => {
+    setIsContactModalOpen(false);
   };
   
   return (
@@ -86,15 +96,20 @@ export default function HeroSection() {
                   View Properties
                 </Button>
               </Link>
-              <Link href="/#contact">
-                <Button variant="outline" className="bg-white text-primary hover:bg-neutral-lightest font-montserrat font-semibold px-6 py-3 rounded-md transition transform hover:scale-105">
-                  Contact Us
-                </Button>
-              </Link>
+              <Button 
+                variant="outline" 
+                className="bg-white text-primary hover:bg-neutral-lightest font-montserrat font-semibold px-6 py-3 rounded-md transition transform hover:scale-105"
+                onClick={openContactModal}
+              >
+                Contact Us
+              </Button>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Contact Modal */}
+      <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />
     </section>
   );
 }
