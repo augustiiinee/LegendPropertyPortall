@@ -96,13 +96,11 @@ export default function PropertyList() {
     }
   };
   
-  // Format price as currency
+  // Format price as currency in Kenya Shillings
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return `Ksh ${new Intl.NumberFormat('en-US', {
       maximumFractionDigits: 0,
-    }).format(price);
+    }).format(price)}`;
   };
   
   // Format date
@@ -117,15 +115,19 @@ export default function PropertyList() {
   
   // Generate status badge class
   const getStatusBadgeClass = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'for sale':
-        return 'bg-green-100 text-green-800';
-      case 'sold':
-        return 'bg-red-100 text-red-800';
-      case 'pending':
-        return 'bg-yellow-100 text-yellow-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
+    const statusLower = status.toLowerCase();
+    if (statusLower.includes('for sale')) {
+      return 'bg-green-100 text-green-800';
+    } else if (statusLower.includes('for rent')) {
+      return 'bg-blue-100 text-blue-800';
+    } else if (statusLower.includes('for lease')) {
+      return 'bg-purple-100 text-purple-800';
+    } else if (statusLower === 'sold') {
+      return 'bg-red-100 text-red-800';
+    } else if (statusLower === 'pending') {
+      return 'bg-yellow-100 text-yellow-800';
+    } else {
+      return 'bg-gray-100 text-gray-800';
     }
   };
   
@@ -158,9 +160,11 @@ export default function PropertyList() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="all">All Statuses</SelectItem>
-                  <SelectItem value="for sale">For Sale</SelectItem>
-                  <SelectItem value="sold">Sold</SelectItem>
-                  <SelectItem value="pending">Pending</SelectItem>
+                  <SelectItem value="For Sale">For Sale</SelectItem>
+                  <SelectItem value="For Rent">For Rent</SelectItem>
+                  <SelectItem value="For Lease">For Lease</SelectItem>
+                  <SelectItem value="Sold">Sold</SelectItem>
+                  <SelectItem value="Pending">Pending</SelectItem>
                 </SelectContent>
               </Select>
             </div>

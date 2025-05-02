@@ -325,9 +325,11 @@ export default function PropertyForm() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="for sale">For Sale</SelectItem>
-                                <SelectItem value="sold">Sold</SelectItem>
-                                <SelectItem value="pending">Pending</SelectItem>
+                                <SelectItem value="For Sale">For Sale</SelectItem>
+                                <SelectItem value="For Rent">For Rent</SelectItem>
+                                <SelectItem value="For Lease">For Lease</SelectItem>
+                                <SelectItem value="Sold">Sold</SelectItem>
+                                <SelectItem value="Pending">Pending</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormMessage />
@@ -358,14 +360,14 @@ export default function PropertyForm() {
                       name="price"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Price ($)</FormLabel>
+                          <FormLabel>Price (Ksh)</FormLabel>
                           <FormControl>
                             <div className="relative">
-                              <DollarSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground text-xs font-medium">Ksh</span>
                               <Input 
                                 type="number" 
                                 placeholder="Enter price" 
-                                className="pl-10"
+                                className="pl-14"
                                 {...field}
                                 onChange={(e) => {
                                   const value = e.target.value === "" ? "0" : e.target.value;
