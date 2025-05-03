@@ -11,39 +11,31 @@ export default function DirectorsPage() {
     queryFn: getQueryFn({ on401: "throw" })
   });
 
-  // New directors data
+  // Directors data
   const leadershipsData = [
     {
       id: 1,
-      name: "Ephraim Mwaura",
-      position: "Managing Director",
-      bio: "With over 20 years of experience in real estate management, Ephraim leads our company with a focus on innovation and client satisfaction. His industry expertise has helped establish Legend Management as a trusted name in property management across Kenya.",
-      email: "ephraim@propertylegend.com",
+      name: "Boniface K. Terer",
+      position: "Chief Executive Officer",
+      bio: "A very experienced Property Consultant with 31 years of experience in the property sector. He has conducted assignments involving Property Management, Valuation, and Feasibility/Investment Appraisal and Project Management. He is currently Chief Executive Officer at Legend Management Limited.",
+      email: "boniface@propertylegend.com",
       phone: "+254 722 123 456"
     },
     {
       id: 2,
-      name: "Sarah Nyakio",
-      position: "Operations Director",
-      bio: "Sarah oversees all operational aspects of our business, ensuring smooth processes and exceptional service delivery. Her background in business administration and real estate operations has been instrumental in streamlining our property management systems.",
-      email: "sarah@propertylegend.com",
+      name: "David C. Ruto",
+      position: "Director, Agency Marketing & Letting",
+      bio: "A very experienced Property Consultant with 33 years' experience. He has conducted assignments involving Valuation, Property Management and Feasibility/Investment Appraisal and Project Management. He is currently a Director of Legend Management Limited in charge of Agency Marketing and Letting.",
+      email: "david@propertylegend.com",
       phone: "+254 733 987 654"
     },
     {
       id: 3,
-      name: "James Kimani",
-      position: "Financial Director",
-      bio: "James brings financial prudence and strategic planning to our organization. With his extensive background in finance and real estate investments, he manages our financial operations and advises clients on property investment strategies.",
-      email: "james@propertylegend.com",
+      name: "Geoffrey Koros",
+      position: "Director, Property Management",
+      bio: "An experienced Property Consultant with more than 15 years' experience in the property sector. He has conducted assignments involving Valuation, Property Management, and Feasibility/Investment Appraisal and Project Management. He is currently one of the Directors of Legend Management Limited in charge of the Property Management Department.",
+      email: "geoffrey@propertylegend.com",
       phone: "+254 722 456 789"
-    },
-    {
-      id: 4,
-      name: "Elizabeth Ochieng",
-      position: "Marketing Director",
-      bio: "Elizabeth leads our marketing initiatives with creativity and market insight. Her innovative approach to property marketing and client engagement has significantly expanded our market presence throughout Kenya.",
-      email: "elizabeth@propertylegend.com",
-      phone: "+254 733 234 567"
     }
   ];
 
@@ -63,7 +55,7 @@ export default function DirectorsPage() {
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Board of Directors"
-            description="Meet the experienced professionals leading Legend Management Ltd with over 22 years of industry expertise"
+            description="Meet our expert Property Consultants with over 79 years of combined industry experience"
             alignment="center"
           />
           

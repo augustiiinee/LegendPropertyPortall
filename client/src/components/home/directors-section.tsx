@@ -10,23 +10,18 @@ export default function DirectorsSection() {
   const leadershipPreview = [
     {
       id: 1,
-      name: "Ephraim Mwaura",
-      position: "Managing Director",
+      name: "Boniface K. Terer",
+      position: "Chief Executive Officer",
     },
     {
       id: 2,
-      name: "Sarah Nyakio",
-      position: "Operations Director",
+      name: "David C. Ruto",
+      position: "Director, Agency Marketing & Letting",
     },
     {
       id: 3,
-      name: "James Kimani",
-      position: "Financial Director",
-    },
-    {
-      id: 4,
-      name: "Elizabeth Ochieng",
-      position: "Marketing Director",
+      name: "Geoffrey Koros",
+      position: "Director, Property Management",
     }
   ];
   
@@ -65,7 +60,7 @@ export default function DirectorsSection() {
               
               <div className="mt-8 pt-6 border-t border-neutral-200 flex justify-between items-center">
                 <p className="text-neutral-700">
-                  Our leadership team brings decades of experience in real estate management across Kenya.
+                  Our leadership team brings over 79 years of combined experience in property consulting and real estate management across Kenya.
                 </p>
                 <Link href="/directors">
                   <Button variant="outline" className="flex items-center gap-2 group">
@@ -79,8 +74,9 @@ export default function DirectorsSection() {
           
           <div className="text-center mt-12">
             <p className="text-neutral-700 max-w-2xl mx-auto mb-6">
-              Legend Management Limited is a premier real estate consultancy with over 22 years of industry experience since 2003.
-              We specialize in providing integrated solutions in property valuation, facility management, and dispute resolution.
+              Legend Management Limited is a premier property consultancy firm established in Kenya. 
+              We specialize in providing integrated solutions in property valuation, facility management, project management, 
+              and investment appraisal across Nairobi, Mombasa, Kisumu, Eldoret, Nakuru, and Nanyuki.
             </p>
             <Link href="/about">
               <Button variant="secondary" className="font-medium">
