@@ -112,6 +112,80 @@ export default function DirectorsPage() {
             )}
             
             <div className="mt-16 max-w-4xl mx-auto">
+              {/* Our Services Section */}
+              <div className="mb-12">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">Our Services</h2>
+                <div className="bg-white p-6 rounded-lg shadow-lg border-2 border-amber-200">
+                  <p className="text-lg mb-6">
+                    At Legend Management Limited, we provide an integrated suite of real estate services designed to meet the diverse needs of property owners, investors, institutions, and individuals. With shared leadership and expertise from our sister company, Legend Valuers Limited, we combine in-depth industry knowledge, regulatory understanding, and market analysis to deliver results-driven solutions in the following core areas:
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-amber-50 p-4 rounded-lg">
+                      <h3 className="text-xl font-semibold text-amber-700 mb-2">Property Management</h3>
+                      <p className="mb-2">
+                        We manage properties with the aim of maximising returns and preserving long-term value.
+                      </p>
+                      <ul className="list-disc list-inside text-sm space-y-1 text-neutral-700">
+                        <li>Lease Administration</li>
+                        <li>Rent Collection and Arrears Management</li>
+                        <li>Maintenance Coordination</li>
+                        <li>Facilities Management</li>
+                        <li>Regulatory Compliance</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-amber-50 p-4 rounded-lg">
+                      <h3 className="text-xl font-semibold text-amber-700 mb-2">Estate Agency</h3>
+                      <p className="mb-2">
+                        Our services are designed to simplify property transactions and connect clients to valuable real estate opportunities.
+                      </p>
+                      <ul className="list-disc list-inside text-sm space-y-1 text-neutral-700">
+                        <li>Sales and Acquisitions</li>
+                        <li>Letting Services</li>
+                        <li>Market Research and Advisory</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-amber-50 p-4 rounded-lg">
+                      <h3 className="text-xl font-semibold text-amber-700 mb-2">Project Consultancy</h3>
+                      <p className="mb-2">
+                        We provide strategic advice throughout the property development lifecycle.
+                      </p>
+                      <ul className="list-disc list-inside text-sm space-y-1 text-neutral-700">
+                        <li>Project Feasibility and Planning</li>
+                        <li>Development Coordination</li>
+                        <li>Investment Appraisal</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-amber-50 p-4 rounded-lg">
+                      <h3 className="text-xl font-semibold text-amber-700 mb-2">Valuation</h3>
+                      <p className="mb-2">
+                        We deliver reliable, objective valuation services across multiple asset classes.
+                      </p>
+                      <ul className="list-disc list-inside text-sm space-y-1 text-neutral-700">
+                        <li>Mortgage Valuations</li>
+                        <li>Public Auction & Forced Sale</li>
+                        <li>Insurance Valuation</li>
+                        <li>Agricultural Valuation</li>
+                        <li>Rental Assessment</li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 text-center">
+                    <a 
+                      href="/services" 
+                      className="inline-block bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-md transition duration-300"
+                    >
+                      View Full Services
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Company Mission */}
               <Card className="border-none shadow-lg overflow-hidden border-2 border-amber-200">
                 <div className="bg-gradient-to-r from-amber-500 to-primary text-white p-8">
                   <div className="flex items-center gap-3 mb-4">

@@ -50,12 +50,16 @@ export default function Header() {
         </div>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-6">
           {navigation.map((item) => (
             <Link 
               key={item.name} 
               href={item.path}
-              className={`font-montserrat font-medium ${isActiveLink(item.path) ? 'text-secondary' : 'text-primary hover:text-secondary'} transition`}
+              className={`font-montserrat font-medium py-2 px-3 rounded ${
+                isActiveLink(item.path) 
+                  ? 'bg-amber-100 text-secondary font-semibold' 
+                  : 'text-primary hover:bg-amber-50 hover:text-secondary'
+              } transition-all duration-200`}
             >
               {item.name}
             </Link>

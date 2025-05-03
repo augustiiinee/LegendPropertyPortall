@@ -15,12 +15,12 @@ export default function MobileMenu({ isOpen, onClose, navigation, user, onLogout
 
   return (
     <div className="md:hidden bg-white border-t border-neutral-light">
-      <div className="px-4 py-2 space-y-3">
+      <div className="px-4 py-4 space-y-4">
         {navigation.map((item) => (
           <Link 
             key={item.name} 
             href={item.path}
-            className="block font-montserrat font-medium text-primary hover:text-secondary transition py-2"
+            className="block font-montserrat font-medium text-lg text-primary hover:text-secondary bg-amber-50 hover:bg-amber-100 p-3 rounded-md transition-all"
             onClick={onClose}
           >
             {item.name}
