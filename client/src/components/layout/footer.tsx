@@ -91,19 +91,19 @@ export default function Footer() {
             <h3 className="font-montserrat font-semibold text-lg mb-4">Our Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Property Management</Link>
+                <Link href="/services" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Property Management</Link>
               </li>
               <li>
-                <Link href="/properties" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Property Sales</Link>
+                <Link href="/services" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Estate Agency</Link>
               </li>
               <li>
-                <Link href="/about" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Investment Consulting</Link>
+                <Link href="/services" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Project Consultancy</Link>
               </li>
               <li>
-                <Link href="/about" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Property Valuation</Link>
+                <Link href="/services" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Property Valuation</Link>
               </li>
               <li>
-                <Link href="/about" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Tenant Placement</Link>
+                <Link href="/services" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Rental Assessment</Link>
               </li>
             </ul>
           </div>
@@ -151,7 +151,24 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-white border-opacity-20 pt-6 text-center">
-          <p className="text-white text-opacity-80 text-sm">
+          <div className="mb-4">
+            <h4 className="text-amber-300 font-semibold mb-2">Our Team</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="text-white text-opacity-90 text-sm">
+                <p className="font-semibold">Mr. Boniface K. Terer</p>
+                <p className="text-xs text-white text-opacity-70">CEO | 31 years experience</p>
+              </div>
+              <div className="text-white text-opacity-90 text-sm">
+                <p className="font-semibold">Mr. David C. Ruto</p>
+                <p className="text-xs text-white text-opacity-70">Director, Agency Marketing & Letting | 33 years experience</p>
+              </div>
+              <div className="text-white text-opacity-90 text-sm">
+                <p className="font-semibold">Mr. Geoffrey Koros</p>
+                <p className="text-xs text-white text-opacity-70">Director, Property Management | 15+ years experience</p>
+              </div>
+            </div>
+          </div>
+          <p className="text-white text-opacity-80 text-sm mt-4">
             &copy; {currentYear} Legend Management Ltd. All rights reserved.
           </p>
         </div>

@@ -8,6 +8,7 @@ import PropertiesPage from "@/pages/properties-page";
 import PropertyDetailPage from "@/pages/property-detail-page";
 import DirectorsPage from "@/pages/directors-page";
 import AboutPage from "@/pages/about-page";
+import ServicesPage from "@/pages/services-page";
 import Dashboard from "@/pages/admin/dashboard";
 import PropertyList from "@/pages/admin/property-list";
 import PropertyForm from "@/pages/admin/property-form";
@@ -21,8 +22,9 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/properties" component={PropertiesPage} />
       <Route path="/property/:id" component={PropertyDetailPage} />
-      <Route path="/directors" component={DirectorsPage} />
       <Route path="/about" component={AboutPage} />
+      <Route path="/services" component={ServicesPage} />
+      <Route path="/directors" component={DirectorsPage} />
       <ProtectedRoute path="/admin" component={Dashboard} />
       <ProtectedRoute path="/admin/properties" component={PropertyList} />
       <ProtectedRoute path="/admin/properties/new" component={PropertyForm} />
