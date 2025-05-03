@@ -1,9 +1,9 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
-import HomePage from "@/pages/home-page";
+// import HomePage from "@/pages/home-page";
 import PropertiesPage from "@/pages/properties-page";
 import PropertyDetailPage from "@/pages/property-detail-page";
 import DirectorsPage from "@/pages/directors-page";
@@ -16,7 +16,82 @@ import { ProtectedRoute } from "./lib/protected-route";
 import { AuthProvider } from "./hooks/use-auth";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import React from "react";
+import HeroSection from "@/components/home/hero-section";
+import AboutSection from "@/components/home/about-section";
+import PropertyShowcase from "@/components/home/property-showcase";
+import ContactSection from "@/components/home/contact-section";
+import { Link } from 'wouter';
+
+// Define Custom HomePage directly in App.tsx
+const HomePage = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        <HeroSection />
+        
+        {/* SERVICES SECTION - DIRECTLY EMBEDDED */}
+        <section className="py-16 bg-blue-100">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-primary mb-10 text-center">OUR SERVICES</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+                <h3 className="text-xl font-semibold mb-3">Property Management</h3>
+                <p>Comprehensive property management services to maximize returns and preserve value.</p>
+                <Link href="/services" className="inline-block mt-4 text-primary font-semibold hover:underline">Learn More</Link>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+                <h3 className="text-xl font-semibold mb-3">Estate Agency</h3>
+                <p>Connecting buyers with sellers and tenants with landlords for smooth transactions.</p>
+                <Link href="/services" className="inline-block mt-4 text-primary font-semibold hover:underline">Learn More</Link>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+                <h3 className="text-xl font-semibold mb-3">Project Consultancy</h3>
+                <p>Expert guidance throughout development projects from feasibility to completion.</p>
+                <Link href="/services" className="inline-block mt-4 text-primary font-semibold hover:underline">Learn More</Link>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+                <h3 className="text-xl font-semibold mb-3">Valuation Services</h3>
+                <p>Professional valuation for residential, commercial, and industrial properties.</p>
+                <Link href="/services" className="inline-block mt-4 text-primary font-semibold hover:underline">Learn More</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <AboutSection />
+        <PropertyShowcase />
+        
+        {/* TEAM SECTION - DIRECTLY EMBEDDED */}
+        <section className="py-16 bg-orange-600">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-white mb-8 text-center pb-2 border-b-4 border-white inline-block">OUR LEADERSHIP TEAM</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div className="bg-primary p-5 rounded-lg shadow-lg border-4 border-yellow-400">
+                <p className="font-bold text-yellow-300 text-xl">Mr. Boniface K. Terer</p>
+                <p className="text-white text-lg">CEO</p>
+                <p className="text-yellow-200">31 years experience</p>
+              </div>
+              <div className="bg-primary p-5 rounded-lg shadow-lg border-4 border-yellow-400">
+                <p className="font-bold text-yellow-300 text-xl">Mr. David C. Ruto</p>
+                <p className="text-white text-lg">Director, Agency</p>
+                <p className="text-yellow-200">33 years experience</p>
+              </div>
+              <div className="bg-primary p-5 rounded-lg shadow-lg border-4 border-yellow-400">
+                <p className="font-bold text-yellow-300 text-xl">Mr. Geoffrey Koros</p>
+                <p className="text-white text-lg">Director, Property Management</p>
+                <p className="text-yellow-200">15+ years experience</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
 // Define ServicesPage component directly in App.tsx to avoid any import issues
 const ServicesPage = () => {
@@ -52,9 +127,10 @@ const ServicesPage = () => {
 };
 
 function Router() {
+  // HomePage is directly defined above in this file
   return (
     <Switch>
-      <Route path="/" component={HomePage} />
+      <Route path="/" component={() => HomePage()} />
       <Route path="/properties" component={PropertiesPage} />
       <Route path="/property/:id" component={PropertyDetailPage} />
       <Route path="/about" component={AboutPage} />
