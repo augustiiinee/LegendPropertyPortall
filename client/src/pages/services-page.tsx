@@ -1,7 +1,13 @@
 import { Link } from 'wouter';
 import { FaBuilding, FaHandshake, FaClipboardCheck, FaChartLine } from 'react-icons/fa';
+import { useEffect } from 'react';
 
 export default function ServicesPage() {
+  useEffect(() => {
+    console.log("Services page loaded");
+    document.title = "Our Services | Legend Management Ltd";
+  }, []);
+  
   return (
     <div className="bg-neutral-100 min-h-screen">
       {/* Hero Section */}

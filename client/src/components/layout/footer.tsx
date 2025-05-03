@@ -151,20 +151,20 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-white border-opacity-20 pt-6 text-center">
-          <div className="mb-4">
-            <h4 className="text-amber-300 font-semibold mb-2">Our Team</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-white text-opacity-90 text-sm">
-                <p className="font-semibold">Mr. Boniface K. Terer</p>
-                <p className="text-xs text-white text-opacity-70">CEO | 31 years experience</p>
+          <div className="mb-6 bg-primary-dark p-4 rounded-lg shadow-inner">
+            <h4 className="text-amber-300 font-semibold mb-4 text-lg">Our Leadership Team</h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-primary bg-opacity-40 p-3 rounded text-white text-opacity-90 text-sm">
+                <p className="font-semibold text-amber-200">Mr. Boniface K. Terer</p>
+                <p className="text-xs text-white text-opacity-90 mt-1">CEO | 31 years experience</p>
               </div>
-              <div className="text-white text-opacity-90 text-sm">
-                <p className="font-semibold">Mr. David C. Ruto</p>
-                <p className="text-xs text-white text-opacity-70">Director, Agency Marketing & Letting | 33 years experience</p>
+              <div className="bg-primary bg-opacity-40 p-3 rounded text-white text-opacity-90 text-sm">
+                <p className="font-semibold text-amber-200">Mr. David C. Ruto</p>
+                <p className="text-xs text-white text-opacity-90 mt-1">Director, Agency Marketing & Letting | 33 years experience</p>
               </div>
-              <div className="text-white text-opacity-90 text-sm">
-                <p className="font-semibold">Mr. Geoffrey Koros</p>
-                <p className="text-xs text-white text-opacity-70">Director, Property Management | 15+ years experience</p>
+              <div className="bg-primary bg-opacity-40 p-3 rounded text-white text-opacity-90 text-sm">
+                <p className="font-semibold text-amber-200">Mr. Geoffrey Koros</p>
+                <p className="text-xs text-white text-opacity-90 mt-1">Director, Property Management | 15+ years experience</p>
               </div>
             </div>
           </div>
