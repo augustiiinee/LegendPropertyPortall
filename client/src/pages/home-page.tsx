@@ -4,6 +4,7 @@ import HeroSection from '@/components/home/hero-section';
 import AboutSection from '@/components/home/about-section';
 import PropertyShowcase from '@/components/home/property-showcase';
 import ContactSection from '@/components/home/contact-section';
+import DirectorsSection from '@/components/home/directors-section';
 
 export default function HomePage() {
   return (
