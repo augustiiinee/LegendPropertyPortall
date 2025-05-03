@@ -8,25 +8,31 @@ export default function Footer() {
   
   return (
     <footer className="bg-primary text-white pt-12 pb-6">
-      <div className="container mx-auto px-4">
-        {/* Hard-coded Team Section without component dependency */}
-        <div className="mb-8">
-          <h2 className="text-xl font-bold text-amber-300 mb-4">Our Leadership Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-amber-900/20 p-4 rounded-lg">
-              <p className="font-bold text-amber-200">Mr. Boniface K. Terer</p>
-              <p>CEO (31 years experience)</p>
+      {/* ATTENTION-GRABBING LEADERSHIP TEAM SECTION */}
+      <div className="bg-yellow-600 py-8 mb-8">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl font-extrabold text-white mb-6 border-b-4 border-white pb-2 inline-block">OUR LEADERSHIP TEAM</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-primary p-4 rounded shadow-lg border-2 border-yellow-400">
+              <p className="font-bold text-yellow-300 text-lg">Mr. Boniface K. Terer</p>
+              <p className="text-white">CEO</p>
+              <p className="text-yellow-200 text-sm mt-1">31 years experience</p>
             </div>
-            <div className="bg-amber-900/20 p-4 rounded-lg">
-              <p className="font-bold text-amber-200">Mr. David C. Ruto</p>
-              <p>Director, Agency (33 years experience)</p>
+            <div className="bg-primary p-4 rounded shadow-lg border-2 border-yellow-400">
+              <p className="font-bold text-yellow-300 text-lg">Mr. David C. Ruto</p>
+              <p className="text-white">Director, Agency</p>
+              <p className="text-yellow-200 text-sm mt-1">33 years experience</p>
             </div>
-            <div className="bg-amber-900/20 p-4 rounded-lg">
-              <p className="font-bold text-amber-200">Mr. Geoffrey Koros</p>
-              <p>Director, Property Management (15+ years experience)</p>
+            <div className="bg-primary p-4 rounded shadow-lg border-2 border-yellow-400">
+              <p className="font-bold text-yellow-300 text-lg">Mr. Geoffrey Koros</p>
+              <p className="text-white">Director, Property Management</p>
+              <p className="text-yellow-200 text-sm mt-1">15+ years experience</p>
             </div>
           </div>
         </div>
+      </div>
+      
+      <div className="container mx-auto px-4">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>

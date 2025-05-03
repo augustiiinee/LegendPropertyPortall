@@ -49,8 +49,8 @@ export default function Header() {
           </Link>
         </div>
         
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6">
+        {/* Desktop Navigation - Force visible on all screens */}
+        <nav className="flex space-x-6">
           {navigation.map((item) => (
             <Link 
               key={item.name} 
