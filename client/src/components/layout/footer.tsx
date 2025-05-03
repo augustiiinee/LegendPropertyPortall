@@ -59,7 +59,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/#about"
+                  href="/about"
                   className="text-white text-opacity-80 hover:text-gold transition"
                 >
                   About Us
