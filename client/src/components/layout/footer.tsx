@@ -150,21 +150,28 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="border-t border-white border-opacity-20 pt-6 text-center">
-          <div className="mb-6 bg-primary-dark p-4 rounded-lg shadow-inner">
-            <h4 className="text-amber-300 font-semibold mb-4 text-lg">Our Leadership Team</h4>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-primary bg-opacity-40 p-3 rounded text-white text-opacity-90 text-sm">
-                <p className="font-semibold text-amber-200">Mr. Boniface K. Terer</p>
-                <p className="text-xs text-white text-opacity-90 mt-1">CEO | 31 years experience</p>
+        <div className="border-t border-white border-opacity-20 pt-8 text-center">
+          {/* Team Section with Enhanced Styling */}
+          <div className="mb-8 bg-amber-900/30 p-6 rounded-lg shadow-lg border border-amber-400/30">
+            <h4 className="text-amber-300 font-semibold mb-4 text-xl relative inline-block">
+              Our Leadership Team
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-400/60"></span>
+            </h4>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <div className="bg-primary/70 hover:bg-primary transition-all duration-300 p-4 rounded-lg shadow-md text-white border-l-4 border-amber-400">
+                <p className="font-semibold text-amber-200 text-lg mb-1">Mr. Boniface K. Terer</p>
+                <p className="text-sm text-white text-opacity-90">CEO</p>
+                <p className="text-xs text-amber-100 mt-2 font-medium">31 years industry experience</p>
               </div>
-              <div className="bg-primary bg-opacity-40 p-3 rounded text-white text-opacity-90 text-sm">
-                <p className="font-semibold text-amber-200">Mr. David C. Ruto</p>
-                <p className="text-xs text-white text-opacity-90 mt-1">Director, Agency Marketing & Letting | 33 years experience</p>
+              <div className="bg-primary/70 hover:bg-primary transition-all duration-300 p-4 rounded-lg shadow-md text-white border-l-4 border-amber-400">
+                <p className="font-semibold text-amber-200 text-lg mb-1">Mr. David C. Ruto</p>
+                <p className="text-sm text-white text-opacity-90">Director, Agency Marketing & Letting</p>
+                <p className="text-xs text-amber-100 mt-2 font-medium">33 years industry experience</p>
               </div>
-              <div className="bg-primary bg-opacity-40 p-3 rounded text-white text-opacity-90 text-sm">
-                <p className="font-semibold text-amber-200">Mr. Geoffrey Koros</p>
-                <p className="text-xs text-white text-opacity-90 mt-1">Director, Property Management | 15+ years experience</p>
+              <div className="bg-primary/70 hover:bg-primary transition-all duration-300 p-4 rounded-lg shadow-md text-white border-l-4 border-amber-400">
+                <p className="font-semibold text-amber-200 text-lg mb-1">Mr. Geoffrey Koros</p>
+                <p className="text-sm text-white text-opacity-90">Director, Property Management</p>
+                <p className="text-xs text-amber-100 mt-2 font-medium">15+ years industry experience</p>
               </div>
             </div>
           </div>
