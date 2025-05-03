@@ -7,6 +7,7 @@ import MobileMenu from './mobile-menu';
 const navigation = [
   { name: 'Home', path: '/' },
   { name: 'Properties', path: '/properties' },
+  { name: 'About', path: '/about' },
   { name: 'Directors', path: '/directors' },
 ];
 
