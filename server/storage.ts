@@ -163,10 +163,7 @@ class DatabaseStorage implements IStorage {
     return await db
       .select()
       .from(properties)
-      .where(and(
-        eq(properties.featured, true),
-        eq(properties.status, "For Sale" as PropertyStatus)
-      ))
+      .where(eq(properties.featured, true))
       .orderBy(desc(properties.createdAt))
       .limit(limit);
   }
