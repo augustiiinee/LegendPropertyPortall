@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { FaTiktok } from 'react-icons/fa6';
+import { SiTiktok } from 'react-icons/si';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,14 +26,17 @@ export default function Footer() {
               Absolute Property Solutions, delivering excellence and value to our clients.
             </p>
             <div className="flex space-x-6">
-              <a href="https://www.facebook.com/share/19AwPuhwhS/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold transition" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61557337761112" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber-300 transition-colors duration-300" aria-label="Facebook">
                 <FaFacebookF className="w-5 h-5" />
               </a>
-              <a href="https://www.tiktok.com/@legend.real.estat?_t=ZM-8w29kDLHhUV&_r=1" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold transition" aria-label="TikTok">
-                <FaTiktok className="w-5 h-5" />
+              <a href="https://www.tiktok.com/@legend.real.estat?_t=ZM-8w29kDLHhUV&_r=1" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber-300 transition-colors duration-300" aria-label="TikTok">
+                <SiTiktok className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/propertylegend254?igsh=OTM2ZHVtOTZrZXBx" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gold transition" aria-label="Instagram">
+              <a href="https://www.instagram.com/propertylegend254?igsh=OTM2ZHVtOTZrZXBx" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber-300 transition-colors duration-300" aria-label="Instagram">
                 <FaInstagram className="w-5 h-5" />
+              </a>
+              <a href="https://wa.me/254746369798" target="_blank" rel="noopener noreferrer" className="text-white hover:text-amber-300 transition-colors duration-300" aria-label="WhatsApp">
+                <FaWhatsapp className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -43,7 +47,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/"
-                  className="text-white text-opacity-80 hover:text-gold transition"
+                  className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300"
                 >
                   Home
                 </Link>
@@ -51,7 +55,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/about"
-                  className="text-white text-opacity-80 hover:text-gold transition"
+                  className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300"
                 >
                   About Us
                 </Link>
@@ -59,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/properties"
-                  className="text-white text-opacity-80 hover:text-gold transition"
+                  className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300"
                 >
                   Properties
                 </Link>
@@ -67,7 +71,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/directors"
-                  className="text-white text-opacity-80 hover:text-gold transition"
+                  className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300"
                 >
                   Our Team
                 </Link>
@@ -75,7 +79,7 @@ export default function Footer() {
               <li>
                 <Link 
                   href="/#contact"
-                  className="text-white text-opacity-80 hover:text-gold transition"
+                  className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300"
                 >
                   Contact
                 </Link>
@@ -84,47 +88,65 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="font-montserrat font-semibold text-lg mb-4">Services</h3>
+            <h3 className="font-montserrat font-semibold text-lg mb-4">Our Services</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Property Management</a>
+                <Link href="/about" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Property Management</Link>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Property Sales</a>
+                <Link href="/properties" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Property Sales</Link>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Investment Consulting</a>
+                <Link href="/about" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Investment Consulting</Link>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Property Maintenance</a>
+                <Link href="/about" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Property Valuation</Link>
               </li>
               <li>
-                <a href="#" className="text-white text-opacity-80 hover:text-gold transition">Tenant Placement</a>
+                <Link href="/about" className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300">Tenant Placement</Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-montserrat font-semibold text-lg mb-4">Newsletter</h3>
-            <p className="text-white text-opacity-80 mb-4">
-              Subscribe to our newsletter for the latest property updates and offers.
-            </p>
-            <form className="flex" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Your email address" 
-                className="px-4 py-2 rounded-l-md w-full focus:outline-none text-neutral-dark"
-              />
-              <button 
-                type="submit" 
-                className="bg-gold hover:bg-gold-light px-4 py-2 rounded-r-md transition"
-                aria-label="Subscribe"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                </svg>
-              </button>
-            </form>
+            <h3 className="font-montserrat font-semibold text-lg mb-4">Contact Us</h3>
+            <ul className="space-y-3">
+              <li className="flex items-center">
+                <FaMapMarkerAlt className="w-5 h-5 mr-3 text-amber-300" />
+                <span className="text-white text-opacity-80">
+                  NHIF Building, 3rd floor, Off Ragati Road, Community/Upperhill
+                </span>
+              </li>
+              <li className="flex items-center">
+                <FaPhone className="w-5 h-5 mr-3 text-amber-300" />
+                <a 
+                  href="tel:+254202713445" 
+                  className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300"
+                >
+                  +254 020-2713445/6
+                </a>
+              </li>
+              <li className="flex items-center">
+                <FaWhatsapp className="w-5 h-5 mr-3 text-amber-300" />
+                <a 
+                  href="https://wa.me/254746369798" 
+                  className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  +254 746 369 798
+                </a>
+              </li>
+              <li className="flex items-center">
+                <FaEnvelope className="w-5 h-5 mr-3 text-amber-300" />
+                <a 
+                  href="mailto:info@propertylegend.com" 
+                  className="text-white text-opacity-80 hover:text-amber-300 transition-colors duration-300"
+                >
+                  info@propertylegend.com
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         
