@@ -20,6 +20,10 @@ const heroSlides: HeroSlide[] = [
   {
     id: 3,
     imageUrl: '/images/hero/hero3.jpeg'
+  },
+  {
+    id: 4,
+    imageUrl: '/images/hero/nyayo-estate.jpg'
   }
 ];
 
