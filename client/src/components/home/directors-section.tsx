@@ -49,7 +49,7 @@ export default function DirectorsSection() {
               Our leadership team brings over 79 years of combined experience in property consulting and real estate management across Kenya.
             </p>
             <Link href="/directors">
-              <Button variant="primary" className="flex items-center gap-2 mx-auto">
+              <Button variant="default" className="flex items-center gap-2 mx-auto">
                 <span>View Director Profiles</span>
                 <ArrowRight className="h-4 w-4" />
               </Button>
