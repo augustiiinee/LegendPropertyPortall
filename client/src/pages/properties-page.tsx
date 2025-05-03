@@ -42,6 +42,9 @@ export default function PropertiesPage() {
   const properties = data?.properties || [];
   const totalPages = data?.pages || 1;
   
+  // Debug log properties
+  console.log("Properties from API:", properties.map(p => ({ id: p.id, title: p.title, status: p.status })));
+  
   // Reset to first page when filters change
   useEffect(() => {
     setPage(1);

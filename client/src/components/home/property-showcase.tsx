@@ -23,6 +23,10 @@ export function RecommendedPropertiesSlider() {
   const sliderRef = useRef<HTMLDivElement>(null);
   
   const properties = allProperties || [];
+  
+  // Debug log
+  console.log("Featured properties:", properties.map(p => ({ id: p.id, title: p.title, status: p.status })));
+  
   // Responsive visible properties: 1 on mobile, 2 on desktop
   const [visibleProperties, setVisibleProperties] = useState(2);
   

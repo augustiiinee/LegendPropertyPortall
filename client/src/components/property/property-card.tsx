@@ -76,7 +76,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         </div>
         
         <div className="flex justify-between items-center">
-          <span className="text-primary font-montserrat font-bold text-xl">Ksh {property.price.toLocaleString()}</span>
+          <span className="text-primary font-montserrat font-bold text-xl">
+            {property.status === "For Lease" ? 
+              `Ksh ${property.price?.toLocaleString() || '0'}/month` : 
+              `Ksh ${property.price?.toLocaleString() || '0'}`}
+          </span>
           <Link href={`/property/${property.id}`} className="text-secondary hover:text-secondary-light font-medium transition">
             View Details
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 inline-block ml-1" viewBox="0 0 20 20" fill="currentColor">
@@ -84,6 +88,9 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             </svg>
           </Link>
         </div>
+        
+        {/* Debug info */}
+        <div className="hidden">Debug: {JSON.stringify({id: property.id, title: property.title, status: property.status})}</div>
       </div>
     </div>
   );
