@@ -9,7 +9,6 @@ const navigation = [
   { name: 'About', path: '/about' },
   { name: 'Properties', path: '/properties' },
   { name: 'Directors', path: '/directors' },
-  { name: 'Contact', path: '/#contact' },
 ];
 
 export default function Header() {
