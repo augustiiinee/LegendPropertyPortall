@@ -2,6 +2,7 @@ import { Link } from 'wouter';
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import { FaTiktok } from 'react-icons/fa6';
 import { SiTiktok } from 'react-icons/si';
+import TeamSection from './team-section';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,26 +10,8 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold text-amber-300 mb-4">Our Leadership Team</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <div className="bg-amber-900/20 p-4 rounded-lg border border-amber-400/30">
-              <p className="font-bold text-amber-200 text-lg">Mr. Boniface K. Terer</p>
-              <p>CEO</p>
-              <p className="text-xs text-amber-100">31 years experience</p>
-            </div>
-            <div className="bg-amber-900/20 p-4 rounded-lg border border-amber-400/30">
-              <p className="font-bold text-amber-200 text-lg">Mr. David C. Ruto</p>
-              <p>Director, Agency & Letting</p>
-              <p className="text-xs text-amber-100">33 years experience</p>
-            </div>
-            <div className="bg-amber-900/20 p-4 rounded-lg border border-amber-400/30">
-              <p className="font-bold text-amber-200 text-lg">Mr. Geoffrey Koros</p>
-              <p>Director, Property Management</p>
-              <p className="text-xs text-amber-100">15+ years experience</p>
-            </div>
-          </div>
-        </div>
+        {/* Import TeamSection component separately to avoid any potential issues */}
+        <TeamSection />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
           <div>
