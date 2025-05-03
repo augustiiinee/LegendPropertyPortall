@@ -68,7 +68,7 @@ export default function DirectorsPage() {
                 {leadershipsData.map((director, index) => (
                   <Card key={director.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-amber-200">
                     <div className="h-20 bg-gradient-to-r from-amber-500 to-primary flex items-center justify-center text-white">
-                      <h3 className="font-montserrat font-bold text-xl">{director.name}</h3>
+                      <h3 className="font-montserrat font-bold text-xl tracking-wide text-white drop-shadow-md">{director.name}</h3>
                     </div>
                     <CardContent className="p-6 bg-amber-50/50">
                       <div className="flex flex-col">
@@ -116,7 +116,7 @@ export default function DirectorsPage() {
                 <div className="bg-gradient-to-r from-amber-500 to-primary text-white p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <Building2 className="h-8 w-8" />
-                    <h3 className="font-montserrat font-bold text-2xl">Our Company Mission</h3>
+                    <h3 className="font-montserrat font-bold text-2xl tracking-wide text-white drop-shadow-md">Our Company Mission</h3>
                   </div>
                   <p className="mb-6 text-white/90 leading-relaxed">
                     At Legend Management Limited, we strive to provide exceptional property management services with integrity, 
