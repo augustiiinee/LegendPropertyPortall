@@ -68,14 +68,14 @@ export default function DirectorsPage() {
                 {leadershipsData.map((director, index) => (
                   <Card key={director.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-amber-200">
                     <div className="h-20 bg-gradient-to-r from-amber-500 to-primary flex items-center justify-center text-white">
-                      <h3 className="font-montserrat font-bold text-xl tracking-wide text-white drop-shadow-md">{director.name}</h3>
+                      <h3 className="font-montserrat text-xl tracking-wide text-white">{director.name}</h3>
                     </div>
                     <CardContent className="p-6 bg-amber-50/50">
                       <div className="flex flex-col">
                         <div className="mb-4">
                           <div className="flex items-center gap-2 mb-1 bg-amber-100 py-1 px-3 rounded-full w-fit">
                             <Briefcase className="h-4 w-4 text-amber-700" />
-                            <p className="text-amber-800 font-medium">{director.position}</p>
+                            <p className="text-amber-800">{director.position}</p>
                           </div>
                         </div>
                         
@@ -116,7 +116,7 @@ export default function DirectorsPage() {
                 <div className="bg-gradient-to-r from-amber-500 to-primary text-white p-8">
                   <div className="flex items-center gap-3 mb-4">
                     <Building2 className="h-8 w-8" />
-                    <h3 className="font-montserrat font-bold text-2xl tracking-wide text-white drop-shadow-md">Our Company Mission</h3>
+                    <h3 className="font-montserrat text-2xl tracking-wide text-white">Our Company Mission</h3>
                   </div>
                   <p className="mb-6 text-white/90 leading-relaxed">
                     At Legend Management Limited, we strive to provide exceptional property management services with integrity, 
@@ -129,7 +129,7 @@ export default function DirectorsPage() {
                   </p>
                 </div>
                 <div className="p-8 bg-amber-50">
-                  <h3 className="font-montserrat font-semibold text-xl mb-4 text-amber-700">Contact Our Management Team</h3>
+                  <h3 className="font-montserrat text-xl mb-4 text-amber-700">Contact Our Management Team</h3>
                   <div className="flex items-center gap-2 text-neutral-700 mb-4">
                     <MapPin className="h-5 w-5 text-amber-600 flex-shrink-0" />
                     <p>NHIF Building, 3rd Floor, Off Ragati Road, Community/Upperhill</p>
@@ -139,7 +139,7 @@ export default function DirectorsPage() {
                   </p>
                   <a 
                     href="/#contact" 
-                    className="inline-block bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md transition duration-300 font-medium"
+                    className="inline-block bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-md transition duration-300"
                   >
                     Get in Touch
                   </a>

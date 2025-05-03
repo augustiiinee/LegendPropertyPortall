@@ -112,10 +112,11 @@
 @layer base {
   * {
     @apply border-border;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    text-rendering: optimizeSpeed;
     box-sizing: border-box;
+    font-weight: normal;
   }
 
   html {
@@ -146,9 +147,10 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-montserrat font-semibold text-primary;
+    @apply font-montserrat font-normal text-primary;
     margin-top: 0;
-    line-height: 1.2;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
   }
 
   /* Focus visibility for accessibility */
