@@ -89,8 +89,7 @@ Address: National Bank of Kenya (NBK), Harambee Avenue CBD, Nairobi, South Podiu
         "/images/properties/nbk-1.jpg",
         "/images/properties/nbk-2.jpg",
       ]),
-      isFeatured: false,
-      propertyReference: "NBK-CBD-2025"
+      featured: false
     }).returning();
 
     console.log("Added National Bank of Kenya:", nbk);
