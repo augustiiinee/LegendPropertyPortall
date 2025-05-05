@@ -1,4 +1,6 @@
 import type { Express } from "express";
+import express from "express";
+import path from "path";
 import { createServer, type Server } from "http";
 import { setupAuth } from "./auth";
 import { storage } from "./storage";
@@ -21,6 +23,9 @@ const isAuthenticated = (req: any, res: any, next: any) => {
 };
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve static files from the public directory
+  app.use('/images', express.static(path.join(process.cwd(), 'public', 'images')));
+  
   // Setup authentication routes
   setupAuth(app);
 
