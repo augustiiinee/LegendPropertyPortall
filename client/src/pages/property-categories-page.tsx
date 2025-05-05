@@ -353,8 +353,13 @@ export default function PropertyCategoriesPage() {
   const properties = data?.properties || [];
   
   // Filter properties by type
-  const commercialProperties = properties.filter((p: Property) => p.type === 'commercial');
-  const residentialProperties = properties.filter((p: Property) => p.type === 'residential');
+  // Make sure Chuna Estate only appears in residential properties
+  const commercialProperties = properties.filter((p: Property) => 
+    p.type === 'commercial' && !p.title.includes('Chuna')
+  );
+  const residentialProperties = properties.filter((p: Property) => 
+    p.type === 'residential' || p.title.includes('Chuna')
+  );
   const landProperties = properties.filter((p: Property) => p.type === 'land');
   
   // Find a representative image for each category
