@@ -34,7 +34,20 @@ export default function PropertyCategoryPage() {
     queryKey: ['/api/properties', { propertyType, page, pageSize }],
   });
   
-  const properties = data?.properties || [];
+  // Apply additional client-side filtering to ensure Chuna Estate only appears in residential
+  const properties = (data?.properties || []).filter(property => {
+    if (propertyType === 'residential') {
+      // In residential category, show Chuna Estate (even if it has another type)
+      return property.type === 'residential' || property.title.includes('Chuna');
+    } else if (propertyType === 'commercial') {
+      // In commercial category, don't show Chuna Estate
+      return property.type === 'commercial' && !property.title.includes('Chuna');
+    } else {
+      // For land category, show only land properties
+      return property.type === propertyType;
+    }
+  });
+  
   const totalPages = data?.pages || 1;
   
   // Category details
@@ -69,9 +82,9 @@ export default function PropertyCategoryPage() {
   
   // Background images for category headers
   const categoryBackgrounds = {
-    commercial: "/images/commercial-bg.jpg",
-    residential: "/images/residential-bg.jpg",
-    land: "/images/land-bg.jpg"
+    commercial: "/images/categories/commercial-bg.jpg",
+    residential: "/images/categories/residential-bg.jpg",
+    land: "/images/categories/land-bg.jpg"
   };
 
   // Get default background image based on property type
@@ -84,7 +97,7 @@ export default function PropertyCategoryPage() {
     }
     
     // Fallback to category background or default
-    return categoryBackgrounds[propertyType as keyof typeof categoryBackgrounds] || "/images/commercial-bg.jpg";
+    return categoryBackgrounds[propertyType as keyof typeof categoryBackgrounds] || "/images/categories/commercial-bg.jpg";
   };
   
   return (
