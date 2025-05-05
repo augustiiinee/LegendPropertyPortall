@@ -271,6 +271,15 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
                         Service: Ksh 36/Sqft
                       </div>
                     </div>
+                  ) : property.title.includes('Blueshield') ? (
+                    <div className="flex flex-col gap-1">
+                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
+                        Rent: Ksh {property.price}/Sqft
+                      </div>
+                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
+                        Service: Ksh 25/Sqft
+                      </div>
+                    </div>
                   ) : (
                     <div className="text-white text-xl md:text-2xl font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-4 py-1 rounded-lg shadow-sm">
                       Ksh {property.price.toLocaleString()}{property.type === 'commercial' ? ' per sq ft' : ''}

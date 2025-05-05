@@ -29,7 +29,17 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           <span className="text-primary text-sm">Service: Ksh 36/Sqft</span>
         </div>
       );
-    } else if (property.status === "For Lease" || property.status === "For Rent") {
+    }
+    // Special case for Blueshield Towers property
+    else if (property.title.includes('Blueshield')) {
+      return (
+        <div className="flex flex-col">
+          <span className="text-primary font-bold text-base">Rent: Ksh 75/Sqft</span>
+          <span className="text-primary text-sm">Service: Ksh 25/Sqft</span>
+        </div>
+      );
+    } 
+    else if (property.status === "For Lease" || property.status === "For Rent") {
       return `Ksh ${formattedPrice}/month`;
     } else {
       return `Ksh ${formattedPrice}`;
@@ -45,10 +55,10 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   const getBadgeVariant = () => {
     switch(property.status) {
       case "For Sale": return "secondary";
-      case "For Lease": return "success";
-      case "For Rent": return "info";
+      case "For Lease": return "outline";
+      case "For Rent": return "secondary";
       case "Sold": return "destructive";
-      case "Pending": return "warning";
+      case "Pending": return "default";
       default: return "default";
     }
   };
