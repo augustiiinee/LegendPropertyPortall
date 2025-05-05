@@ -17,9 +17,9 @@ export default function DirectorsPage() {
   const leadershipsData = [
     {
       id: 1,
-      name: "Mr. Boniface K. Terer",
-      position: "Director",
-      bio: "A very experienced Property Consultant with 31 years of experience in the property sector. He has conducted assignments involving Property Management, Valuation, and Feasibility/Investment Appraisal and Project Management. He is currently a Director at Legend Management Limited."
+      name: "Mr. Geoffrey Koros",
+      position: "Chief Executive Officer",
+      bio: "An experienced Property Consultant with more than 15 years' experience in the property sector. He has conducted assignments involving Valuation, Property Management, and Feasibility/Investment Appraisal and Project Management. He is currently the Chief Executive Officer of Legend Management Limited."
     },
     {
       id: 2,
@@ -29,9 +29,9 @@ export default function DirectorsPage() {
     },
     {
       id: 3,
-      name: "Mr. Geoffrey Koros",
-      position: "Chief Executive Officer",
-      bio: "An experienced Property Consultant with more than 15 years' experience in the property sector. He has conducted assignments involving Valuation, Property Management, and Feasibility/Investment Appraisal and Project Management. He is currently the Chief Executive Officer of Legend Management Limited."
+      name: "Mr. Boniface K. Terer",
+      position: "Director",
+      bio: "A very experienced Property Consultant with 31 years of experience in the property sector. He has conducted assignments involving Property Management, Valuation, and Feasibility/Investment Appraisal and Project Management. He is currently a Director at Legend Management Limited."
     }
   ];
 

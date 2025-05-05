@@ -57,8 +57,8 @@ export default function Header() {
               href={item.path}
               className={`font-montserrat font-medium py-2 px-3 rounded ${
                 isActiveLink(item.path) 
-                  ? 'bg-amber-100 text-secondary font-semibold' 
-                  : 'text-primary hover:bg-amber-50 hover:text-secondary'
+                  ? 'text-secondary font-semibold' 
+                  : 'text-primary hover:text-secondary'
               } transition-all duration-200`}
             >
               {item.name}

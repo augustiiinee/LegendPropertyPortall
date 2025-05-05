@@ -20,7 +20,7 @@ export default function MobileMenu({ isOpen, onClose, navigation, user, onLogout
           <Link 
             key={item.name} 
             href={item.path}
-            className="block font-montserrat font-medium text-lg text-primary hover:text-secondary bg-amber-50 hover:bg-amber-100 p-3 rounded-md transition-all"
+            className="block font-montserrat font-medium text-lg text-primary hover:text-secondary p-3 rounded-md transition-all"
             onClick={onClose}
           >
             {item.name}
