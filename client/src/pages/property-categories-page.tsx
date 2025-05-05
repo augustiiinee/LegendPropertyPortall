@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'wouter';
 import { Property } from '@shared/types';
@@ -88,8 +88,40 @@ function CategoryCard({
 
 // Commercial properties slider component
 function CommercialPropertiesSlider({ properties }: { properties: Property[] }) {
-  // Modern slider implementation
+  // Modern slider implementation with image cycling
+  const [currentPropertyIndex, setCurrentPropertyIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Reference to keep track of which property we're viewing
   const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Set up auto-rotation for images
+  useEffect(() => {
+    if (properties.length === 0) return;
+    
+    const property = properties[currentPropertyIndex];
+    const imageCount = property.images?.length || 0;
+    
+    if (imageCount <= 1) return;
+    
+    const timer = setTimeout(() => {
+      // First cycle through all images of current property
+      if (currentImageIndex < imageCount - 1) {
+        setCurrentImageIndex(prevIndex => prevIndex + 1);
+      } else {
+        // When we've seen all images, move to next property
+        setCurrentImageIndex(0);
+        setCurrentPropertyIndex(prevIndex => 
+          prevIndex === properties.length - 1 ? 0 : prevIndex + 1
+        );
+      }
+      
+      // Update the global index counter for pagination dots
+      setCurrentIndex(prevIndex => prevIndex + 1);
+    }, 4000);
+    
+    return () => clearTimeout(timer);
+  }, [currentPropertyIndex, currentImageIndex, properties]);
   
   if (properties.length === 0) {
     return (
@@ -99,14 +131,40 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
     );
   }
   
-  const property = properties[currentIndex];
+  const property = properties[currentPropertyIndex];
   
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? properties.length - 1 : prevIndex - 1));
+    // First check if we're mid-way through images of current property
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(prevIndex => prevIndex - 1);
+    } else {
+      // Go to previous property
+      const prevPropertyIndex = currentPropertyIndex === 0 ? properties.length - 1 : currentPropertyIndex - 1;
+      setCurrentPropertyIndex(prevPropertyIndex);
+      
+      // Set image to last image of that property
+      const imageCount = properties[prevPropertyIndex].images?.length || 0;
+      setCurrentImageIndex(Math.max(0, imageCount - 1));
+    }
+    
+    // Decrement the global index counter
+    setCurrentIndex(prevIndex => prevIndex - 1);
   };
   
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === properties.length - 1 ? 0 : prevIndex + 1));
+    const imageCount = property.images?.length || 0;
+    
+    // First check if we should move to next image of current property
+    if (currentImageIndex < imageCount - 1) {
+      setCurrentImageIndex(prevIndex => prevIndex + 1);
+    } else {
+      // Go to next property
+      setCurrentPropertyIndex(prevIndex => prevIndex === properties.length - 1 ? 0 : prevIndex + 1);
+      setCurrentImageIndex(0);
+    }
+    
+    // Increment the global index counter
+    setCurrentIndex(prevIndex => prevIndex + 1);
   };
   
   return (
@@ -115,14 +173,23 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
       <div className="absolute inset-0 border border-[#D99B32]/20 rounded-xl z-20 pointer-events-none"></div>
       
       <div className="relative h-[500px] rounded-xl overflow-hidden">
-        {/* Background with enhanced parallax effect */}
+        {/* Image slider with all property photos */}
         <div className="absolute inset-0 transform transition-transform duration-1000 hover:scale-105">
           {property.images && property.images.length > 0 ? (
-            <img 
-              src={property.images[0]} 
-              alt={property.title} 
-              className="w-full h-full object-cover"
-            />
+            <div className="relative w-full h-full">
+              <img 
+                src={property.images[currentImageIndex % property.images.length]} 
+                alt={`${property.title} - Image ${currentImageIndex + 1}`} 
+                className="w-full h-full object-cover transition-opacity duration-500"
+              />
+              
+              {/* Image counter badge */}
+              {property.images.length > 1 && (
+                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 text-xs font-medium">
+                  {(currentImageIndex % property.images.length) + 1} / {property.images.length}
+                </div>
+              )}
+            </div>
           ) : (
             <div className="w-full h-full bg-neutral-200 flex items-center justify-center">
               <p className="text-neutral-500">No image available</p>
@@ -146,7 +213,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         <div className="absolute top-6 right-6 flex items-center">
           <span className="bg-white/80 backdrop-blur-sm text-[#D99B32] rounded-full px-4 py-1.5 text-sm font-medium shadow-sm border border-white/30 flex items-center gap-2">
             <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
-            {currentIndex + 1} of {properties.length}
+            {currentPropertyIndex + 1} of {properties.length}
           </span>
         </div>
         
@@ -243,13 +310,16 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         {properties.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => {
+              setCurrentPropertyIndex(index);
+              setCurrentImageIndex(0);
+            }}
             className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-              index === currentIndex 
+              index === currentPropertyIndex 
                 ? 'bg-[#D99B32] scale-125 w-6' 
                 : 'bg-gray-300 hover:bg-[#D99B32]/60'
             }`}
-            aria-label={`Go to slide ${index + 1}`}
+            aria-label={`Go to property ${index + 1}`}
           />
         ))}
       </div>
