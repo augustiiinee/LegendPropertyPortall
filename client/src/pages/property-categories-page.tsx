@@ -27,23 +27,22 @@ function CategoryCard({
 }) {
   return (
     <Link href={href}>
-      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-2xl cursor-pointer">
-        {/* Bold Gold/Mustard Border Frame */}
+      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-xl transition-all duration-500 cursor-pointer">
+        {/* Bold Gold/Mustard Border Frame - No Background */}
         <div className="absolute inset-0 border-[6px] border-primary rounded-xl z-20 pointer-events-none"></div>
 
-        {/* Image Background - Full Visibility */}
+        {/* Image Background - Full Visibility with No Overlay */}
         <div className="absolute inset-0 overflow-hidden">
           <img 
             src={image} 
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          {/* Super light gradient only at very bottom for text readability */}
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500"></div>
+          {/* No gradient overlay at all for maximum visibility */}
         </div>
         
-        {/* Gold Pattern Border Frame */}
-        <div className="absolute inset-0 border-[10px] border-primary/40 rounded-xl z-10 pointer-events-none group-hover:border-primary/70 transition-all duration-500"></div>
+        {/* Gold Border Frame - Bright Gold with No Grey */}
+        <div className="absolute inset-0 border-[10px] border-primary/60 rounded-xl z-10 pointer-events-none group-hover:border-primary/90 transition-all duration-500"></div>
         
         {/* Premium Gold Corner Accents */}
         <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-primary rounded-tl-lg z-30"></div>
@@ -122,9 +121,9 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
       {/* Bold Gold/Mustard Border Frame */}
       <div className="absolute inset-0 border-[6px] border-primary rounded-xl z-20 pointer-events-none"></div>
       
-      <div className="relative h-[500px] bg-neutral-100 rounded-lg overflow-hidden">
-        {/* Gold Pattern Border Frame */}
-        <div className="absolute inset-0 border-[10px] border-primary/40 rounded-xl z-10 pointer-events-none hover:border-primary/70 transition-all duration-500"></div>
+      <div className="relative h-[500px] rounded-lg overflow-hidden">
+        {/* Gold Border Frame - Bright Gold with No Grey */}
+        <div className="absolute inset-0 border-[10px] border-primary/60 rounded-xl z-10 pointer-events-none hover:border-primary/90 transition-all duration-500"></div>
         
         {/* Premium Gold Corner Accents */}
         <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-primary rounded-tl-lg z-30"></div>
@@ -252,16 +251,16 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         </Button>
       </div>
       
-      {/* Gold-themed indicators */}
-      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 bg-primary/10 backdrop-blur-sm py-2 px-6 rounded-full border border-primary/30">
+      {/* Gold-themed indicators - No Grey Background */}
+      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 py-2 px-6">
         {properties.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-4 h-4 rounded-full transition-all duration-300 ${
               index === currentIndex 
-                ? 'bg-primary scale-125 border border-white/30' 
-                : 'bg-white/60 hover:bg-white/90 border border-primary/30'
+                ? 'bg-primary scale-125 border-2 border-primary' 
+                : 'bg-white hover:bg-primary/10 border-2 border-primary/60'
             }`}
           />
         ))}
