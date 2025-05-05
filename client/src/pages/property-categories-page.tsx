@@ -27,47 +27,59 @@ function CategoryCard({
 }) {
   return (
     <Link href={href}>
-      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl cursor-pointer border-2 border-primary/20 hover:border-primary">
-        {/* Image Background with Overlay */}
+      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-2xl cursor-pointer border-2 border-primary hover:border-primary">
+        {/* Image Background with Darker Overlay for Improved Visibility */}
         <div className="absolute inset-0 overflow-hidden">
           <img 
             src={image} 
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30 group-hover:opacity-95 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-black/80 group-hover:bg-black/90 transition-all duration-500"></div>
         </div>
         
-        {/* Category Label - Gold Theme */}
-        <div className="absolute top-4 left-4 bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg z-10 text-sm border border-primary/50">
+        {/* Gold Pattern Overlay for visual enhancement */}
+        <div className="absolute inset-0 bg-[url('/images/gold-pattern.svg')] bg-repeat opacity-15"></div>
+        
+        {/* Golden Frame Corners for premium look */}
+        <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary rounded-tl-lg"></div>
+        <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary rounded-tr-lg"></div>
+        <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary rounded-bl-lg"></div>
+        <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary rounded-br-lg"></div>
+        
+        {/* Category Label - Enhanced Gold Theme */}
+        <div className="absolute top-6 left-6 bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg z-10 text-sm border border-primary/80">
           {title.split(' ')[0]}
         </div>
         
-        {/* Property Count Badge - Gold Theme */}
-        <div className="absolute top-4 right-4 bg-white text-primary px-4 py-2 rounded-full text-sm font-bold shadow-lg border border-primary/50">
+        {/* Property Count Badge - Enhanced Gold Theme */}
+        <div className="absolute top-6 right-6 bg-white text-primary px-4 py-2 rounded-full text-sm font-bold shadow-lg border border-primary/80">
           {count} {count === 1 ? 'property' : 'properties'}
         </div>
         
-        {/* Content Container with Gold Theme */}
-        <div className="absolute inset-x-0 bottom-0 p-8 text-white transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
+        {/* Main Content - Always Visible */}
+        <div className="absolute inset-x-0 bottom-0 p-8">
           {/* Semi-transparent background for better readability */}
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm rounded-t-lg border-t border-primary/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent rounded-t-lg"></div>
           
           <div className="relative flex flex-col space-y-4">
-            {/* Golden Accent Line */}
-            <div className="w-16 h-1 bg-primary rounded-full transition-all duration-500 group-hover:w-24"></div>
+            {/* Golden Double Accent Lines */}
+            <div className="flex flex-col gap-1">
+              <div className="w-24 h-1 bg-primary rounded-full"></div>
+              <div className="w-16 h-1 bg-primary/70 rounded-full"></div>
+            </div>
             
-            {/* Title - Enhanced for better visibility */}
-            <h3 className="text-2xl font-bold font-montserrat text-white">{title}</h3>
+            {/* Title - Larger and Always Visible */}
+            <h3 className="text-3xl font-bold font-montserrat text-white drop-shadow-lg">{title}</h3>
             
-            {/* Description - Always visible with better contrast */}
-            <p className="text-white text-base font-medium max-h-0 overflow-hidden opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 drop-shadow-md">
+            {/* Description - Always Visible with better contrast */}
+            <p className="text-white/90 text-base font-medium drop-shadow-md">
               {description}
             </p>
             
-            {/* Button - Gold themed */}
+            {/* Button - Always Visible Gold-themed */}
             <Button 
-              className="w-fit mt-3 bg-primary hover:bg-primary/90 text-white shadow-lg transform transition-all duration-300 opacity-0 group-hover:opacity-100 border border-primary/50"
+              className="w-fit mt-3 bg-primary hover:bg-primary/90 text-white shadow-lg transform transition-transform hover:translate-y-[-3px] border border-primary/50"
             >
               View Properties
             </Button>
