@@ -236,7 +236,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
           {property.title.includes('National Bank') ? (
             <div className="text-neutral-dark">
               {property.description.split('\n\n').map((paragraph, index) => {
-                if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities')) {
+                if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities') || paragraph.startsWith('Contact Information')) {
                   // Extract the title and content
                   const [title, ...content] = paragraph.split('\n');
                   return (
