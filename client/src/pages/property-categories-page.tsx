@@ -399,18 +399,18 @@ export default function PropertyCategoriesPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Modern Hero Section with Glass Effect */}
-      <div className="relative py-16 sm:py-20 bg-white">
+      {/* Modern Hero Section with Yellow Background */}
+      <div className="relative py-16 sm:py-20 bg-[#FFEDC1]">
         {/* Premium Background with Subtle Overlay */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('/images/categories/commercial-bg.jpg')] bg-cover bg-center opacity-5"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FFEDC1] via-[#FFEDC1]/95 to-[#FFEDC1]/90"></div>
         </div>
         
         {/* Golden Wave Decoration */}
         <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden">
-          <div className="absolute bottom-[-10px] left-0 right-0 h-24 bg-gradient-to-t from-[#D99B32]/5 to-transparent"></div>
-          <svg className="absolute bottom-0 w-full h-12 fill-[#D99B32]/10" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <div className="absolute bottom-[-10px] left-0 right-0 h-24 bg-gradient-to-t from-[#D99B32]/15 to-transparent"></div>
+          <svg className="absolute bottom-0 w-full h-12 fill-[#D99B32]/20" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path>
           </svg>
         </div>
@@ -434,12 +434,12 @@ export default function PropertyCategoriesPage() {
               </p>
 
               {/* Modern Glass Button */}
-              <div className="inline-block rounded-full bg-neutral-100 shadow-sm p-1">
+              <div className="inline-block rounded-full bg-white/80 shadow-sm p-1">
                 <div className="flex space-x-1">
-                  <span className="px-5 py-2 rounded-full bg-[#D99B32]/90 text-white text-sm font-medium">
+                  <span className="px-5 py-2 rounded-full bg-[#D99B32] text-white text-sm font-medium">
                     Premium Properties
                   </span>
-                  <span className="px-5 py-2 rounded-full text-neutral-600 text-sm">
+                  <span className="px-5 py-2 rounded-full text-neutral-700 text-sm">
                     Trusted Expertise
                   </span>
                 </div>
