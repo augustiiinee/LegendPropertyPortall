@@ -262,9 +262,20 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
               <div className="md:col-span-2 flex flex-col md:items-end gap-4">
                 <div className="flex flex-col gap-1 items-start md:items-end">
                   <span className="text-[#D99B32] text-xs font-medium uppercase tracking-wider drop-shadow-sm">Price</span>
-                  <div className="text-white text-xl md:text-2xl font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-4 py-1 rounded-lg shadow-sm">
-                    Ksh {property.price.toLocaleString()}{property.type === 'commercial' ? ' per sq ft' : ''}
-                  </div>
+                  {property.title.includes('National Bank') ? (
+                    <div className="flex flex-col gap-1">
+                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
+                        Rent: Ksh {property.price}/Sqft
+                      </div>
+                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
+                        Service: Ksh 36/Sqft
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-white text-xl md:text-2xl font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-4 py-1 rounded-lg shadow-sm">
+                      Ksh {property.price.toLocaleString()}{property.type === 'commercial' ? ' per sq ft' : ''}
+                    </div>
+                  )}
                 </div>
                 
                 <Link href={`/property/${property.id}`} className="w-full md:w-auto">
