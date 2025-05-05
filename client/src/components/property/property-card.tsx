@@ -15,13 +15,21 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     ? property.images[0]
     : '/images/property-placeholder.jpg';
   
-  // Determine price display format based on property status
+  // Determine price display format based on property status and special cases
   const priceDisplay = () => {
     if (!property.price) return "Price on Request";
     
     const formattedPrice = property.price.toLocaleString();
     
-    if (property.status === "For Lease" || property.status === "For Rent") {
+    // Special case for National Bank of Kenya property
+    if (property.title.includes('National Bank')) {
+      return (
+        <div className="flex flex-col">
+          <span className="text-primary font-bold text-base">Rent: Ksh 90/Sqft</span>
+          <span className="text-primary text-sm">Service: Ksh 36/Sqft</span>
+        </div>
+      );
+    } else if (property.status === "For Lease" || property.status === "For Rent") {
       return `Ksh ${formattedPrice}/month`;
     } else {
       return `Ksh ${formattedPrice}`;
