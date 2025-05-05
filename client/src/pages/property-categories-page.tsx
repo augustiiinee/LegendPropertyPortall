@@ -38,8 +38,10 @@ function CategoryCard({
             alt={title}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
-          {/* Subtle border at the bottom only */}
-          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/40 to-transparent"></div>
+          {/* Overlay for better text visibility */}
+          <div className="absolute inset-0 bg-black/30"></div>
+          {/* Gradient at the bottom for better text visibility */}
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
         </div>
         
         {/* Modern Status Ribbon */}
@@ -57,16 +59,16 @@ function CategoryCard({
         </div>
         
         {/* Main Content - Premium Floating Card with solid background for text clarity */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/40 rounded-xl border border-white/20 shadow-lg">
+        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
           <div className="relative flex flex-col space-y-3">
             {/* Elegant Single Gold Accent */}
             <div className="w-16 h-0.5 bg-[#D99B32]"></div>
             
             {/* Title - Modern & Elegant */}
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-white drop-shadow-sm">{title}</h3>
+            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-white drop-shadow-lg">{title}</h3>
             
             {/* Description - Clean & Refined */}
-            <p className="text-white text-sm md:text-base font-normal drop-shadow-sm">
+            <p className="text-white text-sm md:text-base font-normal drop-shadow-md">
               {description}
             </p>
             
@@ -225,7 +227,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         </div>
         
         {/* Content Container with solid background for text clarity */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/40 rounded-xl border border-white/20 shadow-xl">
+        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-xl">
           <div className="relative">
             {/* Minimalist Gold Accent */}
             <div className="w-20 h-0.5 bg-[#D99B32] mb-4"></div>
@@ -233,8 +235,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
             {/* Property Information - Clean Layout */}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-end">
               <div className="md:col-span-3">
-                <h3 className="text-white text-2xl md:text-3xl font-bold mb-2 font-montserrat drop-shadow-sm">{property.title}</h3>
-                <p className="text-white text-base md:text-lg mb-3 font-medium drop-shadow-sm">{property.location}</p>
+                <h3 className="text-white text-2xl md:text-3xl font-bold mb-2 font-montserrat drop-shadow-lg">{property.title}</h3>
+                <p className="text-white text-base md:text-lg mb-3 font-medium drop-shadow-md">{property.location}</p>
                 
                 {/* Property Features - Modern Capsules */}
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -254,7 +256,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
                   ))}
                 </div>
                 
-                <div className="text-white text-sm mb-4 font-normal drop-shadow-sm">
+                <div className="text-white text-sm mb-4 font-normal drop-shadow-md">
                   {property.description.substring(0, 120)}...
                 </div>
               </div>

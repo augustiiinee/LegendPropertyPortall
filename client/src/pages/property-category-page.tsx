@@ -112,15 +112,15 @@ export default function PropertyCategoryPage() {
             alt={categoryDetails[propertyType as keyof typeof categoryDetails].title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
         </div>
         
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center drop-shadow-lg">
             {categoryDetails[propertyType as keyof typeof categoryDetails].title}
           </h1>
           <div className="w-24 h-1 bg-primary rounded-full mb-6"></div>
-          <p className="max-w-3xl text-center text-lg text-white/90">
+          <p className="max-w-3xl text-center text-lg text-white drop-shadow-md">
             {categoryDetails[propertyType as keyof typeof categoryDetails].description}
           </p>
           
