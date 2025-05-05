@@ -56,11 +56,11 @@ function CategoryCard({
           {count} {count === 1 ? 'property' : 'properties'}
         </div>
         
-        {/* Main Content - Premium Floating Card */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-[#D99B32] rounded-xl border border-[#D99B32]/20 shadow-lg">
+        {/* Main Content - Premium Floating Card with subtle blur */}
+        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
           <div className="relative flex flex-col space-y-3">
-            {/* Elegant Single White Accent */}
-            <div className="w-16 h-0.5 bg-white"></div>
+            {/* Elegant Single Gold Accent */}
+            <div className="w-16 h-0.5 bg-[#D99B32]"></div>
             
             {/* Title - Modern & Elegant */}
             <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-white">{title}</h3>
@@ -72,7 +72,7 @@ function CategoryCard({
             
             {/* Stylish Button with Arrow Icon */}
             <Button 
-              className="w-fit mt-3 bg-white hover:bg-white/90 text-[#D99B32] font-medium shadow-md transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
+              className="w-fit mt-3 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium shadow-md transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
             >
               <span>View Properties</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2">
@@ -224,11 +224,11 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           </span>
         </div>
         
-        {/* Content Container - Solid Gold Design */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-[#D99B32] rounded-xl border border-[#D99B32]/20 shadow-xl">
+        {/* Content Container with subtle blur */}
+        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-xl">
           <div className="relative">
-            {/* Minimalist White Accent */}
-            <div className="w-20 h-0.5 bg-white mb-4"></div>
+            {/* Minimalist Gold Accent */}
+            <div className="w-20 h-0.5 bg-[#D99B32] mb-4"></div>
             
             {/* Property Information - Clean Layout */}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-end">
