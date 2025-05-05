@@ -116,13 +116,15 @@ export default function PropertyCategoryPage() {
         </div>
         
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
-          <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center drop-shadow-lg">
-            {categoryDetails[propertyType as keyof typeof categoryDetails].title}
-          </h1>
-          <div className="w-24 h-1 bg-primary rounded-full mb-6"></div>
-          <p className="max-w-3xl text-center text-lg text-white drop-shadow-md">
-            {categoryDetails[propertyType as keyof typeof categoryDetails].description}
-          </p>
+          <div className="bg-black/40 backdrop-blur-sm px-10 py-6 rounded-xl border border-white/10 shadow-xl">
+            <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center text-white drop-shadow-xl">
+              {categoryDetails[propertyType as keyof typeof categoryDetails].title}
+            </h1>
+            <div className="w-24 h-1 bg-primary rounded-full mb-6 mx-auto"></div>
+            <p className="max-w-3xl text-center text-lg text-white drop-shadow-lg">
+              {categoryDetails[propertyType as keyof typeof categoryDetails].description}
+            </p>
+          </div>
           
           {/* Category Badge */}
           <div className="absolute top-8 right-8">
