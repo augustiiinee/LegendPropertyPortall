@@ -233,26 +233,22 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
         {/* Property Description */}
         <div className="mb-8">
           <h2 className="text-xl md:text-2xl font-semibold mb-4">Description</h2>
-          {property.title.includes('National Bank') ? (
-            <div className="text-neutral-dark">
-              {property.description.split('\n\n').map((paragraph, index) => {
-                if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities') || paragraph.startsWith('Contact Information')) {
-                  // Extract the title and content
-                  const [title, ...content] = paragraph.split('\n');
-                  return (
-                    <div key={index} className="mb-4">
-                      <h3 className="text-lg font-bold text-primary">{title}</h3>
-                      <div className="whitespace-pre-line">{content.join('\n')}</div>
-                    </div>
-                  );
-                } else {
-                  return <p key={index} className="mb-4 whitespace-pre-line">{paragraph}</p>;
-                }
-              })}
-            </div>
-          ) : (
-            <p className="text-neutral-dark whitespace-pre-line">{property.description}</p>
-          )}
+          <div className="text-neutral-dark">
+            {property.description.split('\n\n').map((paragraph, index) => {
+              if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities') || paragraph.startsWith('Contact Information')) {
+                // Extract the title and content
+                const [title, ...content] = paragraph.split('\n');
+                return (
+                  <div key={index} className="mb-4">
+                    <h3 className="text-lg font-bold text-primary">{title}</h3>
+                    <div className="whitespace-pre-line">{content.join('\n')}</div>
+                  </div>
+                );
+              } else {
+                return <p key={index} className="mb-4 whitespace-pre-line">{paragraph}</p>;
+              }
+            })}
+          </div>
         </div>
         
         {/* Property Features */}
