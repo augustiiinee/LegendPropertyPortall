@@ -40,7 +40,10 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <div className="flex flex-col">
           <span className="text-primary font-bold text-base">Rent: Ksh 75/Sqft</span>
           <span className="text-primary text-sm">Service: Ksh 25/Sqft</span>
-          <span className="text-primary text-xs mt-1">Parking: Ksh 6,500/month</span>
+          <span className="text-primary text-xs mt-1">Parking: Ksh 10,000/month</span>
+          <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-0.5 rounded-full mt-1">
+            14 Spaces Available
+          </span>
         </div>
       );
     }
@@ -93,7 +96,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         
         {/* Status Badge */}
         <div className="absolute top-0 right-0 m-3">
-          <Badge variant={getBadgeVariant()} className="font-medium uppercase tracking-wider px-3 py-1">
+          <Badge className="bg-gold text-white font-medium uppercase tracking-wider px-3 py-1">
             {property.status}
           </Badge>
         </div>

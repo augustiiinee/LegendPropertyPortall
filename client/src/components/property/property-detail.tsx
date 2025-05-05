@@ -108,7 +108,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
           <div className="flex flex-wrap justify-between items-start mb-2">
             <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">{property.title}</h1>
             <div>
-              <Badge variant="secondary" className="text-white">
+              <Badge className="bg-gold text-white font-medium">
                 {property.status.toUpperCase()}
               </Badge>
             </div>
