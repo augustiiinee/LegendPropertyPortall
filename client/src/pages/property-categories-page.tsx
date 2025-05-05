@@ -27,29 +27,29 @@ function CategoryCard({
 }) {
   return (
     <Link href={href}>
-      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-2xl cursor-pointer border-2 border-primary hover:border-primary">
-        {/* Image Background with Split Design - Image Shows Clearly on Top Half */}
+      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-2xl cursor-pointer">
+        {/* Bold Gold/Mustard Border Frame */}
+        <div className="absolute inset-0 border-[6px] border-primary rounded-xl z-20 pointer-events-none"></div>
+
+        {/* Image Background - Full Visibility */}
         <div className="absolute inset-0 overflow-hidden">
           <img 
             src={image} 
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          {/* Very light gradient overlay - almost transparent at top */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 transition-all duration-500"></div>
+          {/* Super light gradient only at very bottom for text readability */}
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent transition-all duration-500"></div>
         </div>
         
-        {/* Gold Pattern Overlay */}
-        <div className="absolute inset-0 bg-[url('/images/gold-pattern.svg')] bg-repeat opacity-15"></div>
+        {/* Gold Pattern Border Frame */}
+        <div className="absolute inset-0 border-[10px] border-primary/40 rounded-xl z-10 pointer-events-none group-hover:border-primary/70 transition-all duration-500"></div>
         
-        {/* Gold frame for top half of image - makes image more visible */}
-        <div className="absolute top-0 left-0 right-0 h-1/2 border-2 border-primary/20 border-b-0 rounded-t-lg"></div>
-        
-        {/* Golden Frame Corners for premium look */}
-        <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary rounded-tl-lg"></div>
-        <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary rounded-tr-lg"></div>
-        <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary rounded-bl-lg"></div>
-        <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary rounded-br-lg"></div>
+        {/* Premium Gold Corner Accents */}
+        <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-primary rounded-tl-lg z-30"></div>
+        <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-primary rounded-tr-lg z-30"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 border-b-4 border-l-4 border-primary rounded-bl-lg z-30"></div>
+        <div className="absolute bottom-0 right-0 w-24 h-24 border-b-4 border-r-4 border-primary rounded-br-lg z-30"></div>
         
         {/* Category Label - Enhanced Gold Theme */}
         <div className="absolute top-6 left-6 bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg z-10 text-sm border border-primary/80">
@@ -118,14 +118,20 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   };
   
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-xl border-2 border-primary/30 p-1">
-      {/* Gold-themed decorative elements */}
-      <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary/60 rounded-tl-lg"></div>
-      <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/60 rounded-tr-lg"></div>
-      <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/60 rounded-bl-lg"></div>
-      <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary/60 rounded-br-lg"></div>
+    <div className="relative overflow-hidden rounded-xl shadow-xl p-0">
+      {/* Bold Gold/Mustard Border Frame */}
+      <div className="absolute inset-0 border-[6px] border-primary rounded-xl z-20 pointer-events-none"></div>
       
       <div className="relative h-[500px] bg-neutral-100 rounded-lg overflow-hidden">
+        {/* Gold Pattern Border Frame */}
+        <div className="absolute inset-0 border-[10px] border-primary/40 rounded-xl z-10 pointer-events-none hover:border-primary/70 transition-all duration-500"></div>
+        
+        {/* Premium Gold Corner Accents */}
+        <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-primary rounded-tl-lg z-30"></div>
+        <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-primary rounded-tr-lg z-30"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 border-b-4 border-l-4 border-primary rounded-bl-lg z-30"></div>
+        <div className="absolute bottom-0 right-0 w-24 h-24 border-b-4 border-r-4 border-primary rounded-br-lg z-30"></div>
+
         {/* Background with parallax effect */}
         <div className="absolute inset-0 transform transition-transform duration-1000 hover:scale-105">
           {property.images && property.images.length > 0 ? (
@@ -141,11 +147,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           )}
         </div>
         
-        {/* Very light gradient overlay - almost transparent at top */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/15 to-black/70"></div>
-        
-        {/* Gold frame for top half of image to make it more visible */}
-        <div className="absolute top-0 left-0 right-0 h-1/2 border-2 border-primary/20 border-b-0 rounded-t-lg"></div>
+        {/* Super light gradient only at very bottom for text readability */}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
         
         {/* Premium Property Label */}
         <div className="absolute top-8 transform -rotate-45 -left-20 z-20">
