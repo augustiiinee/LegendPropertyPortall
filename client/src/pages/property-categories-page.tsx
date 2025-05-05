@@ -373,7 +373,7 @@ export default function PropertyCategoriesPage() {
       id: 'commercial',
       title: 'Commercial Properties',
       description: 'Office spaces, retail outlets, and other commercial real estate opportunities for your business needs.',
-      image: getFirstImageFromCategory(commercialProperties),
+      image: '/images/categories/commercial-bg.jpg',
       count: commercialProperties.length,
       href: '/properties/category/commercial'
     },
@@ -381,7 +381,7 @@ export default function PropertyCategoriesPage() {
       id: 'residential',
       title: 'Residential Properties',
       description: 'Find your dream home among our selection of houses, apartments, and residential developments.',
-      image: getFirstImageFromCategory(residentialProperties),
+      image: '/images/categories/residential-bg.jpg',
       count: residentialProperties.length,
       href: '/properties/category/residential'
     },
@@ -389,7 +389,7 @@ export default function PropertyCategoriesPage() {
       id: 'land',
       title: 'Land',
       description: 'Investment opportunities in prime land for development or agricultural purposes.',
-      image: getFirstImageFromCategory(landProperties),
+      image: '/images/categories/land-bg.jpg',
       count: landProperties.length,
       href: '/properties/category/land'
     }
