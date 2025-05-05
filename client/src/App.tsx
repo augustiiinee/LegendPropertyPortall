@@ -79,7 +79,9 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={() => HomePage()} />
-      <Route path="/properties" component={PropertiesPage} />
+      <Route path="/properties" component={PropertyCategoriesPage} />
+      <Route path="/properties/all" component={PropertiesPage} />
+      <Route path="/properties/category/:category" component={PropertyCategoryPage} />
       <Route path="/property/:id" component={PropertyDetailPage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/services" component={ServicesPage} />

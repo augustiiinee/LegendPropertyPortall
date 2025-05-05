@@ -239,6 +239,14 @@ export default function PropertyCategoriesPage() {
             ))}
           </div>
           
+          <div className="text-center mb-16">
+            <Link href="/properties/all">
+              <Button size="lg" className="mx-auto">
+                View All Properties
+              </Button>
+            </Link>
+          </div>
+          
           {/* Commercial Properties Showcase */}
           {commercialProperties.length > 0 && (
             <div className="mt-16">

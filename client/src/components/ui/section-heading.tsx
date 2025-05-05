@@ -14,14 +14,15 @@ export default function SectionHeading({
   description, 
   alignment = 'left',
   titleClass,
-  descriptionClass
+  descriptionClass,
+  className
 }: SectionHeadingProps) {
   return (
     <div className={cn('mb-8', {
       'text-left': alignment === 'left',
       'text-center': alignment === 'center',
       'text-right': alignment === 'right',
-    })}>
+    }, className)}>
       <h2 className={cn("text-3xl md:text-4xl font-montserrat font-bold text-primary mb-4", titleClass)}>{title}</h2>
       {description && <p className={cn("text-lg text-neutral-dark max-w-3xl mx-auto", descriptionClass)}>{description}</p>}
     </div>
