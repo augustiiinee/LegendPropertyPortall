@@ -149,6 +149,20 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 </div>
               </div>
             </div>
+          ) : property.title.includes('Finance House') ? (
+            <div className="mb-4">
+              <h3 className="text-xl font-semibold mb-2 text-gold">Pricing:</h3>
+              <div className="flex flex-col space-y-2">
+                <div className="flex items-center">
+                  <span className="mr-2 text-neutral-dark font-medium">Rent:</span>
+                  <span className="text-primary font-bold text-xl">Ksh 85 / Sqft</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
+                  <span className="text-primary font-bold text-xl">Ksh 30 / Sqft</span>
+                </div>
+              </div>
+            </div>
           ) : (
             <div className="flex flex-wrap items-center mb-2">
               <span className="text-primary font-bold text-2xl md:text-3xl mr-4">Ksh {property.price.toLocaleString()}</span>

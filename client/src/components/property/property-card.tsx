@@ -38,6 +38,15 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           <span className="text-primary text-sm">Service: Ksh 25/Sqft</span>
         </div>
       );
+    }
+    // Special case for Finance House property
+    else if (property.title.includes('Finance House')) {
+      return (
+        <div className="flex flex-col">
+          <span className="text-primary font-bold text-base">Rent: Ksh 85/Sqft</span>
+          <span className="text-primary text-sm">Service: Ksh 30/Sqft</span>
+        </div>
+      );
     } 
     else if (property.status === "For Lease" || property.status === "For Rent") {
       return `Ksh ${formattedPrice}/month`;
