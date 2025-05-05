@@ -40,13 +40,13 @@ function CategoryCard({
           />
         </div>
         
-        {/* Category Label - Enhanced Gold Theme */}
-        <div className="absolute top-6 left-6 bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg z-10 text-sm border border-primary/80">
+        {/* Category Label - Enhanced Gold Theme with Logo Yellow */}
+        <div className="absolute top-6 left-6 bg-[#D99B32] text-white px-6 py-2 rounded-full font-bold shadow-lg z-10 text-sm border border-[#D99B32]/80">
           {title.split(' ')[0]}
         </div>
         
-        {/* Property Count Badge - Enhanced Gold Theme */}
-        <div className="absolute top-6 right-6 bg-white text-primary px-4 py-2 rounded-full text-sm font-bold shadow-lg border border-primary/80">
+        {/* Property Count Badge - Enhanced Gold Theme with Logo Yellow */}
+        <div className="absolute top-6 right-6 bg-white text-[#D99B32] px-4 py-2 rounded-full text-sm font-bold shadow-lg border border-[#D99B32]/80">
           {count} {count === 1 ? 'property' : 'properties'}
         </div>
         
@@ -70,9 +70,9 @@ function CategoryCard({
               {description}
             </p>
             
-            {/* Button - Always Visible Gold-themed */}
+            {/* Button - Yellow/Gold from Logo */}
             <Button 
-              className="w-fit mt-3 bg-primary hover:bg-primary/90 text-white shadow-lg transform transition-transform hover:translate-y-[-3px] border border-primary/50"
+              className="w-fit mt-3 bg-[#D99B32] hover:bg-[#C18629] text-white shadow-lg transform transition-transform hover:translate-y-[-3px] border border-[#D99B32]/50"
             >
               View Properties
             </Button>
@@ -131,23 +131,23 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         {/* Super light gradient only at very bottom for text readability */}
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
         
-        {/* Premium Property Label */}
+        {/* Premium Property Label - Logo Yellow */}
         <div className="absolute top-8 transform -rotate-45 -left-20 z-20">
-          <div className="bg-primary text-white font-bold px-24 py-2 shadow-lg text-xs uppercase tracking-wider">
+          <div className="bg-[#D99B32] text-white font-bold px-24 py-2 shadow-lg text-xs uppercase tracking-wider">
             Premium Property
           </div>
         </div>
         
-        {/* Property count indicator - Gold themed */}
+        {/* Property count indicator - Logo Yellow */}
         <div className="absolute top-6 right-6 flex items-center">
-          <span className="text-white text-sm font-bold bg-primary border border-primary/30 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+          <span className="text-white text-sm font-bold bg-[#D99B32] border border-[#D99B32]/30 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
             {currentIndex + 1} / {properties.length}
           </span>
         </div>
         
-        {/* Property status badge - Gold themed */}
+        {/* Property status badge - Logo Yellow */}
         <div className="absolute top-6 left-16">
-          <span className="px-4 py-2 bg-white text-primary border border-primary/30 rounded-full text-sm font-bold shadow-lg">
+          <span className="px-4 py-2 bg-white text-[#D99B32] border border-[#D99B32]/30 rounded-full text-sm font-bold shadow-lg">
             {property.status}
           </span>
         </div>
@@ -158,10 +158,10 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent rounded-t-lg border-t border-primary/30"></div>
           
           <div className="relative">
-            {/* Golden Accent double lines */}
+            {/* Gold Accent double lines - Using Logo Yellow */}
             <div className="flex flex-col gap-1 mb-4">
-              <div className="w-32 h-1 bg-primary rounded-full"></div>
-              <div className="w-20 h-1 bg-primary/70 rounded-full"></div>
+              <div className="w-32 h-1 bg-[#D99B32] rounded-full"></div>
+              <div className="w-20 h-1 bg-[#D99B32]/70 rounded-full"></div>
             </div>
             
             {/* Property information with better readability */}
@@ -170,16 +170,16 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
                 <h3 className="text-white text-3xl font-bold mb-2 font-montserrat drop-shadow-md">{property.title}</h3>
                 <p className="text-white/90 text-lg mb-3 font-medium">{property.location}</p>
                 
-                {/* Property features in gold-themed pills */}
+                {/* Property features in logo yellow-themed pills */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-primary/20 border border-primary/40 text-white font-medium rounded-full text-xs">
+                  <span className="px-3 py-1 bg-[#D99B32]/20 border border-[#D99B32]/40 text-white font-medium rounded-full text-xs">
                     {property.size.toLocaleString()} sq ft
                   </span>
-                  <span className="px-3 py-1 bg-primary/20 border border-primary/40 text-white font-medium rounded-full text-xs">
+                  <span className="px-3 py-1 bg-[#D99B32]/20 border border-[#D99B32]/40 text-white font-medium rounded-full text-xs">
                     Commercial
                   </span>
                   {property.features && property.features.slice(0, 2).map((feature, idx) => (
-                    <span key={idx} className="px-3 py-1 bg-primary/20 border border-primary/40 text-white font-medium rounded-full text-xs">
+                    <span key={idx} className="px-3 py-1 bg-[#D99B32]/20 border border-[#D99B32]/40 text-white font-medium rounded-full text-xs">
                       {feature}
                     </span>
                   ))}
@@ -192,14 +192,14 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
               
               <div className="md:col-span-2 flex flex-col md:items-end gap-4">
                 <div className="flex flex-col gap-1 items-start md:items-end">
-                  <span className="text-primary/90 text-sm font-medium">PRICE</span>
-                  <div className="text-white text-2xl font-bold bg-primary/20 border border-primary/30 px-4 py-1 rounded-lg">
+                  <span className="text-[#D99B32]/90 text-sm font-medium">PRICE</span>
+                  <div className="text-white text-2xl font-bold bg-[#D99B32]/20 border border-[#D99B32]/30 px-4 py-1 rounded-lg">
                     Ksh {property.price.toLocaleString()}{property.type === 'commercial' ? ' per sq ft' : ''}
                   </div>
                 </div>
                 
                 <Link href={`/property/${property.id}`} className="w-full md:w-auto">
-                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto text-white font-semibold shadow-xl transform transition-transform hover:translate-y-[-2px] border border-primary/50">
+                  <Button className="bg-[#D99B32] hover:bg-[#C18629] w-full md:w-auto text-white font-semibold shadow-xl transform transition-transform hover:translate-y-[-2px] border border-[#D99B32]/50">
                     View Details
                   </Button>
                 </Link>
@@ -209,12 +209,12 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         </div>
       </div>
       
-      {/* Slider controls - Matching home tab styling */}
+      {/* Slider controls - Using logo yellow */}
       <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
         <Button 
           variant="outline" 
           size="icon" 
-          className="h-10 w-10 rounded-full bg-white text-primary hover:bg-gray-50 border-primary shadow-md pointer-events-auto transition-all duration-300 hover:scale-105"
+          className="h-10 w-10 rounded-full bg-white text-[#D99B32] hover:bg-gray-50 border-[#D99B32] shadow-md pointer-events-auto transition-all duration-300 hover:scale-105"
           onClick={goToPrevious}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -224,7 +224,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         <Button 
           variant="outline" 
           size="icon" 
-          className="h-10 w-10 rounded-full bg-white text-primary hover:bg-gray-50 border-primary shadow-md pointer-events-auto transition-all duration-300 hover:scale-105"
+          className="h-10 w-10 rounded-full bg-white text-[#D99B32] hover:bg-gray-50 border-[#D99B32] shadow-md pointer-events-auto transition-all duration-300 hover:scale-105"
           onClick={goToNext}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -233,7 +233,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         </Button>
       </div>
       
-      {/* Gold-themed indicators - No Grey Background */}
+      {/* Gold-themed indicators - Using logo color */}
       <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 py-2 px-6">
         {properties.map((_, index) => (
           <button
@@ -241,8 +241,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
             onClick={() => setCurrentIndex(index)}
             className={`w-4 h-4 rounded-full transition-all duration-300 ${
               index === currentIndex 
-                ? 'bg-primary scale-125 border-2 border-primary' 
-                : 'bg-white hover:bg-primary/10 border-2 border-primary/60'
+                ? 'bg-[#D99B32] scale-125 border-2 border-[#D99B32]' 
+                : 'bg-white hover:bg-[#D99B32]/10 border-2 border-[#D99B32]/60'
             }`}
           />
         ))}
@@ -377,7 +377,7 @@ export default function PropertyCategoriesPage() {
             <div className="absolute left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
             <div className="py-8">
               <Link href="/properties/all">
-                <Button size="lg" className="mx-auto bg-primary hover:bg-primary/90 text-white px-8 border border-primary/50 shadow-md">
+                <Button size="lg" className="mx-auto bg-[#D99B32] hover:bg-[#C18629] text-white px-8 border border-[#D99B32]/50 shadow-md">
                   View All Properties
                 </Button>
               </Link>
