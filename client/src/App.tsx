@@ -83,6 +83,7 @@ function Router() {
       <Route path="/properties/categories" component={PropertyCategoriesPage} />
       <Route path="/properties/all" component={PropertiesPage} />
       <Route path="/properties/category/:category" component={PropertyCategoryPage} />
+      <Route path="/properties/:id" component={PropertyDetailPage} />
       <Route path="/property/:id" component={PropertyDetailPage} />
       <Route path="/about" component={AboutPage} />
       <Route path="/services" component={ServicesPage} />
