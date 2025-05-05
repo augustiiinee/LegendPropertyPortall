@@ -273,11 +273,6 @@ export default function PropertyCard({ property }: PropertyCardProps) {
             </svg>
           </Link>
         </div>
-        
-        {/* Property Reference ID */}
-        <div className="mt-2 text-xs text-gray-500">
-          <div>Reference: PROP-{property.id.toString().padStart(4, '0')}</div>
-        </div>
       </div>
     </div>
   );
