@@ -66,6 +66,9 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <div className="flex flex-col">
           <span className="text-primary font-bold text-base">Rent: Ksh 85/Sqft</span>
           <span className="text-primary text-sm">Service: Ksh 30/Sqft</span>
+          <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-0.5 rounded-full mt-1">
+            Only 7 Spaces Available
+          </span>
         </div>
       );
     } 
