@@ -96,8 +96,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Calculate total pages
       const pages = Math.ceil(total / pageSizeNum);
       
+      // Apply client-side filtering to ensure Chuna Estate is only in residential
+      const filteredProperties = propertyList.map(property => {
+        // Ensure Chuna Estate has residential type regardless of DB value
+        if (property.title.includes('Chuna')) {
+          return { ...property, type: 'residential' };
+        }
+        return property;
+      });
+      
       res.json({
-        properties: propertyList,
+        properties: filteredProperties,
         total,
         pages
       });
@@ -126,8 +135,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get featured properties endpoint
   app.get("/api/properties/featured", async (req, res) => {
     try {
+      // Get featured properties
       const featuredProperties = await storage.getFeaturedProperties();
-      res.json(featuredProperties);
+      
+      // Apply client-side filtering to ensure Chuna Estate is only in residential
+      const filteredProperties = featuredProperties.map(property => {
+        // Ensure Chuna Estate has residential type regardless of DB value
+        if (property.title.includes('Chuna')) {
+          return { ...property, type: 'residential' };
+        }
+        return property;
+      });
+      
+      res.json(filteredProperties);
     } catch (error) {
       console.error("Error fetching featured properties:", error);
       res.status(500).json({ message: "Failed to fetch featured properties" });
@@ -149,6 +169,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       if (!property) {
         return res.status(404).json({ message: "Property not found" });
+      }
+      
+      // Ensure Chuna Estate has residential type regardless of DB value
+      if (property.title.includes('Chuna')) {
+        property.type = 'residential';
       }
       
       res.json(property);
