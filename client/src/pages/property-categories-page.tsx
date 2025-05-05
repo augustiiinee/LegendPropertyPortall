@@ -38,41 +38,41 @@ function CategoryCard({
             alt={title}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
-          {/* Premium glass-morphic overlay that enhances the image */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+          {/* Subtle border at the bottom only */}
+          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
         
-        {/* Modern Glass-morphic Status Ribbon */}
+        {/* Modern Status Ribbon */}
         <div className="absolute top-6 left-0 z-10">
-          <div className="bg-[#D99B32] backdrop-blur-sm text-white font-semibold px-6 py-2 rounded-r-full shadow-md text-sm flex items-center">
+          <div className="bg-[#D99B32] text-white font-semibold px-6 py-2 rounded-r-full shadow-md text-sm flex items-center">
             {title.split(' ')[0]}
             <div className="w-1.5 h-1.5 bg-white rounded-full ml-2 opacity-80"></div>
           </div>
         </div>
         
         {/* Property Count - Elegant Floating Badge */}
-        <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium shadow-md border border-white/20 flex items-center gap-2">
+        <div className="absolute top-6 right-6 bg-white text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium shadow-md border border-[#D99B32]/20 flex items-center gap-2">
           <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
           {count} {count === 1 ? 'property' : 'properties'}
         </div>
         
         {/* Main Content - Premium Floating Card */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-lg">
+        <div className="absolute inset-x-4 bottom-4 p-6 bg-[#D99B32] rounded-xl border border-[#D99B32]/20 shadow-lg">
           <div className="relative flex flex-col space-y-3">
-            {/* Elegant Single Gold Accent */}
-            <div className="w-16 h-0.5 bg-[#D99B32]"></div>
+            {/* Elegant Single White Accent */}
+            <div className="w-16 h-0.5 bg-white"></div>
             
             {/* Title - Modern & Elegant */}
             <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-white">{title}</h3>
             
             {/* Description - Clean & Refined */}
-            <p className="text-white/90 text-sm md:text-base font-normal">
+            <p className="text-white text-sm md:text-base font-normal">
               {description}
             </p>
             
             {/* Stylish Button with Arrow Icon */}
             <Button 
-              className="w-fit mt-3 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium shadow-md transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
+              className="w-fit mt-3 bg-white hover:bg-white/90 text-[#D99B32] font-medium shadow-md transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
             >
               <span>View Properties</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2">
@@ -196,8 +196,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
             </div>
           )}
           
-          {/* Premium overlay gradient for depth */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+          {/* Subtle bottom gradient for text readability */}
+          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
         </div>
         
         {/* Premium Diagonal Ribbon */}
@@ -209,9 +209,9 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           </div>
         </div>
         
-        {/* Property Navigation Indicator - Modern Glass Design */}
+        {/* Property Navigation Indicator */}
         <div className="absolute top-6 right-6 flex items-center">
-          <span className="bg-white/80 backdrop-blur-sm text-[#D99B32] rounded-full px-4 py-1.5 text-sm font-medium shadow-sm border border-white/30 flex items-center gap-2">
+          <span className="bg-white text-[#D99B32] rounded-full px-4 py-1.5 text-sm font-medium shadow-sm border border-[#D99B32]/20 flex items-center gap-2">
             <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
             {currentPropertyIndex + 1} of {properties.length}
           </span>
@@ -219,35 +219,35 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         
         {/* Property Status Badge - Elegant Design */}
         <div className="absolute top-6 left-24">
-          <span className="px-4 py-1.5 bg-[#D99B32]/90 text-white rounded-full text-sm font-medium shadow-md">
+          <span className="px-4 py-1.5 bg-[#D99B32] text-white rounded-full text-sm font-medium shadow-md">
             {property.status}
           </span>
         </div>
         
-        {/* Content Container - Glass Card Design */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/30 backdrop-blur-sm rounded-xl border border-white/10 shadow-xl">
+        {/* Content Container - Solid Gold Design */}
+        <div className="absolute inset-x-4 bottom-4 p-6 bg-[#D99B32] rounded-xl border border-[#D99B32]/20 shadow-xl">
           <div className="relative">
-            {/* Minimalist Gold Accent */}
-            <div className="w-20 h-0.5 bg-[#D99B32] mb-4"></div>
+            {/* Minimalist White Accent */}
+            <div className="w-20 h-0.5 bg-white mb-4"></div>
             
             {/* Property Information - Clean Layout */}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-end">
               <div className="md:col-span-3">
                 <h3 className="text-white text-2xl md:text-3xl font-bold mb-2 font-montserrat">{property.title}</h3>
-                <p className="text-white/90 text-base md:text-lg mb-3 font-medium">{property.location}</p>
+                <p className="text-white text-base md:text-lg mb-3 font-medium">{property.location}</p>
                 
                 {/* Property Features - Modern Capsules */}
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-full text-xs flex items-center">
+                  <span className="px-3 py-1 bg-white text-[#D99B32] border border-white/20 rounded-full text-xs font-medium flex items-center">
                     <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
                     {property.size.toLocaleString()} sq ft
                   </span>
-                  <span className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-full text-xs flex items-center">
+                  <span className="px-3 py-1 bg-white text-[#D99B32] border border-white/20 rounded-full text-xs font-medium flex items-center">
                     <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
                     Commercial
                   </span>
                   {property.features && property.features.slice(0, 2).map((feature, idx) => (
-                    <span key={idx} className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-full text-xs flex items-center">
+                    <span key={idx} className="px-3 py-1 bg-white text-[#D99B32] border border-white/20 rounded-full text-xs font-medium flex items-center">
                       <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
                       {feature}
                     </span>
