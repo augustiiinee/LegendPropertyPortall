@@ -3,7 +3,7 @@ import { getQueryFn } from "@/lib/queryClient";
 import { Director } from "@shared/schema";
 import SectionHeading from "@/components/ui/section-heading";
 import { Card, CardContent } from "@/components/ui/card";
-import { Building2, Mail, Award, Briefcase, MapPin } from "lucide-react";
+import { Building2, Award, Briefcase, MapPin } from "lucide-react";
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 
@@ -18,23 +18,20 @@ export default function DirectorsPage() {
     {
       id: 1,
       name: "Mr. Boniface K. Terer",
-      position: "Chief Executive Officer",
-      bio: "A very experienced Property Consultant with 31 years of experience in the property sector. He has conducted assignments involving Property Management, Valuation, and Feasibility/Investment Appraisal and Project Management. He is currently Chief Executive Officer at Legend Management Limited.",
-      email: "boniface@propertylegend.com"
+      position: "Director",
+      bio: "A very experienced Property Consultant with 31 years of experience in the property sector. He has conducted assignments involving Property Management, Valuation, and Feasibility/Investment Appraisal and Project Management. He is currently a Director at Legend Management Limited."
     },
     {
       id: 2,
       name: "Mr. David C. Ruto",
-      position: "Director, Agency Marketing & Letting",
-      bio: "A very experienced Property Consultant with 33 years' experience. He has conducted assignments involving Valuation, Property Management and Feasibility/Investment Appraisal and Project Management. He is currently a Director of Legend Management Limited in charge of Agency Marketing and Letting.",
-      email: "david@propertylegend.com"
+      position: "Director",
+      bio: "A very experienced Property Consultant with 33 years' experience. He has conducted assignments involving Valuation, Property Management and Feasibility/Investment Appraisal and Project Management. He is currently a Director of Legend Management Limited."
     },
     {
       id: 3,
       name: "Mr. Geoffrey Koros",
-      position: "Director, Property Management",
-      bio: "An experienced Property Consultant with more than 15 years' experience in the property sector. He has conducted assignments involving Valuation, Property Management, and Feasibility/Investment Appraisal and Project Management. He is currently one of the Directors of Legend Management Limited in charge of the Property Management Department.",
-      email: "geoffrey@propertylegend.com"
+      position: "Chief Executive Officer",
+      bio: "An experienced Property Consultant with more than 15 years' experience in the property sector. He has conducted assignments involving Valuation, Property Management, and Feasibility/Investment Appraisal and Project Management. He is currently the Chief Executive Officer of Legend Management Limited."
     }
   ];
 
@@ -61,7 +58,7 @@ export default function DirectorsPage() {
                 Failed to load directors information. Please try again later.
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                 {leadershipsData.map((director, index) => (
                   <Card key={director.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-amber-200">
                     <div className="h-20 bg-gradient-to-r from-amber-500 to-primary flex items-center justify-center text-white">
@@ -76,16 +73,7 @@ export default function DirectorsPage() {
                           </div>
                         </div>
                         
-                        <p className="text-neutral-700 mb-6 border-l-4 border-amber-400 pl-4 py-2 bg-amber-50">{director.bio}</p>
-                        
-                        <div className="text-sm">
-                          <div className="flex items-center gap-2 text-neutral-700">
-                            <Mail className="h-4 w-4 text-amber-600" />
-                            <a href={`mailto:${director.email}`} className="hover:text-amber-600 transition">
-                              {director.email}
-                            </a>
-                          </div>
-                        </div>
+                        <p className="text-neutral-700 mb-6 border-l-4 border-amber-400 pl-4 py-2 bg-amber-50 text-sm">{director.bio}</p>
                         
                         <div className="mt-6 pt-4 border-t border-amber-200">
                           <div className="flex items-start gap-2">
