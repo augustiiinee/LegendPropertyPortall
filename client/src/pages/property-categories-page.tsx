@@ -35,8 +35,8 @@ function CategoryCard({
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          {/* Gradient overlay - lighter at top, darker at bottom for readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/90 transition-all duration-500 group-hover:opacity-80"></div>
+          {/* Very light gradient overlay - almost transparent at top */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 transition-all duration-500"></div>
         </div>
         
         {/* Gold Pattern Overlay */}
@@ -63,8 +63,8 @@ function CategoryCard({
         
         {/* Main Content - Always Visible */}
         <div className="absolute inset-x-0 bottom-0 p-8">
-          {/* Semi-transparent background for better readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/90 to-transparent rounded-t-lg"></div>
+          {/* Very light semi-transparent background for text readability only */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent rounded-t-lg"></div>
           
           <div className="relative flex flex-col space-y-4">
             {/* Golden Double Accent Lines */}
@@ -141,8 +141,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           )}
         </div>
         
-        {/* Split design - lighter at top to show image, darker at bottom for text */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/95"></div>
+        {/* Very light gradient overlay - almost transparent at top */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/15 to-black/70"></div>
         
         {/* Gold frame for top half of image to make it more visible */}
         <div className="absolute top-0 left-0 right-0 h-1/2 border-2 border-primary/20 border-b-0 rounded-t-lg"></div>
@@ -170,8 +170,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         
         {/* Content container with enhanced readability */}
         <div className="absolute inset-x-0 bottom-0 p-8">
-          {/* Semi-transparent backdrop for better text readability */}
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm rounded-t-lg border-t border-primary/30"></div>
+          {/* Very light semi-transparent backdrop for text readability only */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-transparent rounded-t-lg border-t border-primary/30"></div>
           
           <div className="relative">
             {/* Golden Accent double lines */}
