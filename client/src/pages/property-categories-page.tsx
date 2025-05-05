@@ -28,18 +28,22 @@ function CategoryCard({
   return (
     <Link href={href}>
       <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-2xl cursor-pointer border-2 border-primary hover:border-primary">
-        {/* Image Background with Darker Overlay for Improved Visibility */}
+        {/* Image Background with Split Design - Image Shows Clearly on Top Half */}
         <div className="absolute inset-0 overflow-hidden">
           <img 
             src={image} 
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-black/80 group-hover:bg-black/90 transition-all duration-500"></div>
+          {/* Gradient overlay - lighter at top, darker at bottom for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/90 transition-all duration-500 group-hover:opacity-80"></div>
         </div>
         
-        {/* Gold Pattern Overlay for visual enhancement */}
+        {/* Gold Pattern Overlay */}
         <div className="absolute inset-0 bg-[url('/images/gold-pattern.svg')] bg-repeat opacity-15"></div>
+        
+        {/* Gold frame for top half of image - makes image more visible */}
+        <div className="absolute top-0 left-0 right-0 h-1/2 border-2 border-primary/20 border-b-0 rounded-t-lg"></div>
         
         {/* Golden Frame Corners for premium look */}
         <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary rounded-tl-lg"></div>
@@ -137,8 +141,11 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           )}
         </div>
         
-        {/* Overlay with gradient - darker for better text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30"></div>
+        {/* Split design - lighter at top to show image, darker at bottom for text */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/95"></div>
+        
+        {/* Gold frame for top half of image to make it more visible */}
+        <div className="absolute top-0 left-0 right-0 h-1/2 border-2 border-primary/20 border-b-0 rounded-t-lg"></div>
         
         {/* Premium Property Label */}
         <div className="absolute top-8 transform -rotate-45 -left-20 z-20">
