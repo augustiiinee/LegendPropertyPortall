@@ -394,17 +394,22 @@ export default function PropertyCategoriesPage() {
   const landProperties = properties.filter((p: Property) => p.type === 'land');
   
   // Find a representative image for each category
-  const getFirstImageFromCategory = (propertyList: Property[]) => {
-    const property = propertyList.find((p: Property) => p.images && p.images.length > 0);
+  const getImageForCategory = (propertyList: Property[]): string => {
+    const property = propertyList.find(p => p.images && p.images.length > 0);
     return property?.images?.[0] || '/images/placeholder-property.jpg';
   };
-  
+
+  // Get real images from the properties
+  const commercialImage = getImageForCategory(commercialProperties) || '/images/properties/nbk/nbk-1.jpg';
+  const residentialImage = getImageForCategory(residentialProperties) || '/images/properties/chuna-estate/exterior1.jpg';
+  const landImage = '/images/categories/land-bg.jpg'; // Default image for land
+
   const categories = [
     {
       id: 'commercial',
       title: 'Commercial Properties',
       description: 'Office spaces, retail outlets, and other commercial real estate opportunities for your business needs.',
-      image: '/images/categories/commercial-bg.jpg',
+      image: commercialImage,
       count: commercialProperties.length,
       href: '/properties/category/commercial'
     },
@@ -412,7 +417,7 @@ export default function PropertyCategoriesPage() {
       id: 'residential',
       title: 'Residential Properties',
       description: 'Find your dream home among our selection of houses, apartments, and residential developments.',
-      image: '/images/categories/residential-bg.jpg',
+      image: residentialImage,
       count: residentialProperties.length,
       href: '/properties/category/residential'
     },
@@ -420,7 +425,7 @@ export default function PropertyCategoriesPage() {
       id: 'land',
       title: 'Land',
       description: 'Investment opportunities in prime land for development or agricultural purposes.',
-      image: '/images/categories/land-bg.jpg',
+      image: landImage,
       count: landProperties.length,
       href: '/properties/category/land'
     }
