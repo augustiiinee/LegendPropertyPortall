@@ -56,8 +56,8 @@ function CategoryCard({
           {count} {count === 1 ? 'property' : 'properties'}
         </div>
         
-        {/* Main Content - Premium Floating Card with subtle blur */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
+        {/* Main Content - Premium Floating Card with very subtle blur */}
+        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/1 backdrop-blur-[1px] rounded-xl border border-white/20 shadow-lg">
           <div className="relative flex flex-col space-y-3">
             {/* Elegant Single Gold Accent */}
             <div className="w-16 h-0.5 bg-[#D99B32]"></div>
@@ -224,8 +224,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           </span>
         </div>
         
-        {/* Content Container with subtle blur */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/10 backdrop-blur-sm rounded-xl border border-white/20 shadow-xl">
+        {/* Content Container with very subtle blur */}
+        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/1 backdrop-blur-[1px] rounded-xl border border-white/20 shadow-xl">
           <div className="relative">
             {/* Minimalist Gold Accent */}
             <div className="w-20 h-0.5 bg-[#D99B32] mb-4"></div>
