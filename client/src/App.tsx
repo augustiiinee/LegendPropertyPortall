@@ -62,30 +62,6 @@ const HomePage = () => {
         <AboutSection />
         <PropertyShowcase />
         
-        {/* TEAM SECTION - DIRECTLY EMBEDDED */}
-        <section className="py-16 bg-orange-600">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center pb-2 border-b-4 border-white inline-block">OUR LEADERSHIP TEAM</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="bg-primary p-5 rounded-lg shadow-lg border-4 border-yellow-400">
-                <p className="font-bold text-yellow-300 text-xl">Mr. Boniface K. Terer</p>
-                <p className="text-white text-lg">CEO</p>
-                <p className="text-yellow-200">31 years experience</p>
-              </div>
-              <div className="bg-primary p-5 rounded-lg shadow-lg border-4 border-yellow-400">
-                <p className="font-bold text-yellow-300 text-xl">Mr. David C. Ruto</p>
-                <p className="text-white text-lg">Director, Agency</p>
-                <p className="text-yellow-200">33 years experience</p>
-              </div>
-              <div className="bg-primary p-5 rounded-lg shadow-lg border-4 border-yellow-400">
-                <p className="font-bold text-yellow-300 text-xl">Mr. Geoffrey Koros</p>
-                <p className="text-white text-lg">Director, Property Management</p>
-                <p className="text-yellow-200">15+ years experience</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        
         <ContactSection />
       </main>
       <Footer />
