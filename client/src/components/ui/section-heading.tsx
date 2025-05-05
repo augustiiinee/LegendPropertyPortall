@@ -1,11 +1,12 @@
 import { cn } from '@/lib/utils';
 
-type SectionHeadingProps = {
+export type SectionHeadingProps = {
   title: string;
   description?: string;
   alignment?: 'left' | 'center' | 'right';
   titleClass?: string;
   descriptionClass?: string;
+  className?: string;
 };
 
 export default function SectionHeading({ 

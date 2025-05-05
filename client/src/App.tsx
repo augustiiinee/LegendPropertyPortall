@@ -6,6 +6,8 @@ import NotFound from "@/pages/not-found";
 // import HomePage from "@/pages/home-page";
 import PropertiesPage from "@/pages/properties-page";
 import PropertyDetailPage from "@/pages/property-detail-page";
+import PropertyCategoriesPage from "@/pages/property-categories-page";
+import PropertyCategoryPage from "@/pages/property-category-page";
 import DirectorsPage from "@/pages/directors-page";
 import AboutPage from "@/pages/about-page";
 import Dashboard from "@/pages/admin/dashboard";
