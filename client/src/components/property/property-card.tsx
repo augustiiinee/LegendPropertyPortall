@@ -27,6 +27,10 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <div className="flex flex-col">
           <span className="text-primary font-bold text-base">Rent: Ksh 90/Sqft</span>
           <span className="text-primary text-sm">Service: Ksh 36/Sqft</span>
+          <span className="text-primary text-xs mt-1">Parking: Ksh 10,000/month</span>
+          <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-0.5 rounded-full mt-1">
+            Only 2 Spaces Available
+          </span>
         </div>
       );
     }
@@ -36,6 +40,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <div className="flex flex-col">
           <span className="text-primary font-bold text-base">Rent: Ksh 75/Sqft</span>
           <span className="text-primary text-sm">Service: Ksh 25/Sqft</span>
+          <span className="text-primary text-xs mt-1">Parking: Ksh 6,500/month</span>
         </div>
       );
     }
@@ -250,9 +255,15 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           </Link>
         </div>
         
-        {/* Property Reference ID */}
-        <div className="mt-2 text-xs text-gray-500">
-          Reference: PROP-{property.id.toString().padStart(4, '0')}
+        {/* Property Reference ID and Property Manager */}
+        <div className="mt-2 text-xs text-gray-500 flex flex-col">
+          <div>Reference: PROP-{property.id.toString().padStart(4, '0')}</div>
+          <div className="mt-1 flex items-center text-primary-dark">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+            </svg>
+            <span>Property Manager: +254746369798</span>
+          </div>
         </div>
       </div>
     </div>
