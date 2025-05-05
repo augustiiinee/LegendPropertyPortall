@@ -27,9 +27,9 @@ function CategoryCard({
 }) {
   return (
     <Link href={href}>
-      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-xl transition-all duration-500 cursor-pointer">
-        {/* Bold Gold/Mustard Border Frame - No Background */}
-        <div className="absolute inset-0 border-[6px] border-primary rounded-xl z-20 pointer-events-none"></div>
+      <div className="relative h-[450px] group rounded-lg overflow-hidden hover:shadow-xl transition-all duration-500 cursor-pointer">
+        {/* Simple border styling matching home tab */}
+        <div className="absolute inset-0 border-2 border-primary rounded-lg z-20 pointer-events-none"></div>
 
         {/* Image Background - Full Visibility with No Overlay */}
         <div className="absolute inset-0 overflow-hidden">
@@ -38,17 +38,7 @@ function CategoryCard({
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          {/* No gradient overlay at all for maximum visibility */}
         </div>
-        
-        {/* Gold Border Frame - Bright Gold with No Grey */}
-        <div className="absolute inset-0 border-[10px] border-primary/60 rounded-xl z-10 pointer-events-none group-hover:border-primary/90 transition-all duration-500"></div>
-        
-        {/* Premium Gold Corner Accents */}
-        <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-primary rounded-tl-lg z-30"></div>
-        <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-primary rounded-tr-lg z-30"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 border-b-4 border-l-4 border-primary rounded-bl-lg z-30"></div>
-        <div className="absolute bottom-0 right-0 w-24 h-24 border-b-4 border-r-4 border-primary rounded-br-lg z-30"></div>
         
         {/* Category Label - Enhanced Gold Theme */}
         <div className="absolute top-6 left-6 bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg z-10 text-sm border border-primary/80">
@@ -117,19 +107,11 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   };
   
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-xl p-0">
-      {/* Bold Gold/Mustard Border Frame */}
-      <div className="absolute inset-0 border-[6px] border-primary rounded-xl z-20 pointer-events-none"></div>
+    <div className="relative overflow-hidden rounded-lg hover:shadow-lg transition-all duration-300">
+      {/* Simple border styling matching home tab */}
+      <div className="absolute inset-0 border-2 border-primary rounded-lg z-20 pointer-events-none"></div>
       
       <div className="relative h-[500px] rounded-lg overflow-hidden">
-        {/* Gold Border Frame - Bright Gold with No Grey */}
-        <div className="absolute inset-0 border-[10px] border-primary/60 rounded-xl z-10 pointer-events-none hover:border-primary/90 transition-all duration-500"></div>
-        
-        {/* Premium Gold Corner Accents */}
-        <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-primary rounded-tl-lg z-30"></div>
-        <div className="absolute top-0 right-0 w-24 h-24 border-t-4 border-r-4 border-primary rounded-tr-lg z-30"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 border-b-4 border-l-4 border-primary rounded-bl-lg z-30"></div>
-        <div className="absolute bottom-0 right-0 w-24 h-24 border-b-4 border-r-4 border-primary rounded-br-lg z-30"></div>
 
         {/* Background with parallax effect */}
         <div className="absolute inset-0 transform transition-transform duration-1000 hover:scale-105">
@@ -227,12 +209,12 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         </div>
       </div>
       
-      {/* Slider controls - Gold themed */}
+      {/* Slider controls - Matching home tab styling */}
       <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
         <Button 
           variant="outline" 
           size="icon" 
-          className="h-12 w-12 rounded-full bg-primary/20 hover:bg-primary/40 border-primary/50 text-white shadow-lg pointer-events-auto transition-all duration-300 hover:scale-110"
+          className="h-10 w-10 rounded-full bg-white text-primary hover:bg-gray-50 border-primary shadow-md pointer-events-auto transition-all duration-300 hover:scale-105"
           onClick={goToPrevious}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -242,7 +224,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         <Button 
           variant="outline" 
           size="icon" 
-          className="h-12 w-12 rounded-full bg-primary/20 hover:bg-primary/40 border-primary/50 text-white shadow-lg pointer-events-auto transition-all duration-300 hover:scale-110"
+          className="h-10 w-10 rounded-full bg-white text-primary hover:bg-gray-50 border-primary shadow-md pointer-events-auto transition-all duration-300 hover:scale-105"
           onClick={goToNext}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -366,10 +348,11 @@ export default function PropertyCategoriesPage() {
       
       <main className="flex-grow py-16 bg-neutral-lightest">
         <div className="container mx-auto px-4">
-          {/* Categories title with gold accent */}
+          {/* Categories title with gold accent - no grey */}
           <div className="mb-12 relative">
-            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 -z-10"></div>
-            <h2 className="text-3xl font-bold text-neutral-900 pl-6 border-l-4 border-primary">Find Your Ideal Property</h2>
+            <h2 className="text-3xl font-bold text-neutral-900 border-l-4 border-primary pl-6">
+              Find Your Ideal Property
+            </h2>
             <p className="mt-4 text-neutral-700 max-w-3xl">
               Choose from our selection of premium properties across different categories designed to meet your specific requirements.
             </p>
@@ -407,17 +390,13 @@ export default function PropertyCategoriesPage() {
             <div className="mt-16">
               <div className="mb-12 relative">
                 <div className="flex flex-col">
-                  <h2 className="text-3xl font-bold text-neutral-900 font-montserrat relative inline-block">
+                  <h2 className="text-3xl font-bold text-neutral-900 font-montserrat relative inline-block border-l-4 border-primary pl-6">
                     Featured Commercial Properties
-                    <div className="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></div>
                   </h2>
-                  <p className="mt-6 text-neutral-700 max-w-3xl">
+                  <p className="mt-6 text-neutral-700 max-w-3xl pl-6">
                     Discover our prime commercial real estate opportunities perfect for your business needs.
                   </p>
                 </div>
-                
-                {/* Gold corner decorations */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 border-t-2 border-r-2 border-primary/30 rounded-tr-lg"></div>
               </div>
               
               <div className="mt-8">
