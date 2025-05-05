@@ -34,6 +34,19 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         </div>
       );
     }
+    // Special case for Uchumi House property
+    else if (property.title.includes('Uchumi House')) {
+      return (
+        <div className="flex flex-col">
+          <span className="text-primary font-bold text-base">Ground Floor: Ksh 230/Sqft</span>
+          <span className="text-primary text-sm">Other Floors: Ksh 106/Sqft</span>
+          <span className="text-primary text-sm">Service: Ksh 26/Sqft</span>
+          <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2 py-0.5 rounded-full mt-1">
+            5 Floors Available
+          </span>
+        </div>
+      );
+    }
     // Special case for Blueshield Towers property
     else if (property.title.includes('Blueshield')) {
       return (

@@ -135,6 +135,24 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 </div>
               </div>
             </div>
+          ) : property.title.includes('Uchumi House') ? (
+            <div className="mb-4">
+              <h3 className="text-xl font-semibold mb-2 text-gold">Pricing:</h3>
+              <div className="flex flex-col space-y-2">
+                <div className="flex items-center">
+                  <span className="mr-2 text-neutral-dark font-medium">Ground Floor Rent:</span>
+                  <span className="text-primary font-bold text-xl">Ksh 230 / Sqft</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2 text-neutral-dark font-medium">Other Floors Rent:</span>
+                  <span className="text-primary font-bold text-xl">Ksh {property.price} / Sqft</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
+                  <span className="text-primary font-bold text-xl">Ksh 26 / Sqft</span>
+                </div>
+              </div>
+            </div>
           ) : property.title.includes('Blueshield') ? (
             <div className="mb-4">
               <h3 className="text-xl font-semibold mb-2 text-gold">Pricing:</h3>
