@@ -80,6 +80,7 @@ function Router() {
     <Switch>
       <Route path="/" component={() => HomePage()} />
       <Route path="/properties" component={PropertyCategoriesPage} />
+      <Route path="/properties/categories" component={PropertyCategoriesPage} />
       <Route path="/properties/all" component={PropertiesPage} />
       <Route path="/properties/category/:category" component={PropertyCategoryPage} />
       <Route path="/property/:id" component={PropertyDetailPage} />
