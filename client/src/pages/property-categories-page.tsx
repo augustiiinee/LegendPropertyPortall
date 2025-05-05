@@ -27,7 +27,7 @@ function CategoryCard({
 }) {
   return (
     <Link href={href}>
-      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl cursor-pointer border border-transparent hover:border-primary/20">
+      <div className="relative h-[450px] group rounded-xl overflow-hidden shadow-xl transition-all duration-500 hover:shadow-2xl cursor-pointer border-2 border-primary/20 hover:border-primary">
         {/* Image Background with Overlay */}
         <div className="absolute inset-0 overflow-hidden">
           <img 
@@ -35,36 +35,39 @@ function CategoryCard({
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:opacity-90 transition-opacity duration-500"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/30 group-hover:opacity-95 transition-opacity duration-500"></div>
         </div>
         
-        {/* Category Label */}
-        <div className="absolute top-4 left-4 bg-primary/90 text-white px-4 py-2 rounded-full font-semibold shadow-md z-10 text-sm">
+        {/* Category Label - Gold Theme */}
+        <div className="absolute top-4 left-4 bg-primary text-white px-6 py-2 rounded-full font-bold shadow-lg z-10 text-sm border border-primary/50">
           {title.split(' ')[0]}
         </div>
         
-        {/* Property Count Badge */}
-        <div className="absolute top-4 right-4 bg-white/90 text-primary px-3 py-1 rounded-full text-sm font-bold shadow-md">
+        {/* Property Count Badge - Gold Theme */}
+        <div className="absolute top-4 right-4 bg-white text-primary px-4 py-2 rounded-full text-sm font-bold shadow-lg border border-primary/50">
           {count} {count === 1 ? 'property' : 'properties'}
         </div>
         
-        {/* Content Container */}
-        <div className="absolute inset-x-0 bottom-0 p-6 text-white transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
-          <div className="flex flex-col space-y-3">
+        {/* Content Container with Gold Theme */}
+        <div className="absolute inset-x-0 bottom-0 p-8 text-white transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
+          {/* Semi-transparent background for better readability */}
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm rounded-t-lg border-t border-primary/30"></div>
+          
+          <div className="relative flex flex-col space-y-4">
             {/* Golden Accent Line */}
-            <div className="w-12 h-1 bg-primary rounded-full transition-all duration-500 group-hover:w-20"></div>
+            <div className="w-16 h-1 bg-primary rounded-full transition-all duration-500 group-hover:w-24"></div>
             
-            {/* Title */}
-            <h3 className="text-2xl font-bold font-montserrat">{title}</h3>
+            {/* Title - Enhanced for better visibility */}
+            <h3 className="text-2xl font-bold font-montserrat text-white">{title}</h3>
             
-            {/* Description - Hidden until hover */}
-            <p className="text-white/90 text-sm max-h-0 overflow-hidden opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-500">
+            {/* Description - Always visible with better contrast */}
+            <p className="text-white text-base font-medium max-h-0 overflow-hidden opacity-0 group-hover:max-h-24 group-hover:opacity-100 transition-all duration-500 drop-shadow-md">
               {description}
             </p>
             
-            {/* Button - Visible on hover */}
+            {/* Button - Gold themed */}
             <Button 
-              className="w-fit mt-3 bg-primary hover:bg-primary/90 shadow-lg transform transition-all duration-300 opacity-0 group-hover:opacity-100"
+              className="w-fit mt-3 bg-primary hover:bg-primary/90 text-white shadow-lg transform transition-all duration-300 opacity-0 group-hover:opacity-100 border border-primary/50"
             >
               View Properties
             </Button>
@@ -99,7 +102,13 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   };
   
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-xl bg-gradient-to-r from-blue-900/10 to-blue-700/10 p-1">
+    <div className="relative overflow-hidden rounded-xl shadow-xl border-2 border-primary/30 p-1">
+      {/* Gold-themed decorative elements */}
+      <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-primary/60 rounded-tl-lg"></div>
+      <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-primary/60 rounded-tr-lg"></div>
+      <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-primary/60 rounded-bl-lg"></div>
+      <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-primary/60 rounded-br-lg"></div>
+      
       <div className="relative h-[500px] bg-neutral-100 rounded-lg overflow-hidden">
         {/* Background with parallax effect */}
         <div className="absolute inset-0 transform transition-transform duration-1000 hover:scale-105">
@@ -116,75 +125,93 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           )}
         </div>
         
-        {/* Overlay with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+        {/* Overlay with gradient - darker for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30"></div>
         
-        {/* Property count indicator */}
+        {/* Premium Property Label */}
+        <div className="absolute top-8 transform -rotate-45 -left-20 z-20">
+          <div className="bg-primary text-white font-bold px-24 py-2 shadow-lg text-xs uppercase tracking-wider">
+            Premium Property
+          </div>
+        </div>
+        
+        {/* Property count indicator - Gold themed */}
         <div className="absolute top-6 right-6 flex items-center">
-          <span className="text-white text-sm font-medium bg-primary/80 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+          <span className="text-white text-sm font-bold bg-primary border border-primary/30 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
             {currentIndex + 1} / {properties.length}
           </span>
         </div>
         
-        {/* Property status badge */}
-        <div className="absolute top-6 left-6">
-          <span className="px-4 py-2 bg-white/90 text-primary rounded-full text-sm font-bold shadow-md">
+        {/* Property status badge - Gold themed */}
+        <div className="absolute top-6 left-16">
+          <span className="px-4 py-2 bg-white text-primary border border-primary/30 rounded-full text-sm font-bold shadow-lg">
             {property.status}
           </span>
         </div>
         
-        {/* Content container */}
-        <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/90 via-black/70 to-transparent">
-          {/* Accent line */}
-          <div className="w-20 h-1 bg-primary rounded-full mb-4"></div>
+        {/* Content container with enhanced readability */}
+        <div className="absolute inset-x-0 bottom-0 p-8">
+          {/* Semi-transparent backdrop for better text readability */}
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm rounded-t-lg border-t border-primary/30"></div>
           
-          {/* Property information */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-end">
-            <div className="md:col-span-3">
-              <h3 className="text-white text-3xl font-bold mb-2 font-montserrat">{property.title}</h3>
-              <p className="text-white/80 text-lg mb-3">{property.location}</p>
-              
-              {/* Property features in pills */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-gray-800/70 text-white/90 rounded-full text-xs">
-                  {property.size.toLocaleString()} sq ft
-                </span>
-                <span className="px-3 py-1 bg-gray-800/70 text-white/90 rounded-full text-xs">
-                  Commercial
-                </span>
-                {property.features && property.features.slice(0, 2).map((feature, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-gray-800/70 text-white/90 rounded-full text-xs">
-                    {feature}
-                  </span>
-                ))}
-              </div>
-              
-              <div className="text-white/90 text-sm line-clamp-2 mb-4">
-                {property.description.substring(0, 120)}...
-              </div>
+          <div className="relative">
+            {/* Golden Accent double lines */}
+            <div className="flex flex-col gap-1 mb-4">
+              <div className="w-32 h-1 bg-primary rounded-full"></div>
+              <div className="w-20 h-1 bg-primary/70 rounded-full"></div>
             </div>
             
-            <div className="md:col-span-2 flex flex-col md:items-end gap-4">
-              <div className="text-white text-2xl font-bold">
-                Ksh {property.price.toLocaleString()}{property.type === 'commercial' ? ' per sq ft' : ''}
+            {/* Property information with better readability */}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-end">
+              <div className="md:col-span-3">
+                <h3 className="text-white text-3xl font-bold mb-2 font-montserrat drop-shadow-md">{property.title}</h3>
+                <p className="text-white/90 text-lg mb-3 font-medium">{property.location}</p>
+                
+                {/* Property features in gold-themed pills */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-primary/20 border border-primary/40 text-white font-medium rounded-full text-xs">
+                    {property.size.toLocaleString()} sq ft
+                  </span>
+                  <span className="px-3 py-1 bg-primary/20 border border-primary/40 text-white font-medium rounded-full text-xs">
+                    Commercial
+                  </span>
+                  {property.features && property.features.slice(0, 2).map((feature, idx) => (
+                    <span key={idx} className="px-3 py-1 bg-primary/20 border border-primary/40 text-white font-medium rounded-full text-xs">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="text-white text-sm mb-4 font-medium drop-shadow-md">
+                  {property.description.substring(0, 150)}...
+                </div>
               </div>
               
-              <Link href={`/property/${property.id}`} className="w-full md:w-auto">
-                <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto text-white font-semibold shadow-xl transform transition-transform hover:translate-y-[-2px]">
-                  View Details
-                </Button>
-              </Link>
+              <div className="md:col-span-2 flex flex-col md:items-end gap-4">
+                <div className="flex flex-col gap-1 items-start md:items-end">
+                  <span className="text-primary/90 text-sm font-medium">PRICE</span>
+                  <div className="text-white text-2xl font-bold bg-primary/20 border border-primary/30 px-4 py-1 rounded-lg">
+                    Ksh {property.price.toLocaleString()}{property.type === 'commercial' ? ' per sq ft' : ''}
+                  </div>
+                </div>
+                
+                <Link href={`/property/${property.id}`} className="w-full md:w-auto">
+                  <Button className="bg-primary hover:bg-primary/90 w-full md:w-auto text-white font-semibold shadow-xl transform transition-transform hover:translate-y-[-2px] border border-primary/50">
+                    View Details
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
       
-      {/* Slider controls - Larger, more prominent */}
+      {/* Slider controls - Gold themed */}
       <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
         <Button 
           variant="outline" 
           size="icon" 
-          className="h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/30 border-white/30 text-white shadow-lg pointer-events-auto transition-all duration-300 hover:scale-110"
+          className="h-12 w-12 rounded-full bg-primary/20 hover:bg-primary/40 border-primary/50 text-white shadow-lg pointer-events-auto transition-all duration-300 hover:scale-110"
           onClick={goToPrevious}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -194,7 +221,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         <Button 
           variant="outline" 
           size="icon" 
-          className="h-12 w-12 rounded-full bg-white/10 backdrop-blur-sm hover:bg-white/30 border-white/30 text-white shadow-lg pointer-events-auto transition-all duration-300 hover:scale-110"
+          className="h-12 w-12 rounded-full bg-primary/20 hover:bg-primary/40 border-primary/50 text-white shadow-lg pointer-events-auto transition-all duration-300 hover:scale-110"
           onClick={goToNext}
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -203,16 +230,16 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         </Button>
       </div>
       
-      {/* Enhanced indicators */}
-      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 bg-white/10 backdrop-blur-sm py-2 px-4 rounded-full">
+      {/* Gold-themed indicators */}
+      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 bg-primary/10 backdrop-blur-sm py-2 px-6 rounded-full border border-primary/30">
         {properties.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentIndex 
-                ? 'bg-primary scale-110' 
-                : 'bg-white/50 hover:bg-white/70'
+                ? 'bg-primary scale-125 border border-white/30' 
+                : 'bg-white/60 hover:bg-white/90 border border-primary/30'
             }`}
           />
         ))}
@@ -287,14 +314,47 @@ export default function PropertyCategoriesPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      
+      {/* Gold-themed hero section */}
+      <div className="relative py-12 bg-neutral-900 border-b-4 border-primary/80">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[url('/images/categories/commercial-bg.jpg')] bg-cover bg-center"></div>
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 font-montserrat">
+              Property Categories
+            </h1>
+            <div className="flex justify-center gap-2 my-6">
+              <div className="h-1 w-20 bg-primary rounded-full"></div>
+              <div className="h-1 w-10 bg-primary/70 rounded-full"></div>
+              <div className="h-1 w-6 bg-primary/50 rounded-full"></div>
+            </div>
+            <p className="text-lg text-white/90 mb-8">
+              Browse our exclusive property listings by category to find the perfect property for your needs.
+            </p>
+            
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-primary/30 rounded-tr-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-primary/30 rounded-bl-3xl"></div>
+          </div>
+        </div>
+      </div>
+      
       <main className="flex-grow py-16 bg-neutral-lightest">
         <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Property Categories"
-            description="Browse our property listings by category to find what suits your needs."
-          />
+          {/* Categories title with gold accent */}
+          <div className="mb-12 relative">
+            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 -z-10"></div>
+            <h2 className="text-3xl font-bold text-neutral-900 pl-6 border-l-4 border-primary">Find Your Ideal Property</h2>
+            <p className="mt-4 text-neutral-700 max-w-3xl">
+              Choose from our selection of premium properties across different categories designed to meet your specific requirements.
+            </p>
+          </div>
           
-          {/* Categories Grid */}
+          {/* Categories Grid with enhanced styling */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {categories.map((category) => (
               <CategoryCard 
@@ -308,22 +368,36 @@ export default function PropertyCategoriesPage() {
             ))}
           </div>
           
-          <div className="text-center mb-16">
-            <Link href="/properties/all">
-              <Button size="lg" className="mx-auto">
-                View All Properties
-              </Button>
-            </Link>
+          {/* "View All" button with gold theme */}
+          <div className="text-center mb-16 relative">
+            <div className="absolute left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+            <div className="py-8">
+              <Link href="/properties/all">
+                <Button size="lg" className="mx-auto bg-primary hover:bg-primary/90 text-white px-8 border border-primary/50 shadow-md">
+                  View All Properties
+                </Button>
+              </Link>
+            </div>
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
           </div>
           
-          {/* Commercial Properties Showcase */}
+          {/* Commercial Properties Showcase with gold-themed heading */}
           {commercialProperties.length > 0 && (
             <div className="mt-16">
-              <SectionHeading
-                title="Featured Commercial Properties"
-                description="Discover our prime commercial real estate opportunities."
-                className="text-left"
-              />
+              <div className="mb-12 relative">
+                <div className="flex flex-col">
+                  <h2 className="text-3xl font-bold text-neutral-900 font-montserrat relative inline-block">
+                    Featured Commercial Properties
+                    <div className="absolute -bottom-2 left-0 w-20 h-1 bg-primary rounded-full"></div>
+                  </h2>
+                  <p className="mt-6 text-neutral-700 max-w-3xl">
+                    Discover our prime commercial real estate opportunities perfect for your business needs.
+                  </p>
+                </div>
+                
+                {/* Gold corner decorations */}
+                <div className="absolute -top-4 -right-4 w-16 h-16 border-t-2 border-r-2 border-primary/30 rounded-tr-lg"></div>
+              </div>
               
               <div className="mt-8">
                 <CommercialPropertiesSlider properties={commercialProperties} />
