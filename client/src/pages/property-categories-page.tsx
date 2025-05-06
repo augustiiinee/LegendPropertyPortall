@@ -31,22 +31,8 @@ function CategoryCard({
         {/* Subtle elegant border for the entire card */}
         <div className="absolute inset-0 border border-[#D99B32]/20 rounded-xl z-20 pointer-events-none"></div>
         
-        {/* Image Section - Premium presentation (no text overlay) */}
+        {/* Image Section - No text overlay */}
         <div className="relative h-[280px] overflow-hidden">
-          {/* Property Count - Elegant Floating Badge */}
-          <div className="absolute top-4 right-4 z-10 bg-white text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium shadow-md border border-[#D99B32]/20 flex items-center gap-2">
-            <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
-            {count} {count === 1 ? 'property' : 'properties'}
-          </div>
-          
-          {/* Modern Status Ribbon */}
-          <div className="absolute top-4 left-0 z-10">
-            <div className="bg-[#D99B32] text-white font-semibold px-6 py-2 rounded-r-full shadow-md text-sm flex items-center">
-              {title.split(' ')[0]}
-              <div className="w-1.5 h-1.5 bg-white rounded-full ml-2 opacity-80"></div>
-            </div>
-          </div>
-          
           <img 
             src={image} 
             alt={title}
@@ -56,7 +42,20 @@ function CategoryCard({
         
         {/* Details Section - Below the image */}
         <div className="p-6 bg-white border-t border-[#D99B32]/20">
-          <div className="flex flex-col space-y-3">
+          <div className="flex flex-col space-y-5">
+            {/* Property Type and Count */}
+            <div className="flex items-center justify-between">
+              <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center">
+                {title.split(' ')[0]}
+                <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80"></div>
+              </div>
+              
+              <div className="bg-[#D99B32]/10 text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2">
+                <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
+                {count} {count === 1 ? 'property' : 'properties'}
+              </div>
+            </div>
+            
             {/* Elegant Single Gold Accent */}
             <div className="w-16 h-0.5 bg-[#D99B32]"></div>
             
@@ -70,7 +69,7 @@ function CategoryCard({
             
             {/* Stylish Button with Arrow Icon */}
             <Button 
-              className="w-fit mt-3 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium shadow-md transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
+              className="w-full mt-3 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium shadow-md transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
             >
               <span>View Properties</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2">
@@ -89,9 +88,6 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   // Modern slider implementation with image cycling
   const [currentPropertyIndex, setCurrentPropertyIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  // Reference to keep track of which property we're viewing
-  const [currentIndex, setCurrentIndex] = useState(0);
   
   // Set up auto-rotation for images
   useEffect(() => {
@@ -113,9 +109,6 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           prevIndex === properties.length - 1 ? 0 : prevIndex + 1
         );
       }
-      
-      // Update the global index counter for pagination dots
-      setCurrentIndex(prevIndex => prevIndex + 1);
     }, 4000);
     
     return () => clearTimeout(timer);
@@ -144,9 +137,6 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
       const imageCount = properties[prevPropertyIndex].images?.length || 0;
       setCurrentImageIndex(Math.max(0, imageCount - 1));
     }
-    
-    // Decrement the global index counter
-    setCurrentIndex(prevIndex => prevIndex - 1);
   };
   
   const goToNext = () => {
@@ -160,180 +150,145 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
       setCurrentPropertyIndex(prevIndex => prevIndex === properties.length - 1 ? 0 : prevIndex + 1);
       setCurrentImageIndex(0);
     }
-    
-    // Increment the global index counter
-    setCurrentIndex(prevIndex => prevIndex + 1);
   };
   
   return (
-    <div className="relative overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition-all duration-500">
-      {/* Subtle border for premium look */}
-      <div className="absolute inset-0 border border-[#D99B32]/20 rounded-xl z-20 pointer-events-none"></div>
+    <div className="flex flex-col rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
+      {/* Image Section - No text overlay */}
+      <div className="relative h-[320px]">
+        {/* Pure Image Display */}
+        {property.images && property.images.length > 0 ? (
+          <img 
+            src={property.images[currentImageIndex % property.images.length]} 
+            alt={`${property.title} - Image ${currentImageIndex + 1}`} 
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-neutral-200 flex items-center justify-center">
+            <p className="text-neutral-500">No image available</p>
+          </div>
+        )}
+        
+        {/* Slider Controls */}
+        <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between z-30">
+          <Button 
+            variant="outline" 
+            size="icon" 
+            className="h-10 w-10 rounded-full bg-white/80 backdrop-blur-sm text-[#D99B32] hover:bg-white border-0 shadow-lg"
+            onClick={goToPrevious}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            size="icon" 
+            className="h-10 w-10 rounded-full bg-white/80 backdrop-blur-sm text-[#D99B32] hover:bg-white border-0 shadow-lg"
+            onClick={goToNext}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </Button>
+        </div>
+        
+        {/* Image counter badge */}
+        {property.images && property.images.length > 1 && (
+          <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 text-xs font-medium">
+            {(currentImageIndex % property.images.length) + 1} / {property.images.length}
+          </div>
+        )}
+      </div>
       
-      <div className="relative h-[500px] rounded-xl overflow-hidden">
-        {/* Image slider with all property photos */}
-        <div className="absolute inset-0 transform transition-transform duration-1000 hover:scale-105">
-          {property.images && property.images.length > 0 ? (
-            <div className="relative w-full h-full">
-              <img 
-                src={property.images[currentImageIndex % property.images.length]} 
-                alt={`${property.title} - Image ${currentImageIndex + 1}`} 
-                className="w-full h-full object-cover transition-opacity duration-500"
-              />
-              
-              {/* Image counter badge */}
-              {property.images.length > 1 && (
-                <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 text-xs font-medium">
-                  {(currentImageIndex % property.images.length) + 1} / {property.images.length}
+      {/* Details Section - Below the image */}
+      <div className="p-6 bg-white border-t border-[#D99B32]/20">
+        <div className="flex flex-col space-y-4">
+          {/* Property Status and Navigation */}
+          <div className="flex items-center justify-between mb-2">
+            <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center">
+              {property.status}
+              <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80"></div>
+            </div>
+            
+            <div className="text-[#D99B32] font-medium text-sm flex items-center">
+              <span>{currentPropertyIndex + 1} of {properties.length}</span>
+            </div>
+          </div>
+          
+          {/* Gold Accent */}
+          <div className="w-16 h-0.5 bg-[#D99B32]"></div>
+          
+          {/* Property Title and Location */}
+          <div>
+            <h3 className="text-xl md:text-2xl font-bold text-primary">{property.title}</h3>
+            <p className="text-muted-foreground text-sm md:text-base">{property.location}</p>
+          </div>
+          
+          {/* Property Features */}
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-[#D99B32]/10 text-[#D99B32] rounded-full text-xs font-medium flex items-center">
+              <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
+              {property.size.toLocaleString()} sq ft
+            </span>
+            <span className="px-3 py-1 bg-[#D99B32]/10 text-[#D99B32] rounded-full text-xs font-medium flex items-center">
+              <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
+              Commercial
+            </span>
+            {property.features && property.features.slice(0, 2).map((feature, idx) => (
+              <span key={idx} className="px-3 py-1 bg-[#D99B32]/10 text-[#D99B32] rounded-full text-xs font-medium flex items-center">
+                <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
+                {feature}
+              </span>
+            ))}
+          </div>
+          
+          {/* Brief Description */}
+          <p className="text-muted-foreground text-sm">
+            {property.description.substring(0, 100)}...
+          </p>
+          
+          {/* Pricing Information */}
+          <div className="flex flex-wrap justify-between items-center">
+            <div className="space-y-1">
+              <span className="text-[#D99B32] text-xs font-medium uppercase">Price</span>
+              {property.title.includes('National Bank') ? (
+                <div className="flex flex-col">
+                  <div className="text-primary font-bold">Rent: Ksh {property.price}/Sqft</div>
+                  <div className="text-primary font-bold">Service: Ksh 36/Sqft</div>
+                </div>
+              ) : property.title.includes('Blueshield') ? (
+                <div className="flex flex-col">
+                  <div className="text-primary font-bold">Rent: Ksh {property.price}/Sqft</div>
+                  <div className="text-primary font-bold">Service: Ksh 25/Sqft</div>
+                </div>
+              ) : property.title.includes('Finance House') ? (
+                <div className="flex flex-col">
+                  <div className="text-primary font-bold">Rent: Ksh 85/Sqft</div>
+                  <div className="text-primary font-bold">Service: Ksh 30/Sqft</div>
+                </div>
+              ) : (
+                <div className="text-primary text-lg font-bold">
+                  Ksh {property.price.toLocaleString()}{property.type === 'commercial' ? ' per sq ft' : ''}
                 </div>
               )}
             </div>
-          ) : (
-            <div className="w-full h-full bg-neutral-200 flex items-center justify-center">
-              <p className="text-neutral-500">No image available</p>
-            </div>
-          )}
-          
-          {/* Subtle bottom gradient for text readability */}
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
-        </div>
-        
-        {/* Premium Diagonal Ribbon */}
-        <div className="absolute top-6 -left-16 z-20 transform rotate-[-45deg]">
-          <div className="bg-[#D99B32] text-white font-medium px-20 py-2 shadow-lg text-xs uppercase tracking-wider flex items-center justify-center">
-            <span className="mr-2">Premium</span>
-            <div className="w-1 h-1 bg-white rounded-full opacity-80"></div>
-            <span className="ml-2">Property</span>
-          </div>
-        </div>
-        
-        {/* Property Navigation Indicator */}
-        <div className="absolute top-6 right-6 flex items-center">
-          <span className="bg-white text-[#D99B32] rounded-full px-4 py-1.5 text-sm font-medium shadow-sm border border-[#D99B32]/20 flex items-center gap-2">
-            <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
-            {currentPropertyIndex + 1} of {properties.length}
-          </span>
-        </div>
-        
-        {/* Property Status Badge - Elegant Design */}
-        <div className="absolute top-6 left-24">
-          <span className="px-4 py-1.5 bg-[#D99B32] text-white rounded-full text-sm font-medium shadow-md">
-            {property.status}
-          </span>
-        </div>
-        
-        {/* Content Container with solid background for text clarity */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-xl">
-          <div className="relative">
-            {/* Minimalist Gold Accent */}
-            <div className="w-20 h-0.5 bg-[#D99B32] mb-4"></div>
             
-            {/* Property Information - Clean Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-end">
-              <div className="md:col-span-3">
-                <h3 className="text-white text-2xl md:text-3xl font-bold mb-2 font-montserrat drop-shadow-lg">{property.title}</h3>
-                <p className="text-white text-base md:text-lg mb-3 font-medium drop-shadow-md">{property.location}</p>
-                
-                {/* Property Features - Modern Capsules */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-white text-[#D99B32] border border-white/20 rounded-full text-xs font-medium flex items-center">
-                    <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
-                    {property.size.toLocaleString()} sq ft
-                  </span>
-                  <span className="px-3 py-1 bg-white text-[#D99B32] border border-white/20 rounded-full text-xs font-medium flex items-center">
-                    <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
-                    Commercial
-                  </span>
-                  {property.features && property.features.slice(0, 2).map((feature, idx) => (
-                    <span key={idx} className="px-3 py-1 bg-white text-[#D99B32] border border-white/20 rounded-full text-xs font-medium flex items-center">
-                      <span className="w-1.5 h-1.5 bg-[#D99B32] rounded-full mr-1.5"></span>
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="text-white text-sm mb-4 font-normal drop-shadow-md">
-                  {property.description.substring(0, 120)}...
-                </div>
-              </div>
-              
-              <div className="md:col-span-2 flex flex-col md:items-end gap-4">
-                <div className="flex flex-col gap-1 items-start md:items-end">
-                  <span className="text-[#D99B32] text-xs font-medium uppercase tracking-wider drop-shadow-sm">Price</span>
-                  {property.title.includes('National Bank') ? (
-                    <div className="flex flex-col gap-1">
-                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
-                        Rent: Ksh {property.price}/Sqft
-                      </div>
-                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
-                        Service: Ksh 36/Sqft
-                      </div>
-                    </div>
-                  ) : property.title.includes('Blueshield') ? (
-                    <div className="flex flex-col gap-1">
-                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
-                        Rent: Ksh {property.price}/Sqft
-                      </div>
-                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
-                        Service: Ksh 25/Sqft
-                      </div>
-                    </div>
-                  ) : property.title.includes('Finance House') ? (
-                    <div className="flex flex-col gap-1">
-                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
-                        Rent: Ksh 85/Sqft
-                      </div>
-                      <div className="text-white text-sm md:text-base font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-3 py-1 rounded-lg shadow-sm">
-                        Service: Ksh 30/Sqft
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="text-white text-xl md:text-2xl font-bold bg-[#D99B32]/40 border border-[#D99B32]/40 px-4 py-1 rounded-lg shadow-sm">
-                      Ksh {property.price.toLocaleString()}{property.type === 'commercial' ? ' per sq ft' : ''}
-                    </div>
-                  )}
-                </div>
-                
-                <Link href={`/property/${property.id}`} className="w-full md:w-auto">
-                  <Button className="bg-[#D99B32] hover:bg-[#D99B32]/90 w-full md:w-auto text-white font-medium shadow-md transition-all duration-300 rounded-full px-6 py-2 border-none">
-                    <span>View Details</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2">
-                      <path d="m9 18 6-6-6-6"/>
-                    </svg>
-                  </Button>
-                </Link>
-              </div>
-            </div>
+            <Link href={`/property/${property.id}`} className="mt-2">
+              <Button className="bg-[#D99B32] hover:bg-[#D99B32]/90 text-white rounded-full px-6 py-2">
+                <span>Details</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
       
-      {/* Slider Controls - Modern Design */}
-      <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between pointer-events-none">
-        <Button 
-          variant="outline" 
-          size="icon" 
-          className="h-12 w-12 rounded-full bg-white/80 backdrop-blur-sm text-[#D99B32] hover:bg-white border-0 shadow-lg pointer-events-auto transition-all duration-300 hover:scale-105"
-          onClick={goToPrevious}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="m15 18-6-6 6-6"/>
-          </svg>
-        </Button>
-        <Button 
-          variant="outline" 
-          size="icon" 
-          className="h-12 w-12 rounded-full bg-white/80 backdrop-blur-sm text-[#D99B32] hover:bg-white border-0 shadow-lg pointer-events-auto transition-all duration-300 hover:scale-105"
-          onClick={goToNext}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-            <path d="m9 18 6-6-6-6"/>
-          </svg>
-        </Button>
-      </div>
-      
-      {/* Pagination Indicators - Modern Minimalist */}
-      <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 py-2">
+      {/* Pagination Indicators */}
+      <div className="bg-white pt-0 pb-4 flex justify-center gap-2">
         {properties.map((_, index) => (
           <button
             key={index}
@@ -341,9 +296,9 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
               setCurrentPropertyIndex(index);
               setCurrentImageIndex(0);
             }}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentPropertyIndex 
-                ? 'bg-[#D99B32] scale-125 w-6' 
+                ? 'bg-[#D99B32] scale-125 w-4' 
                 : 'bg-gray-300 hover:bg-[#D99B32]/60'
             }`}
             aria-label={`Go to property ${index + 1}`}
