@@ -28,59 +28,31 @@ function CategoryCard({
 }) {
   // Get the category type (first word of the title)
   const categoryType = title.split(' ')[0];
+  const titleColor = categoryType === 'Commercial' ? 'text-[#D99B32]' : 'text-[#2C3E50]';
   
   return (
     <Link href={href}>
-      <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
-        {/* Subtle elegant border for the entire card */}
-        <div className="absolute inset-0 border border-[#D99B32]/20 hover:border-[#D99B32]/40 rounded-xl z-20 pointer-events-none transition-colors duration-500"></div>
-        
-        {/* Image Section - Simple, clean version without overlays */}
-        <div className="relative h-[280px] overflow-hidden">
-          {/* Main image with subtle hover effect */}
-          <img 
-            src={image} 
-            alt={title}
-            className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
-          />
-        </div>
-        
-        {/* Details Section - Below the image */}
-        <div className="p-6 bg-white border-t border-[#D99B32]/20">
-          <div className="flex flex-col space-y-5">
-            {/* Property Type and Count */}
-            <div className="flex items-center justify-between">
-              <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center transform transition-transform duration-300 group-hover:scale-105">
-                {categoryType}
-                <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80 animate-pulse-subtle"></div>
-              </div>
-              
-              <div className="bg-[#D99B32]/10 text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 transition-all duration-300 group-hover:bg-[#D99B32]/20">
-                <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full animate-pulse-subtle"></span>
-                {count} {count === 1 ? 'property' : 'properties'}
-              </div>
-            </div>
-            
-            {/* Animated Gold Accent Line */}
-            <div className="w-16 h-0.5 bg-[#D99B32] group-hover:w-24 transition-all duration-500 ease-in-out"></div>
-            
-            {/* Title with color transition */}
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-primary group-hover:text-[#D99B32] transition-colors duration-300">{title}</h3>
-            
-            {/* Description with subtle movement */}
-            <p className="text-muted-foreground text-sm md:text-base font-normal transform group-hover:translate-x-1 transition-transform duration-500 ease-in-out">
-              {description}
-            </p>
-            
-            {/* View Button to match uploaded style */}
-            <Button 
-              className="w-full mt-4 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium py-2 rounded-md transition-all duration-300"
-            >
-              {categoryType === 'Commercial' ? 'View Commercial Properties' : 
-               categoryType === 'Residential' ? 'View Residential Properties' : 
-               'View Land Properties'}
-            </Button>
-          </div>
+      <div className="group bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+        <div className="p-6">
+          {/* Gold Accent Line */}
+          <div className="w-16 h-0.5 bg-[#D99B32] mb-4"></div>
+          
+          {/* Title */}
+          <h3 className={`text-2xl font-bold ${titleColor} mb-3`}>{title}</h3>
+          
+          {/* Description */}
+          <p className="text-[#536270] mb-6">
+            {description}
+          </p>
+          
+          {/* Button */}
+          <Button 
+            className="w-full bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium py-2 rounded-md transition-all duration-300"
+          >
+            {categoryType === 'Commercial' ? 'View Commercial Properties' : 
+             categoryType === 'Residential' ? 'View Residential Properties' : 
+             'View Land Properties'}
+          </Button>
         </div>
       </div>
     </Link>
