@@ -118,6 +118,17 @@
     box-sizing: border-box;
   }
   
+  /* Text selection styling */
+  ::selection {
+    background-color: rgba(217, 155, 50, 0.3);
+    color: #D99B32;
+  }
+  
+  ::-moz-selection {
+    background-color: rgba(217, 155, 50, 0.3);
+    color: #D99B32;
+  }
+  
   /* Text shadow utility for better text readability on image backgrounds */
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.75);
