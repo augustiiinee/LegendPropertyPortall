@@ -25,19 +25,62 @@ function CategoryCard({
   count: number;
   href: string;
 }) {
+  // Get the category type (first word of the title)
+  const categoryType = title.split(' ')[0];
+  
   return (
     <Link href={href}>
-      <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col">
+      <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
         {/* Subtle elegant border for the entire card */}
-        <div className="absolute inset-0 border border-[#D99B32]/20 rounded-xl z-20 pointer-events-none"></div>
+        <div className="absolute inset-0 border border-[#D99B32]/20 hover:border-[#D99B32]/40 rounded-xl z-20 pointer-events-none transition-colors duration-500"></div>
         
-        {/* Image Section - No text overlay */}
+        {/* Image Section with enhanced interactions */}
         <div className="relative h-[280px] overflow-hidden">
+          {/* Main image with hover effect */}
           <img 
             src={image} 
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-110 filter group-hover:brightness-105"
           />
+          
+          {/* Overlay gradient appears on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          {/* Category type badge with slide-in animation */}
+          <div className="absolute bottom-4 left-4 transform transition-transform duration-500 translate-x-[-100%] group-hover:translate-x-0">
+            <span className="inline-flex items-center rounded-md bg-white/90 backdrop-blur-sm px-3 py-1.5 text-sm font-medium shadow-md">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-[#D99B32]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                {categoryType === 'Commercial' && (
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-4H8v-2h4V7h2v4h4v2h-4v4z" />
+                )}
+                {categoryType === 'Residential' && (
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                )}
+                {categoryType === 'Land' && (
+                  <path d="M20 9v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9" />
+                  // This is just a simple placeholder - customize for land
+                )}
+              </svg>
+              <span className="text-gray-700">{categoryType}</span>
+            </span>
+          </div>
+          
+          {/* Property count badge with scale effect */}
+          <div className="absolute top-4 right-4 transform transition-all duration-500 scale-0 group-hover:scale-100">
+            <span className="inline-flex items-center rounded-full bg-[#D99B32]/80 backdrop-blur-sm px-3 py-1 text-sm font-medium text-white shadow-md">
+              {count} {count === 1 ? 'property' : 'properties'}
+            </span>
+          </div>
+          
+          {/* View button appears in center on hover */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div className="bg-white/90 hover:bg-white text-[#D99B32] font-medium px-6 py-2 rounded-full transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out shadow-lg hover:shadow-xl">
+              View {title}
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-1">
+                <path d="m9 18 6-6-6-6"/>
+              </svg>
+            </div>
+          </div>
         </div>
         
         {/* Details Section - Below the image */}
@@ -45,34 +88,34 @@ function CategoryCard({
           <div className="flex flex-col space-y-5">
             {/* Property Type and Count */}
             <div className="flex items-center justify-between">
-              <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center">
-                {title.split(' ')[0]}
-                <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80"></div>
+              <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center transform transition-transform duration-300 group-hover:scale-105">
+                {categoryType}
+                <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80 animate-pulse-subtle"></div>
               </div>
               
-              <div className="bg-[#D99B32]/10 text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2">
-                <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
+              <div className="bg-[#D99B32]/10 text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2 transition-all duration-300 group-hover:bg-[#D99B32]/20">
+                <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full animate-pulse-subtle"></span>
                 {count} {count === 1 ? 'property' : 'properties'}
               </div>
             </div>
             
-            {/* Elegant Single Gold Accent */}
-            <div className="w-16 h-0.5 bg-[#D99B32]"></div>
+            {/* Animated Gold Accent Line */}
+            <div className="w-16 h-0.5 bg-[#D99B32] group-hover:w-24 transition-all duration-500 ease-in-out"></div>
             
-            {/* Title - Modern & Elegant */}
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-primary">{title}</h3>
+            {/* Title with color transition */}
+            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-primary group-hover:text-[#D99B32] transition-colors duration-300">{title}</h3>
             
-            {/* Description - Clean & Refined */}
-            <p className="text-muted-foreground text-sm md:text-base font-normal">
+            {/* Description with subtle movement */}
+            <p className="text-muted-foreground text-sm md:text-base font-normal transform group-hover:translate-x-1 transition-transform duration-500 ease-in-out">
               {description}
             </p>
             
-            {/* Stylish Button with Arrow Icon */}
+            {/* Enhanced Button with Arrow Animation */}
             <Button 
-              className="w-full mt-3 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium shadow-md transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
+              className="w-full mt-3 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
             >
               <span>View Properties</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
                 <path d="m9 18 6-6-6-6"/>
               </svg>
             </Button>
@@ -153,28 +196,54 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   };
   
   return (
-    <div className="flex flex-col rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
-      {/* Image Section - No text overlay */}
-      <div className="relative h-[320px]">
-        {/* Pure Image Display */}
+    <div className="group flex flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
+      {/* Enhanced Image Section with micro-interactions */}
+      <div className="relative h-[320px] overflow-hidden">
+        {/* Pure Image Display with hover effects */}
         {property.images && property.images.length > 0 ? (
-          <img 
-            src={property.images[currentImageIndex % property.images.length]} 
-            alt={`${property.title} - Image ${currentImageIndex + 1}`} 
-            className="w-full h-full object-cover"
-          />
+          <>
+            <img 
+              src={property.images[currentImageIndex % property.images.length]} 
+              alt={`${property.title} - Image ${currentImageIndex + 1}`} 
+              className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105 filter group-hover:brightness-105"
+            />
+            
+            {/* Elegant overlay gradient on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </>
         ) : (
-          <div className="w-full h-full bg-neutral-200 flex items-center justify-center">
-            <p className="text-neutral-500">No image available</p>
+          <div className="w-full h-full bg-neutral-light flex items-center justify-center">
+            <div className="text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-neutral mb-2 animate-pulse opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <p className="text-neutral font-medium">No image available</p>
+            </div>
           </div>
         )}
         
-        {/* Slider Controls */}
+        {/* Property type badge with scale effect */}
+        <div className="absolute top-4 left-4 transform transition-transform duration-500 group-hover:scale-110">
+          <Badge className="bg-[#D99B32]/90 backdrop-blur-sm text-white font-medium py-1 px-3 shadow-md">
+            {property.type.charAt(0).toUpperCase() + property.type.slice(1)}
+          </Badge>
+        </div>
+        
+        {/* Status badge with slide-in animation */}
+        <div className="absolute bottom-4 left-4 transform transition-transform duration-500 translate-x-[-100%] group-hover:translate-x-0">
+          <Badge variant="outline" className="bg-white/90 backdrop-blur-sm text-[#D99B32] border-[#D99B32]/50 font-medium py-1 px-3 shadow-md">
+            {property.status}
+          </Badge>
+        </div>
+        
+        {/* Enhanced Slider Controls with animations */}
         <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between z-30">
           <Button 
             variant="outline" 
             size="icon" 
-            className="h-10 w-10 rounded-full bg-white/80 backdrop-blur-sm text-[#D99B32] hover:bg-white border-0 shadow-lg"
+            className="h-10 w-10 rounded-full bg-white/80 hover:bg-white text-[#D99B32] hover:text-[#D99B32] border-none shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
             onClick={goToPrevious}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -185,7 +254,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           <Button 
             variant="outline" 
             size="icon" 
-            className="h-10 w-10 rounded-full bg-white/80 backdrop-blur-sm text-[#D99B32] hover:bg-white border-0 shadow-lg"
+            className="h-10 w-10 rounded-full bg-white/80 hover:bg-white text-[#D99B32] hover:text-[#D99B32] border-none shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
             onClick={goToNext}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -194,31 +263,43 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           </Button>
         </div>
         
-        {/* Image counter badge */}
+        {/* Enhanced image counter with animation */}
         {property.images && property.images.length > 1 && (
-          <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white rounded-full px-3 py-1 text-xs font-medium">
-            {(currentImageIndex % property.images.length) + 1} / {property.images.length}
+          <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full shadow-md transform group-hover:translate-y-[-5px] transition-transform duration-300">
+            <span className="font-medium">{(currentImageIndex % property.images.length) + 1}</span>
+            <span className="mx-1 opacity-70">/</span>
+            <span className="opacity-80">{property.images.length}</span>
           </div>
         )}
+        
+        {/* View button appears in center on hover */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="bg-white/80 backdrop-blur-sm text-[#D99B32] font-medium px-6 py-2 rounded-full transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out shadow-lg">
+            View Property Details
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-1">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </div>
+        </div>
       </div>
       
-      {/* Details Section - Below the image */}
+      {/* Enhanced Details Section with micro-interactions */}
       <div className="p-6 bg-white border-t border-[#D99B32]/20">
         <div className="flex flex-col space-y-4">
           {/* Property Status and Navigation */}
           <div className="flex items-center justify-between mb-2">
-            <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center">
+            <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center transform transition-transform duration-300 group-hover:scale-105">
               {property.status}
-              <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80"></div>
+              <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80 animate-pulse-subtle"></div>
             </div>
             
-            <div className="text-[#D99B32] font-medium text-sm flex items-center">
+            <div className="bg-[#D99B32]/10 text-[#D99B32] px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 group-hover:bg-[#D99B32]/20">
               <span>{currentPropertyIndex + 1} of {properties.length}</span>
             </div>
           </div>
           
-          {/* Gold Accent */}
-          <div className="w-16 h-0.5 bg-[#D99B32]"></div>
+          {/* Animated Gold Accent Line */}
+          <div className="w-16 h-0.5 bg-[#D99B32] group-hover:w-24 transition-all duration-500 ease-in-out"></div>
           
           {/* Property Title and Location */}
           <div>
