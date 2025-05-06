@@ -107,7 +107,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         <img 
           src={primaryImage}
           alt={property.title} 
-          className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         
         {/* Status Badge */}

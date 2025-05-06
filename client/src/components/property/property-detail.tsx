@@ -81,7 +81,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                         <img 
                           src={image} 
                           alt={`${property.title} - Image ${index + 1}`} 
-                          className="w-full h-full object-contain rounded-lg"
+                          className="w-full h-full object-cover rounded-lg"
                         />
                       </div>
                     </CarouselItem>
