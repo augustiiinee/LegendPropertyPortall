@@ -117,7 +117,7 @@ export default function PropertyCategoryPage() {
         
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
           <div className="bg-black/40 backdrop-blur-sm px-10 py-6 rounded-xl border border-white/10 shadow-xl">
-            <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center text-[#D99B32] drop-shadow-xl">
+            <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center text-[#2C3E50] hover:text-[#D99B32] transition-colors duration-300 drop-shadow-xl">
               {categoryDetails[propertyType as keyof typeof categoryDetails].title}
             </h1>
             <div className="w-24 h-1 bg-primary rounded-full mb-6 mx-auto"></div>
@@ -189,7 +189,7 @@ export default function PropertyCategoryPage() {
                         <path d="M12 17h5" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 text-[#D99B32]">No properties found</h3>
+                    <h3 className="text-xl font-semibold mb-2 text-[#2C3E50] hover:text-[#D99B32] transition-colors duration-300">No properties found</h3>
                     <p className="text-neutral-dark mb-8 max-w-2xl mx-auto">
                       We currently don't have any {propertyType} properties available. 
                       Please check back later or explore our other property categories.
@@ -203,7 +203,7 @@ export default function PropertyCategoryPage() {
                     
                     <div className="w-full h-px bg-neutral-200 my-10 max-w-md mx-auto"></div>
                     
-                    <h4 className="text-lg font-semibold text-[#D99B32] mt-10 mb-6">Featured Listings You Might Like</h4>
+                    <h4 className="text-lg font-semibold text-[#2C3E50] hover:text-[#D99B32] transition-colors duration-300 mt-10 mb-6">Featured Listings You Might Like</h4>
                   </div>
                   
                   {/* Recommended Properties Carousel */}

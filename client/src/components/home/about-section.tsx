@@ -42,7 +42,7 @@ export default function PropertyCategoriesSection() {
                   <div className="w-16 h-0.5 bg-[#D99B32]"></div>
                   
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-[#D99B32] mb-2">Commercial Properties</h3>
+                  <h3 className="text-2xl font-bold text-[#2C3E50] hover:text-[#D99B32] transition-colors duration-300 mb-2">Commercial Properties</h3>
                   
                   {/* Description */}
                   <p className="text-[#536270]">
@@ -77,7 +77,7 @@ export default function PropertyCategoriesSection() {
                   <div className="w-16 h-0.5 bg-[#D99B32]"></div>
                   
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-[#D99B32] mb-2">Residential Properties</h3>
+                  <h3 className="text-2xl font-bold text-[#2C3E50] hover:text-[#D99B32] transition-colors duration-300 mb-2">Residential Properties</h3>
                   
                   {/* Description */}
                   <p className="text-[#536270]">
@@ -112,7 +112,7 @@ export default function PropertyCategoriesSection() {
                   <div className="w-16 h-0.5 bg-[#D99B32]"></div>
                   
                   {/* Title */}
-                  <h3 className="text-2xl font-bold text-[#D99B32] mb-2">Land</h3>
+                  <h3 className="text-2xl font-bold text-[#2C3E50] hover:text-[#D99B32] transition-colors duration-300 mb-2">Land</h3>
                   
                   {/* Description */}
                   <p className="text-[#536270]">

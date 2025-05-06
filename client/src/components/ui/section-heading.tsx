@@ -23,7 +23,7 @@ export default function SectionHeading({
       'text-center': alignment === 'center',
       'text-right': alignment === 'right',
     }, className)}>
-      <h2 className={cn("text-3xl md:text-4xl font-montserrat font-bold text-[#D99B32] mb-4", titleClass)}>{title}</h2>
+      <h2 className={cn("text-3xl md:text-4xl font-montserrat font-bold text-[#2C3E50] hover:text-[#D99B32] transition-colors duration-300 mb-4", titleClass)}>{title}</h2>
       {description && <p className={cn("text-lg text-neutral-dark max-w-3xl mx-auto", descriptionClass)}>{description}</p>}
     </div>
   );
