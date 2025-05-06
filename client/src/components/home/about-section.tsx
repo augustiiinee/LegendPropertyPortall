@@ -64,8 +64,8 @@ export default function PropertyCategoriesSection() {
                 </div>
                 
                 {/* View Button */}
-                <Link href="/properties?type=commercial" className="block mt-2">
-                  <Button className="bg-transparent hover:bg-gold w-full text-primary border border-[#D99B32]/30 hover:text-white hover:border-transparent transition-all duration-300 font-semibold">
+                <Link href="/properties?type=commercial" className="block mt-4">
+                  <Button className="bg-[#D99B32] hover:bg-[#D99B32]/90 w-full text-white font-medium py-2 rounded-md transition-all duration-300">
                     View Commercial Properties
                   </Button>
                 </Link>
@@ -114,8 +114,8 @@ export default function PropertyCategoriesSection() {
                 </div>
                 
                 {/* View Button */}
-                <Link href="/properties?type=residential" className="block mt-2">
-                  <Button className="bg-transparent hover:bg-gold w-full text-primary border border-[#D99B32]/30 hover:text-white hover:border-transparent transition-all duration-300 font-semibold">
+                <Link href="/properties?type=residential" className="block mt-4">
+                  <Button className="bg-white hover:bg-gray-50 w-full text-[#536270] font-medium py-2 rounded-md border border-gray-300 transition-all duration-300">
                     View Residential Properties
                   </Button>
                 </Link>
@@ -164,8 +164,8 @@ export default function PropertyCategoriesSection() {
                 </div>
                 
                 {/* View Button */}
-                <Link href="/properties?type=land" className="block mt-2">
-                  <Button className="bg-transparent hover:bg-gold w-full text-primary border border-[#D99B32]/30 hover:text-white hover:border-transparent transition-all duration-300 font-semibold">
+                <Link href="/properties?type=land" className="block mt-4">
+                  <Button className="bg-white hover:bg-gray-50 w-full text-[#536270] font-medium py-2 rounded-md border border-gray-300 transition-all duration-300">
                     View Land Properties
                   </Button>
                 </Link>

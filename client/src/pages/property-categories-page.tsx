@@ -72,14 +72,13 @@ function CategoryCard({
               {description}
             </p>
             
-            {/* Enhanced Button with Arrow Animation */}
+            {/* View Button to match uploaded style */}
             <Button 
-              className="w-full mt-3 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium shadow-md hover:shadow-lg transition-all duration-300 rounded-full px-6 group-hover:translate-x-1"
+              className="w-full mt-4 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium py-2 rounded-md transition-all duration-300"
             >
-              <span>View Properties</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-300">
-                <path d="m9 18 6-6-6-6"/>
-              </svg>
+              {categoryType === 'Commercial' ? 'View Commercial Properties' : 
+               categoryType === 'Residential' ? 'View Residential Properties' : 
+               'View Land Properties'}
             </Button>
           </div>
         </div>
@@ -281,11 +280,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
             </div>
             
             <Link href={`/property/${property.id}`} className="mt-2">
-              <Button className="bg-[#D99B32] hover:bg-[#D99B32]/90 text-white rounded-full px-6 py-2">
-                <span>Details</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-2">
-                  <path d="m9 18 6-6-6-6"/>
-                </svg>
+              <Button className="bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium py-2 px-6 rounded-md transition-all duration-300">
+                View Details
               </Button>
             </Link>
           </div>
@@ -423,16 +419,12 @@ export default function PropertyCategoriesPage() {
                 <div className="h-full bg-gradient-to-r from-transparent via-[#D99B32]/20 to-transparent"></div>
               </div>
               
-              {/* Modern Pill Button */}
+              {/* View All Properties Button */}
               <Link href="/properties/all">
                 <Button 
-                  size="lg" 
-                  className="relative mx-auto bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium px-8 py-3 rounded-full border-none shadow-lg transition-all duration-300 hover:shadow-xl"
+                  className="bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium py-2 px-6 rounded-md transition-all duration-300"
                 >
-                  <span className="mr-2">View All Properties</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block">
-                    <path d="m9 18 6-6-6-6"/>
-                  </svg>
+                  View All Properties
                 </Button>
               </Link>
             </div>
