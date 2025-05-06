@@ -32,27 +32,52 @@ function CategoryCard({
   
   return (
     <Link href={href}>
-      <div className="group bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
-        <div className="p-6">
-          {/* Gold Accent Line */}
-          <div className="w-16 h-0.5 bg-[#D99B32] mb-4"></div>
-          
-          {/* Title */}
-          <h3 className={`text-2xl font-bold ${titleColor} mb-3`}>{title}</h3>
-          
-          {/* Description */}
-          <p className="text-[#536270] mb-6">
-            {description}
-          </p>
-          
-          {/* Button */}
-          <Button 
-            className="w-full bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium py-2 rounded-md transition-all duration-300"
-          >
-            {categoryType === 'Commercial' ? 'View Commercial Properties' : 
-             categoryType === 'Residential' ? 'View Residential Properties' : 
-             'View Land Properties'}
-          </Button>
+      <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
+        {/* Image Section */}
+        <div className="relative h-[280px] overflow-hidden">
+          <img 
+            src={image} 
+            alt={title}
+            className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
+          />
+        </div>
+        
+        {/* Details Section */}
+        <div className="p-6 bg-white border-t border-[#D99B32]/20">
+          <div className="flex flex-col space-y-4">
+            {/* Property Type and Count */}
+            <div className="flex items-center justify-between">
+              <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center">
+                {categoryType}
+                <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80"></div>
+              </div>
+              
+              <div className="bg-[#D99B32]/10 text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2">
+                <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
+                {count} {count === 1 ? 'property' : 'properties'}
+              </div>
+            </div>
+            
+            {/* Gold Accent Line */}
+            <div className="w-16 h-0.5 bg-[#D99B32]"></div>
+            
+            {/* Title */}
+            <h3 className={`text-2xl font-bold ${titleColor} mb-2`}>{title}</h3>
+            
+            {/* Description */}
+            <p className="text-[#536270]">
+              {description}
+            </p>
+            
+            {/* Button */}
+            <Button 
+              className="w-full mt-2 bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium py-2 rounded-md transition-all duration-300"
+            >
+              {categoryType === 'Commercial' ? 'View Commercial Properties' : 
+               categoryType === 'Residential' ? 'View Residential Properties' : 
+               'View Land Properties'}
+            </Button>
+          </div>
         </div>
       </div>
     </Link>
