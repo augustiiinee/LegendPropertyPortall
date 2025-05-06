@@ -33,7 +33,7 @@ function CategoryCard({
     <Link href={href}>
       <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
         {/* Image Section */}
-        <div className="relative h-[280px] overflow-hidden">
+        <div className="relative h-[360px] overflow-hidden">
           <img 
             src={image} 
             alt={title}
@@ -155,7 +155,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   return (
     <div className="group flex flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
       {/* Simple Image Section - Without overlays */}
-      <div className="relative h-[320px] overflow-hidden">
+      <div className="relative h-[360px] overflow-hidden">
         {/* Pure Image Display with subtle hover effect */}
         {property.images && property.images.length > 0 ? (
           <img 

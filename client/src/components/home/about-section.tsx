@@ -27,7 +27,7 @@ export default function PropertyCategoriesSection() {
           <Link href="/properties?type=commercial">
             <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
               {/* Image Section */}
-              <div className="relative h-[280px] overflow-hidden">
+              <div className="relative h-[360px] overflow-hidden">
                 <img 
                   src="/images/hero/hero2.jpeg" 
                   alt="Commercial Properties" 
@@ -62,7 +62,7 @@ export default function PropertyCategoriesSection() {
           <Link href="/properties?type=residential">
             <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
               {/* Image Section */}
-              <div className="relative h-[280px] overflow-hidden">
+              <div className="relative h-[360px] overflow-hidden">
                 <img 
                   src="/images/hero/hero1.jpeg" 
                   alt="Residential Properties" 
@@ -97,7 +97,7 @@ export default function PropertyCategoriesSection() {
           <Link href="/properties?type=land">
             <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
               {/* Image Section */}
-              <div className="relative h-[280px] overflow-hidden">
+              <div className="relative h-[360px] overflow-hidden">
                 <img 
                   src="/images/hero/nyayo-estate.jpg" 
                   alt="Land Properties" 
