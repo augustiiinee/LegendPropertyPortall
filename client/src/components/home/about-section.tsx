@@ -24,100 +24,145 @@ export default function PropertyCategoriesSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {/* Commercial Properties Card */}
-          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-            <div className="relative" style={{ 
-              backgroundImage: `url('/images/hero/hero2.jpeg')`, 
-              backgroundSize: 'cover', 
-              backgroundPosition: 'center'
-            }}>
-              {/* Content section */}
-              <div className="h-64 relative">
-                <div className="absolute inset-0 bg-primary/40 transition-opacity group-hover:bg-primary/30"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2 text-shadow">Commercial Properties</h3>
-                  <p className="text-white text-sm mb-4 text-shadow">
+          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col">
+            {/* Image only - no text overlay */}
+            <div className="h-64 relative overflow-hidden">
+              <img 
+                src="/images/hero/hero2.jpeg" 
+                alt="Commercial Properties" 
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </div>
+            
+            {/* Details Section - Below the image */}
+            <div className="p-6 bg-white border-t border-[#D99B32]/20 flex-grow">
+              <div className="flex flex-col space-y-4">
+                {/* Property Type and Count */}
+                <div className="flex items-center justify-between">
+                  <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center">
+                    Commercial
+                    <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80"></div>
+                  </div>
+                  
+                  <div className="bg-[#D99B32]/10 text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
+                    {commercialCount} {commercialCount === 1 ? 'property' : 'properties'}
+                  </div>
+                </div>
+                
+                {/* Gold Accent Line */}
+                <div className="w-16 h-0.5 bg-[#D99B32]"></div>
+                
+                {/* Title and Description */}
+                <div>
+                  <h3 className="text-xl font-bold text-primary mb-2">Commercial Properties</h3>
+                  <p className="text-muted-foreground text-sm">
                     Office spaces, retail outlets and commercial buildings in prime locations
                   </p>
-                  <p className="text-white font-medium text-shadow">{commercialCount} Properties</p>
                 </div>
-              </div>
-              
-              {/* Button section - Same background continues */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="relative p-4 text-center">
-                  <Link href="/properties?type=commercial" className="block">
-                    <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
-                      View Commercial Properties
-                    </Button>
-                  </Link>
-                </div>
+                
+                {/* View Button */}
+                <Link href="/properties?type=commercial" className="block mt-2">
+                  <Button className="bg-transparent hover:bg-gold w-full text-primary border border-[#D99B32]/30 hover:text-white hover:border-transparent transition-all duration-300 font-semibold">
+                    View Commercial Properties
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
           
           {/* Residential Properties Card */}
-          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-            <div className="relative" style={{ 
-              backgroundImage: `url('/images/hero/hero1.jpeg')`, 
-              backgroundSize: 'cover', 
-              backgroundPosition: 'center'
-            }}>
-              {/* Content section */}
-              <div className="h-64 relative">
-                <div className="absolute inset-0 bg-primary/40 transition-opacity group-hover:bg-primary/30"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2 text-shadow">Residential Properties</h3>
-                  <p className="text-white text-sm mb-4 text-shadow">
+          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col">
+            {/* Image only - no text overlay */}
+            <div className="h-64 relative overflow-hidden">
+              <img 
+                src="/images/hero/hero1.jpeg" 
+                alt="Residential Properties" 
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </div>
+            
+            {/* Details Section - Below the image */}
+            <div className="p-6 bg-white border-t border-[#D99B32]/20 flex-grow">
+              <div className="flex flex-col space-y-4">
+                {/* Property Type and Count */}
+                <div className="flex items-center justify-between">
+                  <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center">
+                    Residential
+                    <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80"></div>
+                  </div>
+                  
+                  <div className="bg-[#D99B32]/10 text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
+                    {residentialCount} {residentialCount === 1 ? 'property' : 'properties'}
+                  </div>
+                </div>
+                
+                {/* Gold Accent Line */}
+                <div className="w-16 h-0.5 bg-[#D99B32]"></div>
+                
+                {/* Title and Description */}
+                <div>
+                  <h3 className="text-xl font-bold text-primary mb-2">Residential Properties</h3>
+                  <p className="text-muted-foreground text-sm">
                     Luxury homes, apartments and housing developments across Kenya
                   </p>
-                  <p className="text-white font-medium text-shadow">{residentialCount} Properties</p>
                 </div>
-              </div>
-              
-              {/* Button section - Same background continues */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="relative p-4 text-center">
-                  <Link href="/properties?type=residential" className="block">
-                    <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
-                      View Residential Properties
-                    </Button>
-                  </Link>
-                </div>
+                
+                {/* View Button */}
+                <Link href="/properties?type=residential" className="block mt-2">
+                  <Button className="bg-transparent hover:bg-gold w-full text-primary border border-[#D99B32]/30 hover:text-white hover:border-transparent transition-all duration-300 font-semibold">
+                    View Residential Properties
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
           
           {/* Land Properties Card */}
-          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-            <div className="relative" style={{ 
-              backgroundImage: `url('/images/hero/nyayo-estate.jpg')`, 
-              backgroundSize: 'cover', 
-              backgroundPosition: 'center'
-            }}>
-              {/* Content section */}
-              <div className="h-64 relative">
-                <div className="absolute inset-0 bg-primary/40 transition-opacity group-hover:bg-primary/30"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2 text-shadow">Land Properties</h3>
-                  <p className="text-white text-sm mb-4 text-shadow">
+          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col">
+            {/* Image only - no text overlay */}
+            <div className="h-64 relative overflow-hidden">
+              <img 
+                src="/images/hero/nyayo-estate.jpg" 
+                alt="Land Properties" 
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              />
+            </div>
+            
+            {/* Details Section - Below the image */}
+            <div className="p-6 bg-white border-t border-[#D99B32]/20 flex-grow">
+              <div className="flex flex-col space-y-4">
+                {/* Property Type and Count */}
+                <div className="flex items-center justify-between">
+                  <div className="bg-[#D99B32]/10 text-[#D99B32] font-semibold px-4 py-1.5 rounded-full text-sm flex items-center">
+                    Land
+                    <div className="w-1.5 h-1.5 bg-[#D99B32] rounded-full ml-2 opacity-80"></div>
+                  </div>
+                  
+                  <div className="bg-[#D99B32]/10 text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
+                    {landCount} {landCount === 1 ? 'property' : 'properties'}
+                  </div>
+                </div>
+                
+                {/* Gold Accent Line */}
+                <div className="w-16 h-0.5 bg-[#D99B32]"></div>
+                
+                {/* Title and Description */}
+                <div>
+                  <h3 className="text-xl font-bold text-primary mb-2">Land Properties</h3>
+                  <p className="text-muted-foreground text-sm">
                     Prime land parcels for development, agriculture, and investment
                   </p>
-                  <p className="text-white font-medium text-shadow">{landCount} Properties</p>
                 </div>
-              </div>
-              
-              {/* Button section - Same background continues */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-black/20"></div>
-                <div className="relative p-4 text-center">
-                  <Link href="/properties?type=land" className="block">
-                    <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
-                      View Land Properties
-                    </Button>
-                  </Link>
-                </div>
+                
+                {/* View Button */}
+                <Link href="/properties?type=land" className="block mt-2">
+                  <Button className="bg-transparent hover:bg-gold w-full text-primary border border-[#D99B32]/30 hover:text-white hover:border-transparent transition-all duration-300 font-semibold">
+                    View Land Properties
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
