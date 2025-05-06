@@ -201,93 +201,147 @@ export function RecommendedPropertiesSlider() {
 }
 
 export default function PropertyShowcase() {
-  const [accordionValue, setAccordionValue] = useState<string>("item-1"); // Default to open
-  
   const { data: properties, isLoading } = useQuery<Property[]>({
     queryKey: ['/api/properties/featured'],
     // Default queryFn will be used from queryClient
   });
   
+  // Group properties by type
+  const commercialProperties = properties?.filter(p => p.type === 'commercial') || [];
+  const residentialProperties = properties?.filter(p => p.type === 'residential') || [];
+  const landProperties = properties?.filter(p => p.type === 'land') || [];
+  
   return (
-    <section id="properties" className="py-16 md:py-24 bg-neutral-lightest">
+    <section id="properties" className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <SectionHeading
-          title="Featured Properties"
-          description="Browse our exclusive selection of properties available for sale through our recently awarded tender."
-        />
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Featured Properties</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Discover our exclusive selection of premium properties available for sale and lease
+          </p>
+        </div>
         
-        <Accordion 
-          type="single" 
-          collapsible 
-          className="w-full" 
-          value={accordionValue} 
-          onValueChange={setAccordionValue}
-        >
-          <AccordionItem value="item-1" className="border-0">
-            <div className="flex justify-between items-center border-b-2 border-gray-100 pb-2">
-              <div className="flex-1">
-                <AccordionTrigger className="flex items-center py-0 hover:no-underline [&>svg]:hidden w-full justify-start cursor-pointer">
-                  <div className="flex items-center group">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2 group-hover:scale-110 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                    </svg>
-                    <h3 className="text-base font-medium text-gray-700 group-hover:text-blue-600 transition-colors duration-200">Latest Properties</h3>
-                    <ChevronDown className={`h-4 w-4 ml-2 text-blue-500 transition-transform duration-200 ${accordionValue === "item-1" ? "rotate-180" : ""} group-hover:text-blue-600`} />
+        {/* Knight Frank style tabs */}
+        <div className="mb-8 max-w-5xl mx-auto">
+          <div className="border-b border-gray-300 flex justify-center">
+            <button className="py-3 px-6 font-medium text-gray-800 border-b-2 border-gold">
+              Featured Properties
+            </button>
+          </div>
+        </div>
+        
+        {/* Main property carousel */}
+        {isLoading ? (
+          <div className="flex justify-center py-12">
+            <div className="w-12 h-12 border-4 border-gold border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        ) : properties && properties.length > 0 ? (
+          <div className="max-w-6xl mx-auto">
+            <RecommendedPropertiesSlider />
+            
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Commercial Properties Card */}
+              <div className="group relative rounded-md overflow-hidden shadow-md transition-transform hover:shadow-xl hover:-translate-y-1">
+                <div className="h-64 bg-gray-200 relative">
+                  {commercialProperties.length > 0 && (
+                    <img 
+                      src={commercialProperties[0].images?.[0] || '/images/commercial-placeholder.jpg'} 
+                      alt="Commercial Properties" 
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                    <h3 className="text-xl text-white font-bold mb-1">Commercial</h3>
+                    <p className="text-white text-sm">{commercialProperties.length} properties available</p>
                   </div>
-                </AccordionTrigger>
+                </div>
+                <div className="p-4 bg-white">
+                  <p className="text-gray-600 mb-4">Prime commercial spaces in strategic locations across Kenya</p>
+                  <Link href="/properties?type=commercial" className="inline-flex items-center text-gold hover:text-gold/80 font-semibold">
+                    View All Commercial Properties
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
-              <Link href="/properties" className="flex items-center text-blue-500 hover:text-blue-700 font-medium transition-colors text-sm ml-4">
-                View All Properties
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
+              
+              {/* Residential Properties Card */}
+              <div className="group relative rounded-md overflow-hidden shadow-md transition-transform hover:shadow-xl hover:-translate-y-1">
+                <div className="h-64 bg-gray-200 relative">
+                  {residentialProperties.length > 0 && (
+                    <img 
+                      src={residentialProperties[0].images?.[0] || '/images/residential-placeholder.jpg'} 
+                      alt="Residential Properties" 
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                    <h3 className="text-xl text-white font-bold mb-1">Residential</h3>
+                    <p className="text-white text-sm">{residentialProperties.length} properties available</p>
+                  </div>
+                </div>
+                <div className="p-4 bg-white">
+                  <p className="text-gray-600 mb-4">Exceptional homes designed for modern living across sought-after locations</p>
+                  <Link href="/properties?type=residential" className="inline-flex items-center text-gold hover:text-gold/80 font-semibold">
+                    View All Residential Properties
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+              
+              {/* Land Properties Card */}
+              <div className="group relative rounded-md overflow-hidden shadow-md transition-transform hover:shadow-xl hover:-translate-y-1">
+                <div className="h-64 bg-gray-200 relative">
+                  {landProperties.length > 0 ? (
+                    <img 
+                      src={landProperties[0].images?.[0] || '/images/land.jpg'} 
+                      alt="Land Properties" 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img 
+                      src="/images/land.jpg" 
+                      alt="Land Properties" 
+                      className="w-full h-full object-cover"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+                  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                    <h3 className="text-xl text-white font-bold mb-1">Land</h3>
+                    <p className="text-white text-sm">{landProperties.length} properties available</p>
+                  </div>
+                </div>
+                <div className="p-4 bg-white">
+                  <p className="text-gray-600 mb-4">Investment-ready land parcels with potential for development</p>
+                  <Link href="/properties?type=land" className="inline-flex items-center text-gold hover:text-gold/80 font-semibold">
+                    View All Land Properties
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
             </div>
             
-            <AccordionContent className="mt-6 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden">
-              {/* Property Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fadeIn">
-                {isLoading ? (
-                  // Skeleton loaders for properties
-                  Array.from({ length: 3 }).map((_, index) => (
-                    <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-                      <div className="h-56 bg-neutral-light animate-pulse"></div>
-                      <div className="p-5 space-y-3">
-                        <div className="h-6 bg-neutral-light animate-pulse rounded"></div>
-                        <div className="h-4 bg-neutral-light animate-pulse rounded w-3/4"></div>
-                        <div className="flex justify-between">
-                          <div className="h-4 bg-neutral-light animate-pulse rounded w-1/4"></div>
-                          <div className="h-4 bg-neutral-light animate-pulse rounded w-1/4"></div>
-                          <div className="h-4 bg-neutral-light animate-pulse rounded w-1/4"></div>
-                        </div>
-                        <div className="flex justify-between items-center">
-                          <div className="h-6 bg-neutral-light animate-pulse rounded w-1/3"></div>
-                          <div className="h-4 bg-neutral-light animate-pulse rounded w-1/3"></div>
-                        </div>
-                      </div>
-                    </div>
-                  ))
-                ) : properties && properties.length > 0 ? (
-                  properties.map((property) => (
-                    <PropertyCard key={property.id} property={property} />
-                  ))
-                ) : (
-                  <div className="col-span-1 md:col-span-2 lg:col-span-3 py-4">
-                    <div className="text-center mb-6">
-                      <p className="text-neutral-dark">No properties found matching your criteria.</p>
-                      <h4 className="text-lg font-semibold text-primary mt-6 mb-4">Featured Listings You Might Like</h4>
-                    </div>
-                    
-                    {/* Recommended Properties Carousel */}
-                    <div className="mt-4">
-                      <RecommendedPropertiesSlider />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+            <div className="mt-12 text-center">
+              <Link href="/properties" className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gold hover:bg-gold/90 md:py-4 md:text-lg md:px-10 transition-all">
+                View All Properties
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="py-12 text-center">
+            <p className="text-lg text-gray-600 mb-8">No properties available at the moment.</p>
+            <Link href="/contact" className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gold hover:bg-gold/90 md:py-4 md:text-lg md:px-10 transition-all">
+              Contact Us
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
