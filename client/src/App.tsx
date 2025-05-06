@@ -81,6 +81,7 @@ function Router() {
       <Route path="/" component={() => HomePage()} />
       <Route path="/properties" component={PropertyCategoriesPage} />
       <Route path="/properties/categories" component={PropertyCategoriesPage} />
+      <Route path="/property-categories" component={PropertyCategoriesPage} />
       <Route path="/properties/all" component={PropertiesPage} />
       <Route path="/properties/category/:category" component={PropertyCategoryPage} />
       <Route path="/properties/:id" component={PropertyDetailPage} />
