@@ -24,18 +24,20 @@ export default function PropertyCategoriesSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {/* Commercial Properties Card */}
-          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col">
-            {/* Image only - no text overlay */}
-            <div className="h-64 relative overflow-hidden">
-              <img 
-                src="/images/hero/hero2.jpeg" 
-                alt="Commercial Properties" 
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
+          <div className="group flex flex-col gap-4">
+            {/* Image Card - Completely separate with no overlay */}
+            <div className="rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:shadow-xl">
+              <div className="h-64 relative overflow-hidden">
+                <img 
+                  src="/images/hero/hero2.jpeg" 
+                  alt="Commercial Properties" 
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+              </div>
             </div>
             
-            {/* Details Section - Below the image */}
-            <div className="p-6 bg-white border-t border-[#D99B32]/20 flex-grow">
+            {/* Details Card - Completely separate */}
+            <div className="bg-white rounded-xl shadow-md p-6">
               <div className="flex flex-col space-y-4">
                 {/* Property Type and Count */}
                 <div className="flex items-center justify-between">
