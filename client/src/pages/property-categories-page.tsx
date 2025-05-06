@@ -27,48 +27,44 @@ function CategoryCard({
 }) {
   return (
     <Link href={href}>
-      <div className="relative h-[480px] group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer">
-        {/* Subtle elegant border */}
+      <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col">
+        {/* Subtle elegant border for the entire card */}
         <div className="absolute inset-0 border border-[#D99B32]/20 rounded-xl z-20 pointer-events-none"></div>
         
-        {/* Image Background - Premium presentation */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Image Section - Premium presentation (no text overlay) */}
+        <div className="relative h-[280px] overflow-hidden">
+          {/* Property Count - Elegant Floating Badge */}
+          <div className="absolute top-4 right-4 z-10 bg-white text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium shadow-md border border-[#D99B32]/20 flex items-center gap-2">
+            <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
+            {count} {count === 1 ? 'property' : 'properties'}
+          </div>
+          
+          {/* Modern Status Ribbon */}
+          <div className="absolute top-4 left-0 z-10">
+            <div className="bg-[#D99B32] text-white font-semibold px-6 py-2 rounded-r-full shadow-md text-sm flex items-center">
+              {title.split(' ')[0]}
+              <div className="w-1.5 h-1.5 bg-white rounded-full ml-2 opacity-80"></div>
+            </div>
+          </div>
+          
           <img 
             src={image} 
             alt={title}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
-          {/* Overlay for better text visibility */}
-          <div className="absolute inset-0 bg-black/10"></div>
-          {/* Gradient at the bottom for better text visibility */}
-          <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
         </div>
         
-        {/* Modern Status Ribbon */}
-        <div className="absolute top-6 left-0 z-10">
-          <div className="bg-[#D99B32] text-white font-semibold px-6 py-2 rounded-r-full shadow-md text-sm flex items-center">
-            {title.split(' ')[0]}
-            <div className="w-1.5 h-1.5 bg-white rounded-full ml-2 opacity-80"></div>
-          </div>
-        </div>
-        
-        {/* Property Count - Elegant Floating Badge */}
-        <div className="absolute top-6 right-6 bg-white text-[#D99B32] px-4 py-1.5 rounded-full text-sm font-medium shadow-md border border-[#D99B32]/20 flex items-center gap-2">
-          <span className="inline-block w-2 h-2 bg-[#D99B32] rounded-full"></span>
-          {count} {count === 1 ? 'property' : 'properties'}
-        </div>
-        
-        {/* Main Content - Premium Floating Card with solid background for text clarity */}
-        <div className="absolute inset-x-4 bottom-4 p-6 bg-black/60 backdrop-blur-sm rounded-xl border border-white/20 shadow-lg">
-          <div className="relative flex flex-col space-y-3">
+        {/* Details Section - Below the image */}
+        <div className="p-6 bg-white border-t border-[#D99B32]/20">
+          <div className="flex flex-col space-y-3">
             {/* Elegant Single Gold Accent */}
             <div className="w-16 h-0.5 bg-[#D99B32]"></div>
             
             {/* Title - Modern & Elegant */}
-            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-white drop-shadow-lg">{title}</h3>
+            <h3 className="text-2xl md:text-3xl font-bold font-montserrat text-primary">{title}</h3>
             
             {/* Description - Clean & Refined */}
-            <p className="text-white text-sm md:text-base font-normal drop-shadow-md">
+            <p className="text-muted-foreground text-sm md:text-base font-normal">
               {description}
             </p>
             

@@ -25,87 +25,99 @@ export default function PropertyCategoriesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {/* Commercial Properties Card */}
           <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-            <div className="h-64 relative">
-              <img 
-                src="/images/hero/hero2.jpeg" 
-                alt="Commercial Properties" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Commercial Properties</h3>
-                <p className="text-white text-sm mb-4">
-                  Office spaces, retail outlets and commercial buildings in prime locations
-                </p>
-                <p className="text-white font-medium">{commercialCount} Properties</p>
+            <div className="relative" style={{ 
+              backgroundImage: `url('/images/hero/hero2.jpeg')`, 
+              backgroundSize: 'cover', 
+              backgroundPosition: 'center'
+            }}>
+              {/* Content section */}
+              <div className="h-64 relative">
+                <div className="absolute inset-0 bg-primary/40 transition-opacity group-hover:bg-primary/30"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2 text-shadow">Commercial Properties</h3>
+                  <p className="text-white text-sm mb-4 text-shadow">
+                    Office spaces, retail outlets and commercial buildings in prime locations
+                  </p>
+                  <p className="text-white font-medium text-shadow">{commercialCount} Properties</p>
+                </div>
               </div>
-            </div>
-            <div className="relative overflow-hidden">
-              <div className="absolute inset-0" style={{ backgroundImage: `url('/images/hero/hero2.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
-              <div className="relative p-4 text-center">
-                <Link href="/properties?type=commercial" className="block">
-                  <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
-                    View Commercial Properties
-                  </Button>
-                </Link>
+              
+              {/* Button section - Same background continues */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="relative p-4 text-center">
+                  <Link href="/properties?type=commercial" className="block">
+                    <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
+                      View Commercial Properties
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
           
           {/* Residential Properties Card */}
           <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-            <div className="h-64 relative">
-              <img 
-                src="/images/hero/hero1.jpeg" 
-                alt="Residential Properties" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Residential Properties</h3>
-                <p className="text-white text-sm mb-4">
-                  Luxury homes, apartments and housing developments across Kenya
-                </p>
-                <p className="text-white font-medium">{residentialCount} Properties</p>
+            <div className="relative" style={{ 
+              backgroundImage: `url('/images/hero/hero1.jpeg')`, 
+              backgroundSize: 'cover', 
+              backgroundPosition: 'center'
+            }}>
+              {/* Content section */}
+              <div className="h-64 relative">
+                <div className="absolute inset-0 bg-primary/40 transition-opacity group-hover:bg-primary/30"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2 text-shadow">Residential Properties</h3>
+                  <p className="text-white text-sm mb-4 text-shadow">
+                    Luxury homes, apartments and housing developments across Kenya
+                  </p>
+                  <p className="text-white font-medium text-shadow">{residentialCount} Properties</p>
+                </div>
               </div>
-            </div>
-            <div className="relative overflow-hidden">
-              <div className="absolute inset-0" style={{ backgroundImage: `url('/images/hero/hero1.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
-              <div className="relative p-4 text-center">
-                <Link href="/properties?type=residential" className="block">
-                  <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
-                    View Residential Properties
-                  </Button>
-                </Link>
+              
+              {/* Button section - Same background continues */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="relative p-4 text-center">
+                  <Link href="/properties?type=residential" className="block">
+                    <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
+                      View Residential Properties
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
           
           {/* Land Properties Card */}
           <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-            <div className="h-64 relative">
-              <img 
-                src="/images/hero/nyayo-estate.jpg" 
-                alt="Land Properties" 
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Land Properties</h3>
-                <p className="text-white text-sm mb-4">
-                  Prime land parcels for development, agriculture, and investment
-                </p>
-                <p className="text-white font-medium">{landCount} Properties</p>
+            <div className="relative" style={{ 
+              backgroundImage: `url('/images/hero/nyayo-estate.jpg')`, 
+              backgroundSize: 'cover', 
+              backgroundPosition: 'center'
+            }}>
+              {/* Content section */}
+              <div className="h-64 relative">
+                <div className="absolute inset-0 bg-primary/40 transition-opacity group-hover:bg-primary/30"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                  <h3 className="text-2xl font-bold text-white mb-2 text-shadow">Land Properties</h3>
+                  <p className="text-white text-sm mb-4 text-shadow">
+                    Prime land parcels for development, agriculture, and investment
+                  </p>
+                  <p className="text-white font-medium text-shadow">{landCount} Properties</p>
+                </div>
               </div>
-            </div>
-            <div className="relative overflow-hidden">
-              <div className="absolute inset-0" style={{ backgroundImage: `url('/images/hero/nyayo-estate.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
-              <div className="relative p-4 text-center">
-                <Link href="/properties?type=land" className="block">
-                  <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
-                    View Land Properties
-                  </Button>
-                </Link>
+              
+              {/* Button section - Same background continues */}
+              <div className="relative">
+                <div className="absolute inset-0 bg-black/20"></div>
+                <div className="relative p-4 text-center">
+                  <Link href="/properties?type=land" className="block">
+                    <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
+                      View Land Properties
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
