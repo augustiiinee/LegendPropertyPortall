@@ -40,12 +40,15 @@ export default function PropertyCategoriesSection() {
                 <p className="text-white font-medium">{commercialCount} Properties</p>
               </div>
             </div>
-            <div className="p-4 bg-white text-center">
-              <Link href="/properties?type=commercial">
-                <Button className="bg-gold hover:bg-gold/90 w-full">
-                  View Commercial Properties
-                </Button>
-              </Link>
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0" style={{ backgroundImage: `url('/images/hero/hero2.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
+              <div className="relative p-4 text-center">
+                <Link href="/properties?type=commercial" className="block">
+                  <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
+                    View Commercial Properties
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
           
@@ -66,12 +69,15 @@ export default function PropertyCategoriesSection() {
                 <p className="text-white font-medium">{residentialCount} Properties</p>
               </div>
             </div>
-            <div className="p-4 bg-white text-center">
-              <Link href="/properties?type=residential">
-                <Button className="bg-gold hover:bg-gold/90 w-full">
-                  View Residential Properties
-                </Button>
-              </Link>
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0" style={{ backgroundImage: `url('/images/hero/hero1.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
+              <div className="relative p-4 text-center">
+                <Link href="/properties?type=residential" className="block">
+                  <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
+                    View Residential Properties
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
           
@@ -92,12 +98,15 @@ export default function PropertyCategoriesSection() {
                 <p className="text-white font-medium">{landCount} Properties</p>
               </div>
             </div>
-            <div className="p-4 bg-white text-center">
-              <Link href="/properties?type=land">
-                <Button className="bg-gold hover:bg-gold/90 w-full">
-                  View Land Properties
-                </Button>
-              </Link>
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0" style={{ backgroundImage: `url('/images/hero/nyayo-estate.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7)' }}></div>
+              <div className="relative p-4 text-center">
+                <Link href="/properties?type=land" className="block">
+                  <Button className="bg-transparent hover:bg-gold w-full text-white border border-white/30 hover:border-transparent transition-all duration-300 font-semibold">
+                    View Land Properties
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
