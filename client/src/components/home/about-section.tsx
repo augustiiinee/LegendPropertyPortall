@@ -1,76 +1,113 @@
+import { Link } from 'wouter';
 import SectionHeading from '@/components/ui/section-heading';
-import { Award, Home, CheckCircle, MapPin, Users, Briefcase } from 'lucide-react';
+import { Building, Home, MapPin } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useQuery } from '@tanstack/react-query';
+import { Property } from '@shared/types';
 
-export default function AboutSection() {
+export default function PropertyCategoriesSection() {
+  const { data: properties } = useQuery<Property[]>({
+    queryKey: ['/api/properties/featured'],
+  });
+  
+  // Get count of properties by type
+  const commercialCount = properties?.filter(p => p.type === 'commercial').length || 0;
+  const residentialCount = properties?.filter(p => p.type === 'residential').length || 0;
+  const landCount = properties?.filter(p => p.type === 'land').length || 0;
+  
   return (
-    <section id="about" className="py-16 md:py-24 bg-gold">
+    <section id="categories" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <SectionHeading
-          title="Legend Management"
-          description="Absolute Property Solutions Since 2003"
-          titleClass="text-white"
-          descriptionClass="text-white text-xl"
+          title="Explore Our Property Categories"
+          description="Discover our diverse portfolio of commercial, residential and land properties across Kenya"
         />
         
-        <div className="max-w-5xl mx-auto mt-12">
-          <div className="w-full bg-gold/20 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-              <div className="bg-white/10 p-6 rounded-lg border border-white/30 backdrop-blur-sm">
-                <h3 className="font-montserrat font-semibold text-2xl text-white mb-4 flex items-center">
-                  <Home className="h-6 w-6 mr-2" />
-                  Our Story
-                </h3>
-                <p className="text-white leading-relaxed">
-                  Founded in 2003, Legend Management Limited has established itself as a premier real estate consultancy and property management firm with over 22 years of industry experience across Kenya's major cities including Nairobi, Mombasa, and Kisumu.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          {/* Commercial Properties Card */}
+          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="h-64 relative">
+              <img 
+                src="/images/hero/hero2.jpeg" 
+                alt="Commercial Properties" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold mb-4 shadow-lg">
+                  <Building className="h-8 w-8" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Commercial</h3>
+                <p className="text-white text-sm mb-4">
+                  Office spaces, retail outlets and commercial buildings in prime locations
                 </p>
-              </div>
-              
-              <div className="bg-white/10 p-6 rounded-lg border border-white/30 backdrop-blur-sm">
-                <h3 className="font-montserrat font-semibold text-2xl text-white mb-4 flex items-center">
-                  <Award className="h-6 w-6 mr-2" />
-                  Vision & Mission
-                </h3>
-                <p className="text-white leading-relaxed">
-                  Our mission is to deliver integrated property solutions with professional integrity and industry expertise. Our vision is to be the most trusted leader in Kenya's real estate sector, enhancing the performance and longevity of our clients' investments.
-                </p>
+                <p className="text-white font-medium">{commercialCount} Properties</p>
               </div>
             </div>
-            
-            <h3 className="font-montserrat font-semibold text-2xl text-white mb-6 flex items-center">
-              <CheckCircle className="h-6 w-6 mr-2" />
-              What Sets Us Apart
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/10 rounded-lg p-5 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:bg-white/20">
-                <div className="flex items-center mb-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center text-gold shadow-md">
-                    <Briefcase className="h-6 w-6" />
-                  </div>
-                  <h4 className="font-montserrat font-medium text-lg text-white ml-4">Professional Expertise</h4>
+            <div className="p-4 bg-white text-center">
+              <Link href="/properties?type=commercial">
+                <Button className="bg-gold hover:bg-gold/90 w-full">
+                  View Commercial Properties
+                </Button>
+              </Link>
+            </div>
+          </div>
+          
+          {/* Residential Properties Card */}
+          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="h-64 relative">
+              <img 
+                src="/images/hero/hero1.jpeg" 
+                alt="Residential Properties" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold mb-4 shadow-lg">
+                  <Home className="h-8 w-8" />
                 </div>
-                <p className="text-white">Delivering exceptional property management with specialized knowledge of Kenyan real estate markets.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Residential</h3>
+                <p className="text-white text-sm mb-4">
+                  Luxury homes, apartments and housing developments across Kenya
+                </p>
+                <p className="text-white font-medium">{residentialCount} Properties</p>
               </div>
-              
-              <div className="bg-white/10 rounded-lg p-5 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:bg-white/20">
-                <div className="flex items-center mb-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center text-gold shadow-md">
-                    <Users className="h-6 w-6" />
-                  </div>
-                  <h4 className="font-montserrat font-medium text-lg text-white ml-4">Client Commitment</h4>
+            </div>
+            <div className="p-4 bg-white text-center">
+              <Link href="/properties?type=residential">
+                <Button className="bg-gold hover:bg-gold/90 w-full">
+                  View Residential Properties
+                </Button>
+              </Link>
+            </div>
+          </div>
+          
+          {/* Land Properties Card */}
+          <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="h-64 relative">
+              <img 
+                src="/images/land.jpg" 
+                alt="Land Properties" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-gold mb-4 shadow-lg">
+                  <MapPin className="h-8 w-8" />
                 </div>
-                <p className="text-white">Creating customized solutions for individuals, corporations, government agencies, and institutions.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Land</h3>
+                <p className="text-white text-sm mb-4">
+                  Prime land parcels for development, agriculture, and investment
+                </p>
+                <p className="text-white font-medium">{landCount} Properties</p>
               </div>
-              
-              <div className="bg-white/10 rounded-lg p-5 border border-white/30 backdrop-blur-sm transition-all duration-300 hover:bg-white/20">
-                <div className="flex items-center mb-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center text-gold shadow-md">
-                    <MapPin className="h-6 w-6" />
-                  </div>
-                  <h4 className="font-montserrat font-medium text-lg text-white ml-4">Nationwide Presence</h4>
-                </div>
-                <p className="text-white">Serving clients across Nairobi, Mombasa, Kisumu, Eldoret, Nakuru, and Nanyuki with local market expertise.</p>
-              </div>
+            </div>
+            <div className="p-4 bg-white text-center">
+              <Link href="/properties?type=land">
+                <Button className="bg-gold hover:bg-gold/90 w-full">
+                  View Land Properties
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
