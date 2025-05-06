@@ -77,11 +77,11 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 <CarouselContent>
                   {property.images.map((image, index) => (
                     <CarouselItem key={index}>
-                      <div className="h-64 md:h-96 w-full">
+                      <div className="h-64 md:h-96 w-full bg-gray-50 flex items-center justify-center">
                         <img 
                           src={image} 
                           alt={`${property.title} - Image ${index + 1}`} 
-                          className="w-full h-full object-cover rounded-lg"
+                          className="w-full h-full object-contain rounded-lg"
                         />
                       </div>
                     </CarouselItem>
