@@ -498,18 +498,6 @@ export default function PropertyCategoriesPage() {
                 Browse our exclusive collection of premium properties across different categories, 
                 designed to meet your specific requirements and preferences.
               </p>
-
-              {/* Modern Button */}
-              <div className="inline-block rounded-full bg-white shadow-sm p-1">
-                <div className="flex space-x-1">
-                  <span className="px-5 py-2 rounded-full bg-[#D99B32] text-white text-sm font-medium">
-                    Premium Properties
-                  </span>
-                  <span className="px-5 py-2 rounded-full text-neutral-700 text-sm">
-                    Trusted Expertise
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
