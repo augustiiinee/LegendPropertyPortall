@@ -33,7 +33,7 @@ export default function PropertyCategoriesSection() {
               />
               <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Commercial</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Commercial Properties</h3>
                 <p className="text-white text-sm mb-4">
                   Office spaces, retail outlets and commercial buildings in prime locations
                 </p>
@@ -59,7 +59,7 @@ export default function PropertyCategoriesSection() {
               />
               <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Residential</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Residential Properties</h3>
                 <p className="text-white text-sm mb-4">
                   Luxury homes, apartments and housing developments across Kenya
                 </p>
@@ -85,7 +85,7 @@ export default function PropertyCategoriesSection() {
               />
               <div className="absolute inset-0 bg-primary/60 transition-opacity group-hover:bg-primary/40"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Land</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Land Properties</h3>
                 <p className="text-white text-sm mb-4">
                   Prime land parcels for development, agriculture, and investment
                 </p>
