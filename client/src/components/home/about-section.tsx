@@ -17,10 +17,10 @@ export default function PropertyCategoriesSection() {
   return (
     <section id="categories" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <SectionHeading
-          title="Explore Our Property Categories"
-          description="Discover our diverse portfolio of commercial, residential and land properties across Kenya"
-        />
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-3">Explore Our <span className="text-[#D99B32]">Property</span> Categories</h2>
+          <p className="text-[#536270] text-lg max-w-3xl mx-auto">Discover our diverse portfolio of commercial, residential and land properties across Kenya</p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {/* Commercial Properties Card */}

@@ -392,29 +392,13 @@ export default function PropertyCategoriesPage() {
       <Header />
       <main className="flex-grow py-16 bg-white">
         <div className="container mx-auto px-4">
-          {/* Modern Section Heading with Gold Accent */}
-          <div className="mb-16 relative text-center">
-            <div className="inline-block mb-4">
-              <div className="h-0.5 w-16 bg-[#D99B32]"></div>
-              <div className="h-0.5 w-8 bg-[#D99B32]/70 ml-auto mt-1"></div>
-            </div>
-            
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 mb-4 font-montserrat leading-tight">
-              Explore Our <span className="text-[#D99B32]">Property</span> Categories
-            </h1>
-            
-            <p className="text-neutral-600 max-w-2xl mx-auto text-base leading-relaxed mb-8">
+          {/* Simple Section Heading to match uploaded style */}
+          <div className="mb-16 text-center">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-3">Explore Our <span className="text-[#D99B32]">Property</span> Categories</h1>
+            <p className="text-[#536270] text-lg max-w-3xl mx-auto">
               Browse our exclusive collection of premium properties across different categories, 
               designed to meet your specific requirements and preferences.
             </p>
-            
-            {/* Decorative Elements */}
-            <div className="hidden md:block absolute top-1/2 left-4 -translate-y-1/2 w-24 h-24">
-              <div className="w-full h-full border-l-2 border-t-2 border-[#D99B32]/20"></div>
-            </div>
-            <div className="hidden md:block absolute top-1/2 right-4 -translate-y-1/2 w-24 h-24">
-              <div className="w-full h-full border-r-2 border-b-2 border-[#D99B32]/20"></div>
-            </div>
           </div>
           
           {/* Categories Grid with Modern Styling */}
@@ -458,11 +442,8 @@ export default function PropertyCategoriesPage() {
           {commercialProperties.length > 0 && (
             <div className="mt-20">
               <div className="mb-12 text-center">
-                <span className="inline-block h-0.5 w-10 bg-[#D99B32] mb-2"></span>
-                <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 font-montserrat mb-4">
-                  Featured <span className="text-[#D99B32]">Commercial Properties</span>
-                </h2>
-                <p className="text-neutral-600 max-w-2xl mx-auto text-base leading-relaxed">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-3">Featured <span className="text-[#D99B32]">Commercial Properties</span></h2>
+                <p className="text-[#536270] text-lg max-w-3xl mx-auto">
                   Discover our premium commercial real estate opportunities perfectly suited for ambitious businesses 
                   looking for strategic locations with exceptional amenities.
                 </p>
