@@ -79,7 +79,7 @@ export default function PropertyCategoriesSection() {
           <div className="group relative rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
             <div className="h-64 relative">
               <img 
-                src="/images/land.jpg" 
+                src="/images/hero/nyayo-estate.jpg" 
                 alt="Land Properties" 
                 className="w-full h-full object-cover"
               />
