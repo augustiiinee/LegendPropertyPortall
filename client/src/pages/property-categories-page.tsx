@@ -467,53 +467,22 @@ export default function PropertyCategoriesPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      
-      {/* Modern Hero Section with Clean Yellow Background */}
-      <div className="relative py-16 sm:py-20 bg-[#FFEDC1]">
-        {/* Clean Background */}
-        <div className="absolute inset-0 bg-[#FFEDC1]"></div>
-        
-        {/* Golden Wave Decoration */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden">
-          <div className="absolute bottom-[-10px] left-0 right-0 h-24 bg-gradient-to-t from-[#D99B32]/15 to-transparent"></div>
-          <svg className="absolute bottom-0 w-full h-12 fill-[#D99B32]/20" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"></path>
-          </svg>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto">
-            {/* Modern Centered Content */}
-            <div className="text-center">
-              <div className="inline-block mb-4">
-                <div className="h-0.5 w-16 bg-[#D99B32]"></div>
-                <div className="h-0.5 w-8 bg-[#D99B32]/70 ml-auto mt-1"></div>
-              </div>
-              
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 mb-4 font-montserrat leading-tight">
-                Explore Our <span className="text-[#D99B32]">Property</span> Categories
-              </h1>
-              
-              <p className="text-base sm:text-lg text-neutral-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Browse our exclusive collection of premium properties across different categories, 
-                designed to meet your specific requirements and preferences.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
       <main className="flex-grow py-16 bg-white">
         <div className="container mx-auto px-4">
           {/* Modern Section Heading with Gold Accent */}
           <div className="mb-16 relative text-center">
-            <span className="inline-block h-0.5 w-12 bg-[#D99B32] mb-2"></span>
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 font-montserrat mb-3">
-              Find Your <span className="text-[#D99B32]">Ideal Property</span>
-            </h2>
-            <p className="text-neutral-600 max-w-2xl mx-auto text-base leading-relaxed">
-              Choose from our selection of premium properties across different categories, 
-              each meticulously vetted to ensure exceptional quality and value.
+            <div className="inline-block mb-4">
+              <div className="h-0.5 w-16 bg-[#D99B32]"></div>
+              <div className="h-0.5 w-8 bg-[#D99B32]/70 ml-auto mt-1"></div>
+            </div>
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-neutral-900 mb-4 font-montserrat leading-tight">
+              Explore Our <span className="text-[#D99B32]">Property</span> Categories
+            </h1>
+            
+            <p className="text-neutral-600 max-w-2xl mx-auto text-base leading-relaxed mb-8">
+              Browse our exclusive collection of premium properties across different categories, 
+              designed to meet your specific requirements and preferences.
             </p>
             
             {/* Decorative Elements */}
