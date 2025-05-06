@@ -39,7 +39,7 @@ function CategoryCard({
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />
           {/* Overlay for better text visibility */}
-          <div className="absolute inset-0 bg-black/30"></div>
+          <div className="absolute inset-0 bg-black/10"></div>
           {/* Gradient at the bottom for better text visibility */}
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
         </div>
