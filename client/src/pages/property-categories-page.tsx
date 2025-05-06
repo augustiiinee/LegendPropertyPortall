@@ -35,53 +35,14 @@ function CategoryCard({
         {/* Subtle elegant border for the entire card */}
         <div className="absolute inset-0 border border-[#D99B32]/20 hover:border-[#D99B32]/40 rounded-xl z-20 pointer-events-none transition-colors duration-500"></div>
         
-        {/* Image Section with enhanced interactions */}
+        {/* Image Section - Simple, clean version without overlays */}
         <div className="relative h-[280px] overflow-hidden">
-          {/* Main image with hover effect */}
+          {/* Main image with subtle hover effect */}
           <img 
             src={image} 
             alt={title}
-            className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-110 filter group-hover:brightness-105"
+            className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
           />
-          
-          {/* Overlay gradient appears on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
-          {/* Category type badge with slide-in animation */}
-          <div className="absolute bottom-4 left-4 transform transition-transform duration-500 translate-x-[-100%] group-hover:translate-x-0">
-            <span className="inline-flex items-center rounded-md bg-white/90 backdrop-blur-sm px-3 py-1.5 text-sm font-medium shadow-md">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-[#D99B32]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                {categoryType === 'Commercial' && (
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14h-2v-4H8v-2h4V7h2v4h4v2h-4v4z" />
-                )}
-                {categoryType === 'Residential' && (
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                )}
-                {categoryType === 'Land' && (
-                  <path d="M20 9v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9" />
-                  // This is just a simple placeholder - customize for land
-                )}
-              </svg>
-              <span className="text-gray-700">{categoryType}</span>
-            </span>
-          </div>
-          
-          {/* Property count badge with scale effect */}
-          <div className="absolute top-4 right-4 transform transition-all duration-500 scale-0 group-hover:scale-100">
-            <span className="inline-flex items-center rounded-full bg-[#D99B32]/80 backdrop-blur-sm px-3 py-1 text-sm font-medium text-white shadow-md">
-              {count} {count === 1 ? 'property' : 'properties'}
-            </span>
-          </div>
-          
-          {/* View button appears in center on hover */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-            <div className="bg-white/90 hover:bg-white text-[#D99B32] font-medium px-6 py-2 rounded-full transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out shadow-lg hover:shadow-xl">
-              View {title}
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-1">
-                <path d="m9 18 6-6-6-6"/>
-              </svg>
-            </div>
-          </div>
         </div>
         
         {/* Details Section - Below the image */}
@@ -198,24 +159,19 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   
   return (
     <div className="group flex flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
-      {/* Enhanced Image Section with micro-interactions */}
+      {/* Simple Image Section - Without overlays */}
       <div className="relative h-[320px] overflow-hidden">
-        {/* Pure Image Display with hover effects */}
+        {/* Pure Image Display with subtle hover effect */}
         {property.images && property.images.length > 0 ? (
-          <>
-            <img 
-              src={property.images[currentImageIndex % property.images.length]} 
-              alt={`${property.title} - Image ${currentImageIndex + 1}`} 
-              className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105 filter group-hover:brightness-105"
-            />
-            
-            {/* Elegant overlay gradient on hover */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </>
+          <img 
+            src={property.images[currentImageIndex % property.images.length]} 
+            alt={`${property.title} - Image ${currentImageIndex + 1}`} 
+            className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
+          />
         ) : (
           <div className="w-full h-full bg-neutral-light flex items-center justify-center">
             <div className="text-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-neutral mb-2 animate-pulse opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-neutral mb-2 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
                 <circle cx="8.5" cy="8.5" r="1.5" />
                 <polyline points="21 15 16 10 5 21" />
@@ -225,26 +181,12 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           </div>
         )}
         
-        {/* Property type badge with scale effect */}
-        <div className="absolute top-4 left-4 transform transition-transform duration-500 group-hover:scale-110">
-          <Badge className="bg-[#D99B32]/90 backdrop-blur-sm text-white font-medium py-1 px-3 shadow-md">
-            {property.type.charAt(0).toUpperCase() + property.type.slice(1)}
-          </Badge>
-        </div>
-        
-        {/* Status badge with slide-in animation */}
-        <div className="absolute bottom-4 left-4 transform transition-transform duration-500 translate-x-[-100%] group-hover:translate-x-0">
-          <Badge variant="outline" className="bg-white/90 backdrop-blur-sm text-[#D99B32] border-[#D99B32]/50 font-medium py-1 px-3 shadow-md">
-            {property.status}
-          </Badge>
-        </div>
-        
-        {/* Enhanced Slider Controls with animations */}
+        {/* Slider Controls - Kept for functionality but made more subtle */}
         <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between z-30">
           <Button 
             variant="outline" 
             size="icon" 
-            className="h-10 w-10 rounded-full bg-white/80 hover:bg-white text-[#D99B32] hover:text-[#D99B32] border-none shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+            className="h-10 w-10 rounded-full bg-white/60 hover:bg-white text-[#D99B32] hover:text-[#D99B32] border-none shadow-md transition-all duration-300"
             onClick={goToPrevious}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -255,32 +197,13 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
           <Button 
             variant="outline" 
             size="icon" 
-            className="h-10 w-10 rounded-full bg-white/80 hover:bg-white text-[#D99B32] hover:text-[#D99B32] border-none shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110"
+            className="h-10 w-10 rounded-full bg-white/60 hover:bg-white text-[#D99B32] hover:text-[#D99B32] border-none shadow-md transition-all duration-300"
             onClick={goToNext}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
               <path d="m9 18 6-6-6-6"/>
             </svg>
           </Button>
-        </div>
-        
-        {/* Enhanced image counter with animation */}
-        {property.images && property.images.length > 1 && (
-          <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full shadow-md transform group-hover:translate-y-[-5px] transition-transform duration-300">
-            <span className="font-medium">{(currentImageIndex % property.images.length) + 1}</span>
-            <span className="mx-1 opacity-70">/</span>
-            <span className="opacity-80">{property.images.length}</span>
-          </div>
-        )}
-        
-        {/* View button appears in center on hover */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-          <div className="bg-white/80 backdrop-blur-sm text-[#D99B32] font-medium px-6 py-2 rounded-full transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out shadow-lg">
-            View Property Details
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline-block ml-1">
-              <path d="m9 18 6-6-6-6"/>
-            </svg>
-          </div>
         </div>
       </div>
       
