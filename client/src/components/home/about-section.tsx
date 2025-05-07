@@ -24,7 +24,7 @@ export default function PropertyCategoriesSection() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           {/* Commercial Properties Card */}
-          <Link href="/properties?type=commercial">
+          <Link href="/properties/category/commercial">
             <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
               {/* Image Section */}
               <div className="relative h-[360px] overflow-hidden">
@@ -59,7 +59,7 @@ export default function PropertyCategoriesSection() {
           </Link>
           
           {/* Residential Properties Card */}
-          <Link href="/properties?type=residential">
+          <Link href="/properties/category/residential">
             <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
               {/* Image Section */}
               <div className="relative h-[360px] overflow-hidden">
@@ -94,7 +94,7 @@ export default function PropertyCategoriesSection() {
           </Link>
           
           {/* Land Properties Card */}
-          <Link href="/properties?type=land">
+          <Link href="/properties/category/land">
             <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
               {/* Image Section */}
               <div className="relative h-[360px] overflow-hidden">
