@@ -102,11 +102,11 @@ export default function HeroSection() {
         
         {/* Hero Content Overlay */}
         <div className="absolute bottom-20 inset-x-0 flex items-center justify-center text-center px-4 z-20">
-          <div className="max-w-4xl bg-[#2C3E50] bg-opacity-80 p-4 rounded-lg shadow-xl">
-            <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 drop-shadow-lg text-shadow">
+          <div className="max-w-4xl bg-[#2C3E50] bg-opacity-10 p-4 rounded-lg shadow-xl">
+            <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 drop-shadow-xl" style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.8)' }}>
               Absolute Property Solutions
             </h1>
-            <p className="font-inter text-xl text-white mb-8 max-w-3xl mx-auto drop-shadow-md text-shadow">
+            <p className="font-inter text-xl text-white mb-8 max-w-3xl mx-auto drop-shadow-xl" style={{ textShadow: '0px 1px 2px rgba(0,0,0,0.8)' }}>
               Legend Management Ltd delivers exceptional property management services and exclusive sales opportunities
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
