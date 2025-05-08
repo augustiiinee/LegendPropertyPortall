@@ -110,8 +110,8 @@ export default function PropertyCategoryPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Clean Title Header without Background Image - using gold color theme */}
-      <div className="relative h-72 md:h-96 bg-white overflow-hidden">
+      {/* Title Header with subtle theme to highlight it as a title area */}
+      <div className="relative h-72 md:h-96 bg-[#f9f5ed] overflow-hidden border-y border-[#D99B32]/20 shadow-sm">
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
           <div className="px-10 py-6 rounded-xl">
             <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center text-[#2C3E50]">

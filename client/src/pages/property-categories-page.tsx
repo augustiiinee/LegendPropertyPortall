@@ -373,9 +373,9 @@ export default function PropertyCategoriesPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Clean Title Header without background image, matching property-category-page style */}
+      {/* Title Header with subtle theme to highlight it as a title area */}
       <div className="w-full relative">
-        <div className="h-[300px] w-full bg-white relative">
+        <div className="h-[300px] w-full bg-[#f9f5ed] relative border-y border-[#D99B32]/20 shadow-sm">
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
             <div className="bg-[#D99B32] px-6 py-2 rounded-full shadow-lg mb-4 text-sm font-medium">
               <span className="font-medium text-white">
