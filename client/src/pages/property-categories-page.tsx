@@ -329,8 +329,9 @@ export default function PropertyCategoriesPage() {
     return property?.images?.[0] || '/images/placeholder-property.jpg';
   };
 
-  // Use high-quality static images for categories
-  const commercialImage = '/images/categories/commercial.jpg'; // Hazina Trade Centre
+  // Use updated high-quality static images for categories
+  const commercialImage = '/images/categories/commercial.jpg'; // Updated Hazina Trade Centre image
+  const nbkImage = '/images/categories/nbk.jpg'; // National Bank of Kenya image 
   const residentialImage = '/images/categories/residential.jpg'; // Nyayo Estate
   const landImage = '/images/categories/land.jpg'; // Land development
 
@@ -339,7 +340,7 @@ export default function PropertyCategoriesPage() {
       id: 'commercial',
       title: 'Commercial Properties',
       description: 'Office spaces, retail outlets, and other commercial real estate opportunities for your business needs.',
-      image: commercialImage,
+      image: nbkImage, // Using National Bank image for the commercial category
       count: commercialProperties.length,
       href: '/properties/category/commercial'
     },
