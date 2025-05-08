@@ -395,6 +395,20 @@ export default function PropertyCategoriesPage() {
       <main className="flex-grow pt-0 pb-16 bg-white">
         <div className="container mx-auto px-4">
           
+          {/* Categories Grid with Modern Styling */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 my-20">
+            {categories.map((category) => (
+              <CategoryCard 
+                key={category.id}
+                title={category.title}
+                description={category.description}
+                image={category.image}
+                count={category.count}
+                href={category.href}
+              />
+            ))}
+          </div>
+          
           {/* Commercial Properties Showcase */}
           {commercialProperties.length > 0 && (
             <div className="mt-20">
