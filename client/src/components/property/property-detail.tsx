@@ -376,114 +376,243 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
         </div>
         
         {/* Property Description in Broll format */}
-        <div className="mb-8">
-          <div className="bg-[#f9f5ed] rounded-lg p-6 border border-[#D99B32]/20">
-            <h2 className="text-xl md:text-2xl font-semibold mb-4 text-[#D99B32] flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              Property Details
-            </h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Left Column - Property Overview */}
-              <div>
-                <h3 className="text-lg font-bold text-primary mb-3">Overview</h3>
-                <div className="space-y-3 text-neutral-dark">
-                  {property.description.split('\n\n')[0].split('\n').map((line, idx) => (
-                    <p key={idx} className="text-neutral-dark">{line}</p>
-                  ))}
-                </div>
-                
-                {/* Key Points */}
-                <div className="mt-6">
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="flex items-center">
-                      <div className="rounded-full bg-[#D99B32]/10 p-1.5 mr-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#D99B32]" viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-xs text-neutral">REF ID</p>
-                        <p className="font-medium text-neutral-dark">LM-{property.id.toString().padStart(4, '0')}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center">
-                      <div className="rounded-full bg-[#D99B32]/10 p-1.5 mr-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#D99B32]" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-xs text-neutral">LOCATION</p>
-                        <p className="font-medium text-neutral-dark">{property.location}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center">
-                      <div className="rounded-full bg-[#D99B32]/10 p-1.5 mr-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#D99B32]" viewBox="0 0 20 20" fill="currentColor">
-                          <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-xs text-neutral">TYPE</p>
-                        <p className="font-medium text-neutral-dark capitalize">{property.type}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center">
-                      <div className="rounded-full bg-[#D99B32]/10 p-1.5 mr-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#D99B32]" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div>
-                        <p className="text-xs text-neutral">STATUS</p>
-                        <p className="font-medium text-neutral-dark">{property.status}</p>
-                      </div>
-                    </div>
+        <div className="mb-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left Column - Main Property Details */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
+              {/* Gallery Tab Header */}
+              <div className="border-b border-gray-200">
+                <div className="bg-red-600 text-white px-4 py-2 inline-block font-medium">
+                  <div className="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                    </svg>
+                    <span>GALLERY</span>
                   </div>
                 </div>
               </div>
               
-              {/* Right Column - Additional Information */}
-              <div>
-                {property.description.split('\n\n').slice(1).map((paragraph, index) => {
-                  if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities') || paragraph.startsWith('Contact Information')) {
-                    // Extract the title and content
-                    const [title, ...content] = paragraph.split('\n');
-                    return (
-                      <div key={index} className="mb-5">
-                        <h3 className="text-lg font-bold text-[#D99B32] mb-2 border-b border-[#D99B32]/20 pb-1">{title}</h3>
-                        <div className="whitespace-pre-line text-neutral-dark">{content.join('\n')}</div>
+              {/* Featured Badge over image */}
+              <div className="p-4">
+                <div className="relative mb-6">
+                  {property.featured && (
+                    <div className="absolute top-0 left-0 z-10">
+                      <div className="bg-red-600 text-white px-3 py-1 text-sm font-medium">
+                        FEATURED
                       </div>
-                    );
-                  } else {
-                    return (
-                      <div key={index} className="mb-5">
-                        <h3 className="text-lg font-bold text-[#D99B32] mb-2 border-b border-[#D99B32]/20 pb-1">Additional Information</h3>
-                        <p className="whitespace-pre-line text-neutral-dark">{paragraph}</p>
-                      </div>
-                    );
-                  }
-                })}
+                    </div>
+                  )}
+                  
+                  {/* Property Image */}
+                  {property.images && property.images.length > 0 ? (
+                    <img 
+                      src={property.images[0]} 
+                      alt={property.title}
+                      className="w-full h-auto rounded"
+                    />
+                  ) : (
+                    <div className="w-full h-64 bg-gray-200 rounded flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  )}
+                  
+                  {/* Web Ref */}
+                  <div className="absolute bottom-0 right-0 bg-black/70 text-white px-3 py-1 text-sm">
+                    Web Ref LM{property.id}
+                  </div>
+                </div>
                 
-                {/* Contact Section */}
-                <div className="mt-4 p-4 bg-white rounded-lg border border-[#D99B32]/20 shadow-sm">
-                  <h3 className="text-lg font-bold text-[#D99B32] mb-2 flex items-center">
+                {/* Property Overview */}
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-xl font-bold mb-4">Description</h2>
+                    <div className="space-y-4 text-neutral-dark">
+                      {property.description.split('\n\n')[0].split('\n').map((line, idx) => (
+                        <p key={idx} className="text-neutral-dark leading-relaxed">{line}</p>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Additional Information Sections */}
+                  {property.description.split('\n\n').slice(1).map((paragraph, index) => {
+                    if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities') || paragraph.startsWith('Contact Information')) {
+                      // Extract the title and content
+                      const [title, ...content] = paragraph.split('\n');
+                      return (
+                        <div key={index} className="mt-6">
+                          <h3 className="text-lg font-bold mb-3">{title}</h3>
+                          <div className="whitespace-pre-line leading-relaxed text-neutral-dark">{content.join('\n')}</div>
+                        </div>
+                      );
+                    } else {
+                      return (
+                        <div key={index} className="mt-6">
+                          <h3 className="text-lg font-bold mb-3">Additional Information</h3>
+                          <p className="whitespace-pre-line leading-relaxed text-neutral-dark">{paragraph}</p>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right Column - Contact and Property Info */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 mb-6">
+              {/* Contact Agents Section */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold border-b border-gray-200 pb-2 mb-4">Contact</h3>
+                
+                <div className="space-y-4">
+                  <div className="space-y-1">
+                    <div className="font-bold">Contact Geoffrey Koros</div>
+                    <div className="text-red-600 hover:underline cursor-pointer flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                      <span>Show number</span>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-1">
+                    <div className="font-bold">Contact David Ruto</div>
+                    <div className="text-red-600 hover:underline cursor-pointer flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                      <span>Show number</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Form Fields */}
+                <div className="mt-6 space-y-3">
+                  <div>
+                    <input 
+                      type="text" 
+                      placeholder="Name *" 
+                      className="w-full p-2 border border-gray-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <input 
+                      type="text" 
+                      placeholder="Contact Number *" 
+                      className="w-full p-2 border border-gray-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <input 
+                      type="email" 
+                      placeholder="Email Address *" 
+                      className="w-full p-2 border border-gray-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <textarea 
+                      placeholder={`Please send me more information on LM-${property.id.toString().padStart(4, '0')} in ${property.location}`}
+                      className="w-full p-2 border border-gray-300 rounded h-24"
+                    ></textarea>
+                  </div>
+                  
+                  <button className="w-full bg-red-600 text-white py-2 px-4 rounded font-medium hover:bg-red-700 transition-colors">
+                    Send Message
+                  </button>
+                  
+                  <div className="text-xs text-gray-500 mt-2">
+                    <div className="mb-1">Subscribe to the <span className="text-red-600">Email Newsletter</span></div>
+                    <div className="mb-1">Subscribe to <span className="text-red-600">Property Email Alerts</span></div>
+                    <div className="mb-1">Add to <span className="text-red-600">My Favourites</span></div>
+                    <div className="mt-3 text-[11px]">
+                      We will communicate real estate related marketing information and related services. 
+                      We respect your privacy. See our Privacy Policy
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Property Information Box */}
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
+              <h3 className="bg-gray-100 px-4 py-2 font-bold text-lg border-b border-gray-200">Property Information</h3>
+              <div className="p-4 space-y-3">
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Reference:</span>
+                  <span className="font-medium">LM-{property.id.toString().padStart(4, '0')}</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Location:</span>
+                  <span className="font-medium">{property.location}</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Property Type:</span>
+                  <span className="font-medium capitalize">{property.type}</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Status:</span>
+                  <span className="font-medium">{property.status}</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Size:</span>
+                  <span className="font-medium">{property.size} sq ft</span>
+                </div>
+                {property.type === 'residential' && (
+                  <>
+                    <div className="flex justify-between border-b border-gray-100 pb-2">
+                      <span className="text-gray-600">Bedrooms:</span>
+                      <span className="font-medium">{property.bedrooms}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-gray-100 pb-2">
+                      <span className="text-gray-600">Bathrooms:</span>
+                      <span className="font-medium">{property.bathrooms}</span>
+                    </div>
+                  </>
+                )}
+                {property.type === 'commercial' && (
+                  <div className="flex justify-between border-b border-gray-100 pb-2">
+                    <span className="text-gray-600">Units Available:</span>
+                    <span className="font-medium">{property.title.includes('Blueshield') ? '14' : property.title.includes('Uchumi') ? '5' : property.title.includes('Finance') ? '7' : '1'}</span>
+                  </div>
+                )}
+                <div className="flex justify-between pt-2">
+                  <span className="text-gray-600">Price:</span>
+                  <span className="font-bold text-[#D99B32]">
+                    {property.title.includes('National Bank') ? 
+                      'Ksh 120 / Sqft' : 
+                      property.title.includes('Uchumi House') ?
+                      'Ground: Ksh 230 / Sqft, Upper: Ksh 106 / Sqft' :
+                      property.title.includes('Blueshield') ?
+                      'Ksh 130 / Sqft' :
+                      property.title.includes('Finance House') ?
+                      'Ksh 85 / Sqft' :
+                      `Ksh ${property.price.toLocaleString()}`}
+                  </span>
+                </div>
+                
+                {/* Quick Action Buttons */}
+                <div className="flex justify-center pt-4 space-x-3">
+                  <button
+                    onClick={() => window.open(`https://wa.me/254746369798?text=I'm interested in ${property.title}%0A%0A*Property Reference ID:* LM-${property.id.toString().padStart(4, '0')}%0A%0APlease send me more information about this property.`, '_blank')} 
+                    className="flex items-center justify-center px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.6766.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                  </button>
+                  <button 
+                    onClick={() => window.open(`tel:+254791181166`, '_blank')}
+                    className="flex items-center justify-center px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                  >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
-                    Contact
-                  </h3>
-                  <p className="text-neutral-dark text-sm">📞 To Arrange a Viewing or Get More Details:</p>
-                  <p className="font-medium">Legend Management Ltd.</p>
-                  <p className="text-neutral-dark text-sm">Tel: 0791181166</p>
-                  <p className="text-neutral-dark text-sm">Email: joseph@propertylegend.com | dianaruto@propertylegend.com</p>
-                  <p className="text-neutral-dark text-sm">Ref: LM-{property.id.toString().padStart(4, '0')}</p>
+                    <span>Call</span>
+                  </button>
                 </div>
               </div>
             </div>
