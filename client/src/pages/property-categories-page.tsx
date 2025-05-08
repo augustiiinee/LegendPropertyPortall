@@ -398,49 +398,8 @@ export default function PropertyCategoriesPage() {
         </div>
       </div>
       
-      <main className="flex-grow py-16 bg-white">
+      <main className="flex-grow pt-0 pb-16 bg-white">
         <div className="container mx-auto px-4">
-          {/* Simple Section Heading to match uploaded style */}
-          <div className="mb-16 text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-3">Explore Our <span className="text-[#D99B32]">Property</span> Categories</h1>
-            <p className="text-[#536270] text-lg max-w-3xl mx-auto">
-              Browse our exclusive collection of premium properties across different categories, 
-              designed to meet your specific requirements and preferences.
-            </p>
-          </div>
-          
-          {/* Categories Grid with Modern Styling */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            {categories.map((category) => (
-              <CategoryCard 
-                key={category.id}
-                title={category.title}
-                description={category.description}
-                image={category.image}
-                count={category.count}
-                href={category.href}
-              />
-            ))}
-          </div>
-          
-          {/* Modern Divider with Premium Button */}
-          <div className="text-center mb-20 relative">
-            <div className="py-4 relative">
-              {/* Decorative Lines */}
-              <div className="absolute left-0 top-1/2 w-full h-px -translate-y-1/2">
-                <div className="h-full bg-gradient-to-r from-transparent via-[#D99B32]/20 to-transparent"></div>
-              </div>
-              
-              {/* View All Properties Button */}
-              <Link href="/properties/all">
-                <Button 
-                  className="bg-[#D99B32] hover:bg-[#D99B32]/90 text-white font-medium py-2 px-6 rounded-md transition-all duration-300"
-                >
-                  View All Properties
-                </Button>
-              </Link>
-            </div>
-          </div>
           
           {/* Commercial Properties Showcase */}
           {commercialProperties.length > 0 && (
