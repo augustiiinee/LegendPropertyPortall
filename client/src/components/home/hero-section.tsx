@@ -62,8 +62,8 @@ export default function HeroSection() {
   };
   
   return (
-    <section id="home" className="relative h-[90vh] bg-gray-900 overflow-hidden">
-      {/* Hero Carousel - Increased height for better visibility of building details */}
+    <section id="home" className="relative h-[90vh] bg-white overflow-hidden">
+      {/* Hero Carousel - Optimized for landscape display of building images */}
       <div className="carousel relative h-full w-full max-h-[1080px]">
         {heroSlides.map((slide, index) => (
           <div 
@@ -77,11 +77,12 @@ export default function HeroSection() {
               className="absolute inset-0 w-full h-full"
               style={{
                 maxHeight: '1080px', // Ensuring 1080p quality
-                objectFit: 'contain', // Changed from 'cover' to 'contain' to show the full image
+                objectFit: 'scale-down', // Use scale-down to show the entire image without cropping
                 objectPosition: 'center'
               }}
             />
-            <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+            {/* Very light overlay for text readability */}
+            <div className="absolute inset-0 bg-black bg-opacity-5"></div>
           </div>
         ))}
         
@@ -91,7 +92,7 @@ export default function HeroSection() {
             <button 
               key={index}
               className={`w-3 h-3 rounded-full transition ${
-                index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                index === currentSlide ? 'bg-[#D99B32]' : 'bg-white bg-opacity-70 hover:bg-[#D99B32]/70'
               }`}
               onClick={() => handleIndicatorClick(index)}
               aria-label={`Go to slide ${index + 1}`}
@@ -101,7 +102,7 @@ export default function HeroSection() {
         
         {/* Hero Content Overlay */}
         <div className="absolute inset-0 flex items-center justify-center text-center px-4 z-20">
-          <div className="max-w-4xl bg-black bg-opacity-30 p-6 rounded-lg">
+          <div className="max-w-4xl bg-[#2C3E50] bg-opacity-60 p-6 rounded-lg shadow-xl">
             <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 drop-shadow-lg text-shadow">
               Absolute Property Solutions
             </h1>
