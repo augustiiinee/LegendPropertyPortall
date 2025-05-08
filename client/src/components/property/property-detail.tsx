@@ -14,6 +14,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Property } from '@shared/types';
 import AgentCard from './agent-card';
+import UchumiHouseGallery from './uchumi-house-gallery';
 
 type PropertyDetailProps = {
   propertyId: string;
@@ -71,7 +72,10 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
       <div className="bg-white rounded-lg shadow-md p-4 md:p-8">
         {/* Enhanced Image Carousel with micro-interactions */}
         <div className="mb-8">
-          {property.images && property.images.length > 0 ? (
+          {property.title.includes('Uchumi House') ? (
+            /* Use our special Uchumi House Gallery component for Uchumi property */
+            <UchumiHouseGallery property={property} />
+          ) : property.images && property.images.length > 0 ? (
             <div className="relative overflow-hidden rounded-xl shadow-xl group">
               <Carousel setApi={setApi} className="transition-all duration-500">
                 <CarouselContent>
