@@ -1,155 +1,21 @@
-import { useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-  CarouselApi,
-} from '@/components/ui/carousel';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Property } from '@shared/types';
-import AgentCard from './agent-card';
 import UchumiHouseGallery from './uchumi-house-gallery';
-import UchumiHouseDetail from './uchumi-house-detail';
 
-type PropertyDetailProps = {
-  propertyId: string;
+type UchumiHouseDetailProps = {
+  property: Property;
 };
 
-export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
-  const [api, setApi] = useState<CarouselApi>();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const { data: property, isLoading } = useQuery<Property>({
-    queryKey: [`/api/properties/${propertyId}`],
-    // Default queryFn will be used from queryClient
-  });
-  
-  // Update current slide index when carousel moves
-  useEffect(() => {
-    if (!api) return;
-    
-    api.on("select", () => {
-      setCurrentSlide(api.selectedScrollSnap());
-    });
-  }, [api]);
-  
-  if (isLoading) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-md p-8 animate-pulse">
-          <div className="h-96 bg-neutral-light mb-6 rounded-lg"></div>
-          <div className="h-10 bg-neutral-light w-3/4 mb-4 rounded"></div>
-          <div className="h-6 bg-neutral-light w-1/3 mb-6 rounded"></div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="h-20 bg-neutral-light rounded"></div>
-            <div className="h-20 bg-neutral-light rounded"></div>
-            <div className="h-20 bg-neutral-light rounded"></div>
-          </div>
-          <div className="h-32 bg-neutral-light rounded mb-8"></div>
-        </div>
-      </div>
-    );
-  }
-  
-  if (!property) {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="bg-white rounded-lg shadow-md p-8 text-center">
-          <h2 className="text-2xl font-semibold mb-4">Property Not Found</h2>
-          <p>The requested property could not be found or has been removed.</p>
-        </div>
-      </div>
-    );
-  }
-
-  // For Uchumi House property, use the specific detail component with no property stats cards
-  if (property.title.includes('Uchumi House')) {
-    return <UchumiHouseDetail property={property} />;
-  }
-  
+export default function UchumiHouseDetail({ property }: UchumiHouseDetailProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="bg-white rounded-lg shadow-md p-4 md:p-8">
         {/* Enhanced Image Carousel with micro-interactions */}
         <div className="mb-8">
-          {property.images && property.images.length > 0 ? (
-            <div className="relative overflow-hidden rounded-xl shadow-xl group">
-              <Carousel setApi={setApi} className="transition-all duration-500">
-                <CarouselContent>
-                  {property.images.map((image, index) => (
-                    <CarouselItem key={index}>
-                      <div className="h-80 md:h-[31.2rem] w-full bg-gray-50 overflow-hidden">
-                        <img 
-                          src={image} 
-                          alt={`${property.title} - Image ${index + 1}`} 
-                          className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105 filter hover:brightness-105"
-                        />
-                        
-                        {/* Elegant overlay gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                
-                {/* Enhanced navigation buttons */}
-                <CarouselPrevious className="left-4 bg-white/80 hover:bg-white text-[#D99B32] hover:text-[#D99B32] border-none shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110" />
-                <CarouselNext className="right-4 bg-white/80 hover:bg-white text-[#D99B32] hover:text-[#D99B32] border-none shadow-md hover:shadow-lg transition-all duration-300 hover:scale-110" />
-              </Carousel>
-              
-              {/* Enhanced image counter with animation */}
-              <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full shadow-md transform group-hover:translate-y-[-5px] transition-transform duration-300">
-                <span className="font-medium">{currentSlide + 1}</span>
-                <span className="mx-1 opacity-70">/</span>
-                <span className="opacity-80">{property.images.length}</span>
-              </div>
-              
-              {/* Property type badge */}
-              <div className="absolute top-4 left-4 transform transition-transform duration-500 ease-in-out group-hover:scale-110">
-                <Badge className="bg-[#D99B32]/90 backdrop-blur-sm text-white font-medium py-1 px-3 shadow-md">
-                  {property.type.charAt(0).toUpperCase() + property.type.slice(1)}
-                </Badge>
-              </div>
-              
-              {/* Featured badge if premium property */}
-              {property.featured && (
-                <div className="absolute top-4 right-4 transform transition-all duration-500 group-hover:rotate-3">
-                  <Badge variant="outline" className="bg-white/80 backdrop-blur-sm text-[#D99B32] border-[#D99B32]/50 font-semibold py-1 px-3 shadow-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1 animate-spin-slow" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    Premium
-                  </Badge>
-                </div>
-              )}
-              
-              {/* Interactive hint */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                <div className="bg-white/80 backdrop-blur-sm text-[#D99B32] rounded-full p-3 shadow-lg animate-float">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="h-80 md:h-[31.2rem] bg-neutral-light flex items-center justify-center rounded-lg shadow-inner">
-              <div className="text-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-neutral mb-2 animate-pulse opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" />
-                </svg>
-                <p className="text-neutral font-medium">No images available</p>
-              </div>
-            </div>
-          )}
+          {/* Use our special Uchumi House Gallery component for Uchumi property */}
+          <UchumiHouseGallery property={property} />
         </div>
         
         {/* Property Header */}
@@ -170,60 +36,24 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
             <span>{property.location}</span>
           </div>
           
-          {property.title.includes('National Bank') ? (
-            <div className="mb-4">
-              <h3 className="text-xl font-semibold mb-2 text-gold">Pricing:</h3>
-              <div className="flex flex-col space-y-2">
-                <div className="flex items-center">
-                  <span className="mr-2 text-neutral-dark font-medium">Rent:</span>
-                  <span className="text-primary font-bold text-xl">Ksh {property.price} / Sqft</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
-                  <span className="text-primary font-bold text-xl">Ksh 36 / Sqft</span>
-                </div>
+          <div className="mb-4">
+            <h3 className="text-xl font-semibold mb-2 text-gold">Pricing:</h3>
+            <div className="flex flex-col space-y-2">
+              <div className="flex items-center">
+                <span className="mr-2 text-neutral-dark font-medium">Ground Floor Rent:</span>
+                <span className="text-primary font-bold text-xl">Ksh 230 / Sqft</span>
+              </div>
+              <div className="flex items-center">
+                <span className="mr-2 text-neutral-dark font-medium">Other Floors Rent:</span>
+                <span className="text-primary font-bold text-xl">Ksh {property.price} / Sqft</span>
+              </div>
+              <div className="flex items-center">
+                <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
+                <span className="text-primary font-bold text-xl">Ksh 26 / Sqft</span>
               </div>
             </div>
-          ) : property.title.includes('Blueshield') ? (
-            <div className="mb-4">
-              <h3 className="text-xl font-semibold mb-2 text-gold">Pricing:</h3>
-              <div className="flex flex-col space-y-2">
-                <div className="flex items-center">
-                  <span className="mr-2 text-neutral-dark font-medium">Rent:</span>
-                  <span className="text-primary font-bold text-xl">Ksh {property.price} / Sqft</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
-                  <span className="text-primary font-bold text-xl">Ksh 25 / Sqft</span>
-                </div>
-              </div>
-            </div>
-          ) : property.title.includes('Finance House') ? (
-            <div className="mb-4">
-              <h3 className="text-xl font-semibold mb-2 text-gold">Pricing:</h3>
-              <div className="flex flex-col space-y-2">
-                <div className="flex items-center">
-                  <span className="mr-2 text-neutral-dark font-medium">Rent:</span>
-                  <span className="text-primary font-bold text-xl">Ksh 85 / Sqft</span>
-                </div>
-                <div className="flex items-center">
-                  <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
-                  <span className="text-primary font-bold text-xl">Ksh 30 / Sqft</span>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="flex flex-wrap items-center mb-2">
-              <span className="text-primary font-bold text-2xl md:text-3xl mr-4">Ksh {property.price.toLocaleString()}</span>
-              {/* Calculate price per square foot */}
-              {property.type === 'commercial' && (
-                <span className="text-neutral text-sm">(Ksh {(property.price / property.size).toFixed(2)}/sq ft)</span>
-              )}
-            </div>
-          )}
+          </div>
         </div>
-        
-        {/* Property Details Cards with micro-interactions (not shown for Uchumi House) */}
         
         {/* Property Description in Broll format */}
         <div className="mb-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -291,8 +121,6 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                       <span>{property.location}</span>
                     </div>
                   </div>
-                  
-
                   
                   {/* Price Section */}
                   <div className="flex items-center">
@@ -431,19 +259,6 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                   <span className="text-gray-600">Status:</span>
                   <span className="font-medium">{property.status}</span>
                 </div>
-
-                {property.type === 'residential' && (
-                  <>
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="text-gray-600">Bedrooms:</span>
-                      <span className="font-medium">{property.bedrooms}</span>
-                    </div>
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="text-gray-600">Bathrooms:</span>
-                      <span className="font-medium">{property.bathrooms}</span>
-                    </div>
-                  </>
-                )}
                 <div className="flex justify-between border-b border-gray-100 pb-2">
                   <span className="text-gray-600">Agent:</span>
                   <span className="font-medium">Legend Management Ltd</span>
