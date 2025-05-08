@@ -32,8 +32,8 @@ function CategoryCard({
   return (
     <Link href={href}>
       <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
-        {/* Image Section */}
-        <div className="relative h-[360px] overflow-hidden">
+        {/* Image Section with 9:16 aspect ratio */}
+        <div className="relative overflow-hidden" style={{ aspectRatio: '9/16' }}>
           <img 
             src={image} 
             alt={title}
@@ -149,8 +149,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   
   return (
     <div className="group flex flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
-      {/* Simple Image Section - Without overlays */}
-      <div className="relative h-[360px] overflow-hidden">
+      {/* Simple Image Section with 9:16 aspect ratio */}
+      <div className="relative overflow-hidden" style={{ aspectRatio: '9/16' }}>
         {/* Use our high-quality commercial building images */}
         <img 
           src={getBuildingImage(property)} 
