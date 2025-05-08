@@ -32,9 +32,9 @@ function CategoryCard({
   return (
     <Link href={href}>
       <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
-        {/* Image Section with custom aspect ratio (reduced height, increased width) */}
+        {/* Image Section with custom aspect ratio (increased width, fine-tuned height) */}
         <div className="relative overflow-hidden mx-auto" style={{ 
-          aspectRatio: '1.08/0.7', /* 9/16 ratio with 20% more width and 30% less height */
+          aspectRatio: '1.08/0.77', /* 9/16 ratio with 20% more width and 20% less height (10% increase from previous) */
           width: '120%', /* 20% wider than container */
           maxWidth: '120%',
           marginLeft: '-10%' /* Center the wider image */
@@ -154,9 +154,9 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   
   return (
     <div className="group flex flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
-      {/* Simple Image Section with custom aspect ratio (reduced height, increased width) */}
+      {/* Simple Image Section with custom aspect ratio (increased width, fine-tuned height) */}
       <div className="relative overflow-hidden mx-auto" style={{ 
-        aspectRatio: '1.08/0.7', /* 9/16 ratio with 20% more width and 30% less height */
+        aspectRatio: '1.08/0.77', /* 9/16 ratio with 20% more width and 20% less height (10% increase from previous) */
         width: '120%', /* 20% wider than container */
         maxWidth: '120%',
         marginLeft: '-10%' /* Center the wider image */
