@@ -29,7 +29,7 @@ export default function PropertyCategoriesSection() {
               {/* Image Section */}
               <div className="relative h-[360px] overflow-hidden">
                 <img 
-                  src="/images/categories/commercial-building.png" 
+                  src="/images/categories/commercial.jpg" 
                   alt="Commercial Properties" 
                   className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
                 />

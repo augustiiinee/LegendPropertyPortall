@@ -85,34 +85,30 @@ function CategoryCard({
 
 // Commercial properties slider component
 function CommercialPropertiesSlider({ properties }: { properties: Property[] }) {
-  // Modern slider implementation with image cycling
+  // Modern slider implementation with predefined building images
   const [currentPropertyIndex, setCurrentPropertyIndex] = useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
-  // Set up auto-rotation for images
+  // Define the commercial buildings in the specific order requested
+  const buildingImages = [
+    { name: 'Hazina Trade Centre', image: '/images/categories/commercial/hazina.jpg' },
+    { name: 'Finance House', image: '/images/categories/commercial/finance.jpg' },
+    { name: 'National Bank', image: '/images/categories/commercial/nbk.jpg' },
+    { name: 'Utalii House', image: '/images/categories/commercial/utalii.jpg' },
+    { name: 'Uchumi House', image: '/images/categories/commercial/uchumi.jpg' }
+  ];
+  
+  // Set up auto-rotation for buildings
   useEffect(() => {
     if (properties.length === 0) return;
     
-    const property = properties[currentPropertyIndex];
-    const imageCount = property.images?.length || 0;
-    
-    if (imageCount <= 1) return;
-    
     const timer = setTimeout(() => {
-      // First cycle through all images of current property
-      if (currentImageIndex < imageCount - 1) {
-        setCurrentImageIndex(prevIndex => prevIndex + 1);
-      } else {
-        // When we've seen all images, move to next property
-        setCurrentImageIndex(0);
-        setCurrentPropertyIndex(prevIndex => 
-          prevIndex === properties.length - 1 ? 0 : prevIndex + 1
-        );
-      }
+      setCurrentPropertyIndex(prevIndex => 
+        prevIndex === properties.length - 1 ? 0 : prevIndex + 1
+      );
     }, 4000);
     
     return () => clearTimeout(timer);
-  }, [currentPropertyIndex, currentImageIndex, properties]);
+  }, [currentPropertyIndex, properties]);
   
   if (properties.length === 0) {
     return (
@@ -124,32 +120,31 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   
   const property = properties[currentPropertyIndex];
   
+  // Find the appropriate building image based on property title
+  const getBuildingImage = (property: Property) => {
+    // Try to match the property title with one of our predefined buildings
+    const building = buildingImages.find(b => 
+      property.title.includes(b.name.split(' ')[0])
+    );
+    
+    // Fall back to the property's first image if no match is found
+    return building?.image || (property.images && property.images.length > 0 
+      ? property.images[0] 
+      : '/images/categories/commercial.jpg');
+  };
+  
   const goToPrevious = () => {
-    // First check if we're mid-way through images of current property
-    if (currentImageIndex > 0) {
-      setCurrentImageIndex(prevIndex => prevIndex - 1);
-    } else {
-      // Go to previous property
-      const prevPropertyIndex = currentPropertyIndex === 0 ? properties.length - 1 : currentPropertyIndex - 1;
-      setCurrentPropertyIndex(prevPropertyIndex);
-      
-      // Set image to last image of that property
-      const imageCount = properties[prevPropertyIndex].images?.length || 0;
-      setCurrentImageIndex(Math.max(0, imageCount - 1));
-    }
+    // Go to previous property
+    setCurrentPropertyIndex(prevIndex => 
+      prevIndex === 0 ? properties.length - 1 : prevIndex - 1
+    );
   };
   
   const goToNext = () => {
-    const imageCount = property.images?.length || 0;
-    
-    // First check if we should move to next image of current property
-    if (currentImageIndex < imageCount - 1) {
-      setCurrentImageIndex(prevIndex => prevIndex + 1);
-    } else {
-      // Go to next property
-      setCurrentPropertyIndex(prevIndex => prevIndex === properties.length - 1 ? 0 : prevIndex + 1);
-      setCurrentImageIndex(0);
-    }
+    // Go to next property
+    setCurrentPropertyIndex(prevIndex => 
+      prevIndex === properties.length - 1 ? 0 : prevIndex + 1
+    );
   };
   
   return (
@@ -347,10 +342,10 @@ export default function PropertyCategoriesPage() {
     return property?.images?.[0] || '/images/placeholder-property.jpg';
   };
 
-  // Get real images from the properties
-  const commercialImage = getImageForCategory(commercialProperties) || '/images/properties/nbk/nbk-1.jpg';
-  const residentialImage = getImageForCategory(residentialProperties) || '/images/properties/chuna-estate/exterior1.jpg';
-  const landImage = '/images/categories/land-bg.jpg'; // Default image for land
+  // Use high-quality static images for categories
+  const commercialImage = '/images/categories/commercial.jpg'; // Hazina Trade Centre
+  const residentialImage = '/images/categories/residential.jpg'; // Nyayo Estate
+  const landImage = '/images/categories/land.jpg'; // Land development
 
   const categories = [
     {
