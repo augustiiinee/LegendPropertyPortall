@@ -463,11 +463,6 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                   <span className="text-gray-600">Agent:</span>
                   <span className="font-medium">Legend Management Ltd</span>
                 </div>
-                
-                {/* Map Placeholder */}
-                <div className="mt-4 aspect-video bg-gray-200 rounded-lg flex items-center justify-center">
-                  <span className="text-gray-500">Map View</span>
-                </div>
               </div>
             </div>
             
