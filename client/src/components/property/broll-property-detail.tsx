@@ -241,7 +241,12 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
-                  <span>{property.id === 10 ? '0704039929' : '0791181166'}</span>
+                  <span>
+                    {property.description.includes('Tel:') 
+                      ? property.description.split('Tel:')[1].split('\n')[0].trim()
+                      : '0791181166'
+                    }
+                  </span>
                 </div>
               </div>
             </div>
@@ -250,7 +255,26 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
             <div className="mt-6 space-y-3">
               <div className="flex space-x-2">
                 <button 
-                  onClick={() => window.open(`https://wa.me/${property.id === 10 ? '254704039929' : '254746369798'}?text=I'm interested in ${property.title}%0A%0A*Property Reference ID:* LM-${property.id.toString().padStart(4, '0')}%0A%0APlease send me more information about this property.`, '_blank')}
+                  onClick={() => {
+                    // Try to extract phone number from the description
+                    let phoneNumber = '254746369798'; // Default WhatsApp number
+                    if (property.description.includes('Tel:')) {
+                      const telLine = property.description.split('Tel:')[1].split('\n')[0].trim();
+                      if (telLine) {
+                        // Extract just the digits
+                        const digitsOnly = telLine.replace(/\D/g, '');
+                        if (digitsOnly.length >= 9) {
+                          // Format as needed for WhatsApp - make sure it starts with 254
+                          phoneNumber = digitsOnly.startsWith('0') 
+                            ? `254${digitsOnly.substring(1)}` 
+                            : digitsOnly.startsWith('254') 
+                              ? digitsOnly 
+                              : `254${digitsOnly}`;
+                        }
+                      }
+                    }
+                    window.open(`https://wa.me/${phoneNumber}?text=I'm interested in ${property.title}%0A%0A*Property Reference ID:* LM-${property.id.toString().padStart(4, '0')}%0A%0APlease send me more information about this property.`, '_blank');
+                  }}
                   className="flex-1 flex items-center justify-center px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="currentColor" viewBox="0 0 16 16">
@@ -259,7 +283,26 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                   <span>WhatsApp</span>
                 </button>
                 <button 
-                  onClick={() => window.open(`tel:+${property.id === 10 ? '254704039929' : '254791181166'}`, '_blank')}
+                  onClick={() => {
+                    // Try to extract phone number from the description
+                    let phoneNumber = '254791181166'; // Default call number
+                    if (property.description.includes('Tel:')) {
+                      const telLine = property.description.split('Tel:')[1].split('\n')[0].trim();
+                      if (telLine) {
+                        // Extract just the digits
+                        const digitsOnly = telLine.replace(/\D/g, '');
+                        if (digitsOnly.length >= 9) {
+                          // Format as needed for calling - make sure it starts with 254
+                          phoneNumber = digitsOnly.startsWith('0') 
+                            ? `254${digitsOnly.substring(1)}` 
+                            : digitsOnly.startsWith('254') 
+                              ? digitsOnly 
+                              : `254${digitsOnly}`;
+                        }
+                      }
+                    }
+                    window.open(`tel:+${phoneNumber}`, '_blank');
+                  }}
                   className="flex-1 flex items-center justify-center px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
@@ -270,18 +313,23 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
               </div>
               
               <div className="mt-4 text-sm text-gray-600">
-                <p className="mb-2">📞 To Arrange a Viewing or Get More Details:</p>
-                <p className="font-semibold mb-0.5">Legend Management Ltd.</p>
-                {property.id === 10 ? (
+                {property.description.includes('Contact Information') ? (
                   <>
-                    <p className="mb-0.5">Tel: 0704039929</p>
-                    <p className="mb-0.5">Email: beth@propertylegend.com</p>
-                    <p className="mb-0.5">Address: Uchumi House 9th floor, Aga Khan Walk, CBD, Nairobi</p>
+                    {property.description
+                      .split('Contact Information')
+                      [1]
+                      .split('\n\n')[0]
+                      .split('\n')
+                      .map((line, index) => (
+                        <p key={index} className="mb-0.5">{line}</p>
+                      ))}
                   </>
                 ) : (
                   <>
+                    <p className="mb-2">📞 To Arrange a Viewing or Get More Details:</p>
+                    <p className="font-semibold mb-0.5">Legend Management Ltd.</p>
                     <p className="mb-0.5">Tel: 0791181166</p>
-                    <p className="mb-0.5">Email: joseph@propertylegend.com</p>
+                    <p className="mb-0.5">Email: info@propertylegend.com</p>
                     <p className="mb-0.5">Property Ref: LM-{property.id.toString().padStart(4, '0')}</p>
                   </>
                 )}
