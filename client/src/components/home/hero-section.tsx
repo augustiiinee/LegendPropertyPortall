@@ -8,22 +8,31 @@ type HeroSlide = {
   imageUrl: string;
 };
 
+// Updated to use high-quality building images in requested order: Hazina, Finance, Blueshield, Utalii, NBK, Uchumi
 const heroSlides: HeroSlide[] = [
   {
     id: 1,
-    imageUrl: '/images/hero/hero1.jpeg'
+    imageUrl: '/images/buildings/hazina.JPG'
   },
   {
     id: 2,
-    imageUrl: '/images/hero/hero2.jpeg'
+    imageUrl: '/images/buildings/finance.JPG'
   },
   {
     id: 3,
-    imageUrl: '/images/hero/hero3.jpeg'
+    imageUrl: '/images/buildings/blueshield.jpeg'
   },
   {
     id: 4,
-    imageUrl: '/images/hero/nyayo-estate.jpg'
+    imageUrl: '/images/buildings/utalii.JPG'
+  },
+  {
+    id: 5,
+    imageUrl: '/images/buildings/nbk.JPG'
+  },
+  {
+    id: 6,
+    imageUrl: '/images/buildings/uchumi.JPG'
   }
 ];
 
@@ -53,20 +62,25 @@ export default function HeroSection() {
   };
   
   return (
-    <section id="home" className="relative h-[80vh] bg-primary overflow-hidden">
-      {/* Hero Carousel */}
-      <div className="carousel relative h-full w-full">
+    <section id="home" className="relative h-[90vh] bg-primary overflow-hidden">
+      {/* Hero Carousel - Increased height for better visibility of building details */}
+      <div className="carousel relative h-full w-full max-h-[1080px]">
         {heroSlides.map((slide, index) => (
           <div 
             key={slide.id}
-            className={`carousel-slide absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`} 
-            style={{ 
-              backgroundImage: `url('${slide.imageUrl}')`,
-              backgroundPosition: 'center',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat'
-            }}
+            className={`carousel-slide absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`} 
           >
+            {/* Using img instead of background-image for better image quality control */}
+            <img 
+              src={slide.imageUrl} 
+              alt={`Legend Management Property ${slide.id}`}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                maxHeight: '1080px', // Ensuring 1080p quality
+                objectFit: 'cover',
+                objectPosition: 'center'
+              }}
+            />
             <div className="absolute inset-0 bg-black bg-opacity-30"></div>
           </div>
         ))}
