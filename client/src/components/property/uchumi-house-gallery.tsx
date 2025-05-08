@@ -11,15 +11,17 @@ export default function UchumiHouseGallery({ property }: UchumiHouseGalleryProps
   
   const goToNextImage = () => {
     if (!property.images || property.images.length === 0) return;
+    const imagesLength = property.images.length;
     setCurrentImageIndex((prevIndex) => 
-      prevIndex === property.images.length - 1 ? 0 : prevIndex + 1
+      prevIndex === imagesLength - 1 ? 0 : prevIndex + 1
     );
   };
   
   const goToPrevImage = () => {
     if (!property.images || property.images.length === 0) return;
+    const imagesLength = property.images.length;
     setCurrentImageIndex((prevIndex) => 
-      prevIndex === 0 ? property.images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? imagesLength - 1 : prevIndex - 1
     );
   };
   
@@ -97,10 +99,7 @@ export default function UchumiHouseGallery({ property }: UchumiHouseGalleryProps
             </div>
           )}
           
-          {/* Web Ref */}
-          <div className="absolute bottom-2 right-2 bg-black/70 text-white px-3 py-1 text-sm">
-            Web Ref LM{property.id}
-          </div>
+          {/* No Web Ref as requested */}
         </div>
         
         {/* Thumbnail Navigation */}
