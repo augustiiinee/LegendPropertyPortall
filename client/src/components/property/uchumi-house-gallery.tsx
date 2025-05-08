@@ -42,7 +42,7 @@ export default function UchumiHouseGallery({ property }: UchumiHouseGalleryProps
         <CarouselContent>
           {uchumiImages.map((image, index) => (
             <CarouselItem key={index}>
-              <div className="h-64 md:h-96 w-full bg-gray-50 overflow-hidden">
+              <div className="h-80 md:h-[31.2rem] w-full bg-gray-50 overflow-hidden">
                 <img 
                   src={image} 
                   alt={`${property.title} - Image ${index + 1}`} 

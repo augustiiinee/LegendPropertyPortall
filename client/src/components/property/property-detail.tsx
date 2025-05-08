@@ -81,7 +81,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                 <CarouselContent>
                   {property.images.map((image, index) => (
                     <CarouselItem key={index}>
-                      <div className="h-64 md:h-96 w-full bg-gray-50 overflow-hidden">
+                      <div className="h-80 md:h-[31.2rem] w-full bg-gray-50 overflow-hidden">
                         <img 
                           src={image} 
                           alt={`${property.title} - Image ${index + 1}`} 
@@ -136,7 +136,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
               </div>
             </div>
           ) : (
-            <div className="h-64 md:h-96 bg-neutral-light flex items-center justify-center rounded-lg shadow-inner">
+            <div className="h-80 md:h-[31.2rem] bg-neutral-light flex items-center justify-center rounded-lg shadow-inner">
               <div className="text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-neutral mb-2 animate-pulse opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
