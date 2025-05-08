@@ -239,32 +239,69 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
               {property.id === 10 ? (
                 <>
                   <div className="text-gray-700">
-                    <p className="mb-2">Contact Beth Mwendwa who is the Property Manager and their number is 0704039929</p>
-                    <p className="mb-2">To Arrange a Viewing or Get More Details:</p>
-                    <p className="mb-0.5">Legend Management Ltd.</p>
-                    <p className="mb-0.5">Tel: 0704039929</p>
-                    <p className="mb-0.5">Email: beth@propertylegend.com</p>
-                    <p className="mb-0.5 bg-amber-100/30 px-2 py-1 rounded">Address: Uchumi House 9th floor, Aga Khan Walk, CBD, Nairobi.</p>
+                    <h4 className="text-lg text-slate-700 font-medium">Contact Legend Management</h4>
+                    <div className="text-red-600 mb-6 text-lg">
+                      <span className="flex items-center">
+                        <svg className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        0704039929
+                      </span>
+                    </div>
                     
-                    <div className="flex mt-2 space-x-2 text-sm">
+                    <div className="flex space-x-2 mb-4">
                       <button 
                         onClick={() => window.open(`https://wa.me/254704039929?text=I'm interested in ${property.title}%0A%0A*Property Reference ID:* LM-${property.id.toString().padStart(4, '0')}%0A%0APlease send me more information about this property.`, '_blank')}
-                        className="px-3 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors flex items-center"
+                        className="flex-1 py-3 bg-green-600 text-white rounded hover:bg-green-700 transition-colors flex items-center justify-center"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="currentColor" viewBox="0 0 16 16">
                           <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
                         </svg>
                         <span>WhatsApp</span>
                       </button>
                       <button 
                         onClick={() => window.open(`tel:+254704039929`, '_blank')}
-                        className="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center"
+                        className="flex-1 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors flex items-center justify-center"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
                           <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                         </svg>
                         <span>Call</span>
                       </button>
+                    </div>
+                    
+                    <div className="text-gray-700 space-y-1 mt-4">
+                      <p className="flex items-center text-red-600">
+                        <svg className="h-4 w-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                        </svg>
+                        To Arrange a Viewing or Get More Details:
+                      </p>
+                      <p>Legend Management Ltd.</p>
+                      <p>Tel: 0704039929</p>
+                      <p>Email: beth@propertylegend.com</p>
+                      <p className="bg-amber-50 p-2">Address: Uchumi House 9th floor, Aga Khan Walk, CBD, Nairobi.</p>
+                      
+                      <div className="flex mt-2 space-x-2 text-sm">
+                        <button 
+                          onClick={() => window.open(`https://wa.me/254704039929?text=I'm interested in ${property.title}%0A%0A*Property Reference ID:* LM-${property.id.toString().padStart(4, '0')}%0A%0APlease send me more information about this property.`, '_blank')}
+                          className="px-3 py-1 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors flex items-center"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
+                          </svg>
+                          <span>WhatsApp</span>
+                        </button>
+                        <button 
+                          onClick={() => window.open(`tel:+254704039929`, '_blank')}
+                          className="px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors flex items-center"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                          </svg>
+                          <span>Call</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </>
