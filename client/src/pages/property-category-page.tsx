@@ -80,14 +80,19 @@ export default function PropertyCategoryPage() {
     window.scrollTo(0, 0);
   }, [page]);
   
-  // Background images for category headers
+  // Background images for category headers 
+  // No longer needed after removing the background image
+  /*
   const categoryBackgrounds = {
     commercial: "/images/categories/commercial-bg.jpg",
     residential: "/images/categories/residential-bg.jpg",
     land: "/images/categories/land-bg.jpg"
   };
+  */
 
-  // Get default background image based on property type
+  // This function is no longer needed since we removed the background image
+  // Keeping the commented code as reference in case we need to revert
+  /*
   const getBgImage = () => {
     // Try to get an actual property image from this category
     const propertyWithImage = properties.find(p => p.images && p.images.length > 0);
@@ -99,25 +104,17 @@ export default function PropertyCategoryPage() {
     // Fallback to category background or default
     return categoryBackgrounds[propertyType as keyof typeof categoryBackgrounds] || "/images/categories/commercial-bg.jpg";
   };
+  */
   
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Hero Header with Dynamic Background */}
-      <div className="relative h-72 md:h-96 overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src={getBgImage()}
-            alt={categoryDetails[propertyType as keyof typeof categoryDetails].title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80"></div>
-        </div>
-        
+      {/* Clean Title Header without Background Image */}
+      <div className="relative h-72 md:h-96 bg-[#2C3E50] overflow-hidden">
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
-          <div className="bg-black/40 backdrop-blur-sm px-10 py-6 rounded-xl border border-white/10 shadow-xl">
-            <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center text-[#2C3E50] hover:text-[#D99B32] transition-colors duration-300 drop-shadow-xl">
+          <div className="px-10 py-6 rounded-xl">
+            <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center text-white">
               {categoryDetails[propertyType as keyof typeof categoryDetails].title}
             </h1>
             <div className="w-24 h-1 bg-primary rounded-full mb-6 mx-auto"></div>
