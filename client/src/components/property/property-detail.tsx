@@ -590,48 +590,35 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                   </div>
                 </div>
                 
-                {/* Form Fields */}
+                {/* Quick Contact Buttons */}
                 <div className="mt-6 space-y-3">
-                  <div>
-                    <input 
-                      type="text" 
-                      placeholder="Name *" 
-                      className="w-full p-2 border border-gray-300 rounded"
-                    />
-                  </div>
-                  <div>
-                    <input 
-                      type="text" 
-                      placeholder="Contact Number *" 
-                      className="w-full p-2 border border-gray-300 rounded"
-                    />
-                  </div>
-                  <div>
-                    <input 
-                      type="email" 
-                      placeholder="Email Address *" 
-                      className="w-full p-2 border border-gray-300 rounded"
-                    />
-                  </div>
-                  <div>
-                    <textarea 
-                      placeholder={`Please send me more information on LM-${property.id.toString().padStart(4, '0')} in ${property.location}`}
-                      className="w-full p-2 border border-gray-300 rounded h-24"
-                    ></textarea>
+                  <div className="flex space-x-2">
+                    <button 
+                      onClick={() => window.open(`https://wa.me/254746369798?text=I'm interested in ${property.title}%0A%0A*Property Reference ID:* LM-${property.id.toString().padStart(4, '0')}%0A%0APlease send me more information about this property.`, '_blank')}
+                      className="flex-1 flex items-center justify-center px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/>
+                      </svg>
+                      <span>WhatsApp</span>
+                    </button>
+                    <button 
+                      onClick={() => window.open(`tel:+254791181166`, '_blank')}
+                      className="flex-1 flex items-center justify-center px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                      <span>Call</span>
+                    </button>
                   </div>
                   
-                  <button className="w-full bg-red-600 text-white py-2 px-4 rounded font-medium hover:bg-red-700 transition-colors">
-                    Send Message
-                  </button>
-                  
-                  <div className="text-xs text-gray-500 mt-2">
-                    <div className="mb-1">Subscribe to the <span className="text-red-600">Email Newsletter</span></div>
-                    <div className="mb-1">Subscribe to <span className="text-red-600">Property Email Alerts</span></div>
-                    <div className="mb-1">Add to <span className="text-red-600">My Favourites</span></div>
-                    <div className="mt-3 text-[11px]">
-                      We will communicate real estate related marketing information and related services. 
-                      We respect your privacy. See our Privacy Policy
-                    </div>
+                  <div className="mt-4 text-sm text-neutral-dark">
+                    <p className="mb-2">📞 To Arrange a Viewing or Get More Details:</p>
+                    <p className="font-semibold mb-0.5">Legend Management Ltd.</p>
+                    <p className="mb-0.5">Tel: 0791181166</p>
+                    <p className="mb-0.5">Email: joseph@propertylegend.com</p>
+                    <p className="mb-0.5">Property Ref: LM-{property.id.toString().padStart(4, '0')}</p>
                   </div>
                 </div>
               </div>
