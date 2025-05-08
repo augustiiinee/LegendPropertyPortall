@@ -442,42 +442,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                     </div>
                   </div>
                   
-                  {/* Property Stats */}
-                  <div className="grid grid-cols-3 gap-4 border-t border-b border-gray-200 py-4">
-                    <div className="flex flex-col items-center justify-center p-2">
-                      <span className="text-gray-600 text-sm">Size</span>
-                      <span className="font-bold text-lg">{property.title.includes('Uchumi') ? '12,453' : property.size.toLocaleString()} sq ft</span>
-                    </div>
-                    
-                    {property.type === 'residential' ? (
-                      <>
-                        <div className="flex flex-col items-center justify-center p-2 border-l border-r border-gray-200">
-                          <span className="text-gray-600 text-sm">Bedrooms</span>
-                          <span className="font-bold text-lg">{property.bedrooms}</span>
-                        </div>
-                        <div className="flex flex-col items-center justify-center p-2">
-                          <span className="text-gray-600 text-sm">Bathrooms</span>
-                          <span className="font-bold text-lg">{property.bathrooms}</span>
-                        </div>
-                      </>
-                    ) : (
-                      <>
-                        <div className="flex flex-col items-center justify-center p-2 border-l border-r border-gray-200">
-                          <span className="text-gray-600 text-sm">Offices</span>
-                          <span className="font-bold text-lg">
-                            {property.title.includes('Uchumi') ? '10' : 
-                            property.title.includes('NBK') ? '5' : 
-                            property.title.includes('Blueshield') ? '14' : 
-                            property.title.includes('Finance') ? '7' : '8'}
-                          </span>
-                        </div>
-                        <div className="flex flex-col items-center justify-center p-2">
-                          <span className="text-gray-600 text-sm">Parking</span>
-                          <span className="font-bold text-lg">{property.title.includes('Uchumi') ? '20' : '10'}</span>
-                        </div>
-                      </>
-                    )}
-                  </div>
+
                   
                   {/* Price Section */}
                   <div className="flex items-center">
