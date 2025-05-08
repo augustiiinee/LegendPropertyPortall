@@ -373,18 +373,20 @@ export default function PropertyCategoriesPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Title Section with Dark Overlay similar to the shared image but without background image */}
+      {/* Clean Title Header without background image, matching property-category-page style */}
       <div className="w-full relative">
-        <div className="h-[300px] w-full bg-[#2C3E50] relative">
+        <div className="h-[300px] w-full bg-white relative">
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
-            <div className="bg-emerald-500/80 text-white px-4 py-1.5 rounded-full mb-4 text-sm font-medium">
-              {commercialProperties.length} Properties Available
+            <div className="bg-[#D99B32] px-6 py-2 rounded-full shadow-lg mb-4 text-sm font-medium">
+              <span className="font-medium text-white">
+                {commercialProperties.length} Properties Available
+              </span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#98ccfd] mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-4">
               Commercial Properties
             </h2>
-            <div className="w-16 h-0.5 bg-[#D99B32] mb-4"></div>
-            <p className="text-white/90 max-w-2xl">
+            <div className="w-24 h-1 bg-[#D99B32] rounded-full mb-6 mx-auto"></div>
+            <p className="text-gray-600 max-w-2xl text-lg">
               Explore our selection of commercial properties including premium office spaces, retail
               outlets, and commercial buildings strategically located across Kenya.
             </p>

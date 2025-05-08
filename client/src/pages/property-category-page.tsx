@@ -110,23 +110,23 @@ export default function PropertyCategoryPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Clean Title Header without Background Image */}
-      <div className="relative h-72 md:h-96 bg-[#2C3E50] overflow-hidden">
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
+      {/* Clean Title Header without Background Image - using gold color theme */}
+      <div className="relative h-72 md:h-96 bg-white overflow-hidden">
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
           <div className="px-10 py-6 rounded-xl">
-            <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center text-white">
+            <h1 className="text-4xl md:text-5xl font-bold font-montserrat mb-4 text-center text-[#2C3E50]">
               {categoryDetails[propertyType as keyof typeof categoryDetails].title}
             </h1>
-            <div className="w-24 h-1 bg-primary rounded-full mb-6 mx-auto"></div>
-            <p className="max-w-3xl text-center text-lg text-white drop-shadow-lg">
+            <div className="w-24 h-1 bg-[#D99B32] rounded-full mb-6 mx-auto"></div>
+            <p className="max-w-3xl text-center text-lg text-gray-600">
               {categoryDetails[propertyType as keyof typeof categoryDetails].description}
             </p>
           </div>
           
           {/* Category Badge */}
           <div className="absolute top-8 right-8">
-            <div className="bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full border border-white/20 shadow-lg">
-              <span className="font-medium text-white/90">
+            <div className="bg-[#D99B32] px-6 py-2 rounded-full shadow-lg">
+              <span className="font-medium text-white">
                 {data?.total || 0} {(data?.total || 0) === 1 ? 'Property' : 'Properties'} Available
               </span>
             </div>
