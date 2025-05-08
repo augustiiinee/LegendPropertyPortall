@@ -29,7 +29,7 @@ export default function PropertyCategoriesSection() {
               {/* Image Section */}
               <div className="relative h-[360px] overflow-hidden">
                 <img 
-                  src="/images/hero/hero2.jpeg" 
+                  src="/images/categories/commercial-building.png" 
                   alt="Commercial Properties" 
                   className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
                 />
@@ -72,7 +72,7 @@ export default function PropertyCategoriesSection() {
               {/* Image Section */}
               <div className="relative h-[360px] overflow-hidden">
                 <img 
-                  src="/images/hero/hero1.jpeg" 
+                  src="/images/categories/residential.jpg" 
                   alt="Residential Properties" 
                   className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
                 />
@@ -115,7 +115,7 @@ export default function PropertyCategoriesSection() {
               {/* Image Section */}
               <div className="relative h-[360px] overflow-hidden">
                 <img 
-                  src="/images/hero/nyayo-estate.jpg" 
+                  src="/images/categories/land.jpg" 
                   alt="Land Properties" 
                   className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
                 />
