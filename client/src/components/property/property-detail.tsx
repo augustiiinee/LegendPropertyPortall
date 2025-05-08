@@ -448,16 +448,10 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                   <div className="flex items-center">
                     <div className="mr-3 text-gray-700 font-medium">Price:</div>
                     <div className="font-bold text-xl text-red-600">
-                      {property.title.includes('Uchumi House') ? (
-                        <span>Ground Floor: Ksh 230/sqft, Other Floors: Ksh 106/sqft</span>
-                      ) : property.title.includes('National Bank') ? (
-                        <span>Ksh {property.price}/sqft</span>
-                      ) : property.title.includes('Blueshield') ? (
-                        <span>Ksh 130/sqft</span>
-                      ) : property.title.includes('Finance House') ? (
-                        <span>Ksh 85/sqft</span>
-                      ) : (
+                      {property.price ? (
                         <span>Ksh {property.price.toLocaleString()}</span>
+                      ) : (
+                        <span>Contact for pricing</span>
                       )}
                     </div>
                   </div>
@@ -587,22 +581,7 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
                   <span className="text-gray-600">Status:</span>
                   <span className="font-medium">{property.status}</span>
                 </div>
-                {property.title.includes('Uchumi House') && (
-                  <>
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="text-gray-600">Ground Floor Rent:</span>
-                      <span className="font-medium">Ksh 230/sqft</span>
-                    </div>
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="text-gray-600">Other Floors Rent:</span>
-                      <span className="font-medium">Ksh 106/sqft</span>
-                    </div>
-                    <div className="flex justify-between border-b border-gray-100 pb-2">
-                      <span className="text-gray-600">Service Charge:</span>
-                      <span className="font-medium">Ksh 26/sqft</span>
-                    </div>
-                  </>
-                )}
+
                 {property.type === 'residential' && (
                   <>
                     <div className="flex justify-between border-b border-gray-100 pb-2">
