@@ -41,7 +41,8 @@ function CategoryCard({
           <img 
             src={image} 
             alt={title}
-            className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
+            className="w-full h-full object-contain object-center transition-all duration-1000 ease-in-out group-hover:scale-105"
+            style={{ objectPosition: '50% 50%', objectFit: 'cover', transform: 'scale(0.9)' }}
           />
         </div>
         
@@ -92,13 +93,10 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   // Modern slider implementation with predefined building images
   const [currentPropertyIndex, setCurrentPropertyIndex] = useState(0);
   
-  // Define the commercial buildings in the specific order requested
+  // Only display Hazina and NBK photos as requested
   const buildingImages = [
     { name: 'Hazina Trade Centre', image: '/images/categories/commercial/hazina.jpg' },
-    { name: 'Finance House', image: '/images/categories/commercial/finance.jpg' },
-    { name: 'National Bank', image: '/images/categories/commercial/nbk.jpg' },
-    { name: 'Utalii House', image: '/images/categories/commercial/utalii.jpg' },
-    { name: 'Uchumi House', image: '/images/categories/commercial/uchumi.jpg' }
+    { name: 'National Bank', image: '/images/categories/commercial/nbk.jpg' }
   ];
   
   // Set up auto-rotation for buildings
@@ -159,11 +157,12 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         width: '100%',
         maxWidth: '100%'
       }}>
-        {/* Use our high-quality commercial building images */}
+        {/* Use our high-quality commercial building images with adjusted zoom level */}
         <img 
           src={getBuildingImage(property)} 
           alt={property.title} 
-          className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
+          className="w-full h-full object-contain object-center transition-all duration-1000 ease-in-out group-hover:scale-105"
+          style={{ objectPosition: '50% 50%', objectFit: 'cover', transform: 'scale(0.9)' }}
         />
         
         {/* Slider Controls - Kept for functionality but made more subtle */}
@@ -378,9 +377,10 @@ export default function PropertyCategoriesPage() {
       <div className="w-full relative">
         <div className="h-[300px] w-full relative">
           <img 
-            src="/images/categories/commercial/uchumi.jpg" 
+            src="/images/categories/commercial/hazina.jpg" 
             alt="Commercial Properties" 
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: '50% 50%', transform: 'scale(0.95)' }}
           />
           <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
             <div className="bg-emerald-500/80 text-white px-4 py-1.5 rounded-full mb-4 text-sm font-medium">
