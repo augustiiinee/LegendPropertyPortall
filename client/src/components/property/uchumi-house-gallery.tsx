@@ -34,6 +34,13 @@ export default function UchumiHouseGallery({ property }: UchumiHouseGalleryProps
             src="/images/properties/uchumi/main.jpg" 
             alt={property.title}
             className="w-full h-full object-cover rounded"
+            loading="eager"
+            fetchPriority="high"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.onerror = null;
+              target.src = '/images/properties/placeholder.jpg';
+            }}
           />
           
           {/* Web Ref */}

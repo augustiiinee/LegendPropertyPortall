@@ -43,6 +43,13 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                     src={property.images[activeImageIndex]} 
                     alt={property.title}
                     className="w-full h-full object-cover rounded"
+                    loading="eager"
+                    fetchPriority="high"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src = '/images/properties/placeholder.jpg';
+                    }}
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-200 rounded flex items-center justify-center">
@@ -71,6 +78,12 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                         src={image} 
                         alt={`Thumbnail ${index + 1}`} 
                         className="h-16 w-24 object-cover rounded"
+                        loading="lazy"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.onerror = null;
+                          target.src = '/images/properties/placeholder.jpg';
+                        }}
                       />
                     </div>
                   ))}
