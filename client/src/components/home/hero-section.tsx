@@ -102,7 +102,7 @@ export default function HeroSection() {
         
         {/* Hero Content Overlay */}
         <div className="absolute bottom-20 inset-x-0 flex items-center justify-center text-center px-4 z-20">
-          <div className="max-w-4xl bg-[#2C3E50] bg-opacity-10 p-4 rounded-lg shadow-xl">
+          <div className="max-w-4xl bg-[#2C3E50] bg-opacity-20 p-4 rounded-lg shadow-xl">
             <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 drop-shadow-xl" style={{ textShadow: '0px 2px 4px rgba(0,0,0,0.8)' }}>
               Absolute Property Solutions
             </h1>
