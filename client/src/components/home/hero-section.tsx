@@ -78,7 +78,7 @@ export default function HeroSection() {
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: 'fill', // Fill the entire container
+                objectFit: slide.id === 3 ? 'contain' : 'fill', // Special handling for Blueshield (id=3)
                 objectPosition: 'center'
               }}
             />
