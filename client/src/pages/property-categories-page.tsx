@@ -151,25 +151,12 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
     <div className="group flex flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
       {/* Simple Image Section - Without overlays */}
       <div className="relative h-[360px] overflow-hidden">
-        {/* Pure Image Display with subtle hover effect */}
-        {property.images && property.images.length > 0 ? (
-          <img 
-            src={property.images[currentImageIndex % property.images.length]} 
-            alt={`${property.title} - Image ${currentImageIndex + 1}`} 
-            className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
-          />
-        ) : (
-          <div className="w-full h-full bg-neutral-light flex items-center justify-center">
-            <div className="text-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-neutral mb-2 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-              <p className="text-neutral font-medium">No image available</p>
-            </div>
-          </div>
-        )}
+        {/* Use our high-quality commercial building images */}
+        <img 
+          src={getBuildingImage(property)} 
+          alt={property.title} 
+          className="w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
+        />
         
         {/* Slider Controls - Kept for functionality but made more subtle */}
         <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between z-30">
@@ -286,7 +273,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
             key={index}
             onClick={() => {
               setCurrentPropertyIndex(index);
-              setCurrentImageIndex(0);
+              // No longer need to set currentImageIndex since we're using static images
             }}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === currentPropertyIndex 
