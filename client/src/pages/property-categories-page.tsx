@@ -373,6 +373,31 @@ export default function PropertyCategoriesPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      
+      {/* Hero Banner Section with Dark Overlay similar to the shared image */}
+      <div className="w-full relative">
+        <div className="h-[300px] w-full relative">
+          <img 
+            src="/images/categories/commercial/uchumi.jpg" 
+            alt="Commercial Properties" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
+            <div className="bg-emerald-500/80 text-white px-4 py-1.5 rounded-full mb-4 text-sm font-medium">
+              {commercialProperties.length} Properties Available
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#98ccfd] mb-4">
+              Commercial Properties
+            </h2>
+            <div className="w-16 h-0.5 bg-[#D99B32] mb-4"></div>
+            <p className="text-white/90 max-w-2xl">
+              Explore our selection of commercial properties including premium office spaces, retail
+              outlets, and commercial buildings strategically located across Kenya.
+            </p>
+          </div>
+        </div>
+      </div>
+      
       <main className="flex-grow py-16 bg-white">
         <div className="container mx-auto px-4">
           {/* Simple Section Heading to match uploaded style */}
@@ -417,33 +442,9 @@ export default function PropertyCategoriesPage() {
             </div>
           </div>
           
-          {/* Commercial Properties Banner with Hero Image */}
+          {/* Commercial Properties Showcase */}
           {commercialProperties.length > 0 && (
             <div className="mt-20">
-              {/* Category Banner with Overlay similar to the provided image */}
-              <div className="relative rounded-xl overflow-hidden mb-12">
-                <div className="h-[300px] w-full relative">
-                  <img 
-                    src="/images/categories/commercial/uchumi.jpg" 
-                    alt="Commercial Properties" 
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
-                    <div className="badge bg-emerald-500/80 text-white px-4 py-1 rounded-full mb-4 text-sm">
-                      {commercialProperties.length} Properties Available
-                    </div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                      Commercial Properties
-                    </h2>
-                    <div className="w-24 h-1 bg-[#D99B32] mb-4"></div>
-                    <p className="text-white/90 max-w-2xl">
-                      Explore our selection of commercial properties including premium office spaces, retail
-                      outlets, and commercial buildings strategically located across Kenya.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
               <div className="mb-12 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-3">Featured <span className="text-[#D99B32]">Commercial Properties</span></h2>
                 <p className="text-[#536270] text-lg max-w-3xl mx-auto">
