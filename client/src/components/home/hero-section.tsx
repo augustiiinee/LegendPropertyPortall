@@ -78,8 +78,9 @@ export default function HeroSection() {
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: slide.id === 3 ? 'contain' : 'fill', // Special handling for Blueshield (id=3)
-                objectPosition: 'center'
+                objectFit: 'cover', // Use cover for all images to maintain landscape format
+                objectPosition: slide.id === 3 ? 'center 40%' : 'center', // Special positioning for Blueshield
+                maxHeight: slide.id === 3 ? '60vh' : '100%' // Limit height of Blueshield image
               }}
             />
             {/* No overlay at all */}
