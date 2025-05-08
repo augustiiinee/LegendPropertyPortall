@@ -1,11 +1,11 @@
 import { Property } from '@shared/types';
 import { useState } from 'react';
 
-type UchumiHouseDetailProps = {
+type BrollPropertyDetailProps = {
   property: Property;
 };
 
-export default function UchumiHouseDetail({ property }: UchumiHouseDetailProps) {
+export default function BrollPropertyDetail({ property }: BrollPropertyDetailProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   return (
@@ -96,20 +96,70 @@ export default function UchumiHouseDetail({ property }: UchumiHouseDetailProps) 
                 </div>
                 
                 {/* Price Section */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-b border-gray-100 py-4">
-                  <div className="text-center">
-                    <div className="text-gray-600 text-sm mb-1">Ground Floor</div>
-                    <div className="font-bold text-xl text-red-600">Ksh 230/sqft</div>
+                {property.title.includes('National Bank') ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-b border-gray-100 py-4">
+                    <div className="text-center">
+                      <div className="text-gray-600 text-sm mb-1">Rent</div>
+                      <div className="font-bold text-xl text-red-600">Ksh 90/sqft</div>
+                    </div>
+                    <div className="text-center border-l border-r border-gray-100">
+                      <div className="text-gray-600 text-sm mb-1">Service Charge</div>
+                      <div className="font-bold text-xl text-red-600">Ksh 36/sqft</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-gray-600 text-sm mb-1">Parking</div>
+                      <div className="font-bold text-xl text-red-600">Ksh 10,000/month</div>
+                    </div>
                   </div>
-                  <div className="text-center border-l border-r border-gray-100">
-                    <div className="text-gray-600 text-sm mb-1">Other Floors</div>
-                    <div className="font-bold text-xl text-red-600">Ksh 106/sqft</div>
+                ) : property.title.includes('Blueshield') ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-b border-gray-100 py-4">
+                    <div className="text-center">
+                      <div className="text-gray-600 text-sm mb-1">Rent</div>
+                      <div className="font-bold text-xl text-red-600">Ksh 75/sqft</div>
+                    </div>
+                    <div className="text-center border-l border-r border-gray-100">
+                      <div className="text-gray-600 text-sm mb-1">Service Charge</div>
+                      <div className="font-bold text-xl text-red-600">Ksh 25/sqft</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-gray-600 text-sm mb-1">Parking</div>
+                      <div className="font-bold text-xl text-red-600">Ksh 10,000/month</div>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-gray-600 text-sm mb-1">Service Charge</div>
-                    <div className="font-bold text-xl text-red-600">Ksh 26/sqft</div>
+                ) : property.title.includes('Finance House') ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-b border-gray-100 py-4">
+                    <div className="text-center">
+                      <div className="text-gray-600 text-sm mb-1">Rent</div>
+                      <div className="font-bold text-xl text-red-600">Ksh 85/sqft</div>
+                    </div>
+                    <div className="text-center border-l border-gray-100">
+                      <div className="text-gray-600 text-sm mb-1">Service Charge</div>
+                      <div className="font-bold text-xl text-red-600">Ksh 30/sqft</div>
+                    </div>
                   </div>
-                </div>
+                ) : property.type === 'residential' ? (
+                  <div className="flex items-center border-t border-b border-gray-100 py-4">
+                    <div className="mr-3 text-gray-700 font-medium">Price:</div>
+                    <div className="font-bold text-xl text-red-600">
+                      {property.price ? (
+                        <span>Ksh {property.price.toLocaleString()}</span>
+                      ) : (
+                        <span>Contact for pricing</span>
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex items-center border-t border-b border-gray-100 py-4">
+                    <div className="mr-3 text-gray-700 font-medium">Price:</div>
+                    <div className="font-bold text-xl text-red-600">
+                      {property.price ? (
+                        <span>Ksh {property.price.toLocaleString()}/sqft</span>
+                      ) : (
+                        <span>Contact for pricing</span>
+                      )}
+                    </div>
+                  </div>
+                )}
                 
                 {/* Description */}
                 <div>
@@ -236,6 +286,18 @@ export default function UchumiHouseDetail({ property }: UchumiHouseDetailProps) 
                 <span className="text-gray-600">Status:</span>
                 <span className="font-medium">{property.status}</span>
               </div>
+              {property.type === 'residential' && (
+                <>
+                  <div className="flex justify-between border-b border-gray-100 pb-2">
+                    <span className="text-gray-600">Bedrooms:</span>
+                    <span className="font-medium">{property.bedrooms}</span>
+                  </div>
+                  <div className="flex justify-between border-b border-gray-100 pb-2">
+                    <span className="text-gray-600">Bathrooms:</span>
+                    <span className="font-medium">{property.bathrooms}</span>
+                  </div>
+                </>
+              )}
               <div className="flex justify-between border-b border-gray-100 pb-2">
                 <span className="text-gray-600">Agent:</span>
                 <span className="font-medium">Legend Management Ltd</span>
