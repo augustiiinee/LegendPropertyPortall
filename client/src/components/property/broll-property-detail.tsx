@@ -370,8 +370,10 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                 </>
               )}
               <div className="flex justify-between border-b border-gray-100 pb-2">
-                <span className="text-gray-600">Agent:</span>
-                <span className="font-medium">Legend Management Ltd</span>
+                <span className="text-gray-600">Property Manager:</span>
+                <span className="font-medium">
+                  {property.id === 10 ? 'Beth Mwendwa' : 'Legend Management Ltd'}
+                </span>
               </div>
             </div>
           </div>
