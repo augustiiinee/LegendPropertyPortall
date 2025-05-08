@@ -375,193 +375,310 @@ export default function PropertyDetail({ propertyId }: PropertyDetailProps) {
           )}
         </div>
         
-        {/* Property Information in simplified format */}
-        <div className="mb-8">
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6">
-            <div className="flex flex-wrap items-center justify-between mb-4">
-              <h1 className="text-2xl md:text-3xl font-bold text-primary mb-2">{property.title}</h1>
-              <Badge className="bg-gold text-white font-medium">
-                {property.status.toUpperCase()}
-              </Badge>
-            </div>
-            
-            <div className="flex items-center text-neutral mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-secondary" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-              </svg>
-              <span>{property.location}</span>
-            </div>
-            
-            {/* Property Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 mt-4">
-              <div className="bg-[#f9f5ed] p-4 rounded-lg border border-[#D99B32]/10">
-                <div className="text-center">
-                  <h3 className="text-lg font-medium mb-2 text-neutral-700">Property Size</h3>
-                  <p className="text-2xl font-bold text-primary">{property.size.toLocaleString()} <span className="text-base font-medium">sq ft</span></p>
+        {/* Property Description in Broll format */}
+        <div className="mb-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Left Column - Main Property Details */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
+              {/* Gallery Tab Header */}
+              <div className="border-b border-gray-200">
+                <div className="bg-red-600 text-white px-4 py-2 inline-block font-medium">
+                  <div className="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                    </svg>
+                    <span>GALLERY</span>
+                  </div>
                 </div>
               </div>
               
-              {property.type === 'commercial' && (
-                <div className="bg-[#f9f5ed] p-4 rounded-lg border border-[#D99B32]/10">
-                  <div className="text-center">
-                    <h3 className="text-lg font-medium mb-2 text-neutral-700">Offices</h3>
-                    <p className="text-2xl font-bold text-gold">{property.title.includes('Uchumi') ? '10' : property.title.includes('NBK') ? '5' : '8'}</p>
+              {/* Featured Badge over image */}
+              <div className="p-4">
+                <div className="relative mb-6">
+                  {property.featured && (
+                    <div className="absolute top-0 left-0 z-10">
+                      <div className="bg-red-600 text-white px-3 py-1 text-sm font-medium">
+                        FEATURED
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Property Image */}
+                  {property.images && property.images.length > 0 ? (
+                    <img 
+                      src={property.images[0]} 
+                      alt={property.title}
+                      className="w-full h-auto rounded"
+                    />
+                  ) : (
+                    <div className="w-full h-64 bg-gray-200 rounded flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  )}
+                  
+                  {/* Web Ref */}
+                  <div className="absolute bottom-0 right-0 bg-black/70 text-white px-3 py-1 text-sm">
+                    Web Ref LM{property.id}
                   </div>
                 </div>
-              )}
-              
-              {property.type === 'residential' && (
-                <>
-                  <div className="bg-[#f9f5ed] p-4 rounded-lg border border-[#D99B32]/10">
-                    <div className="text-center">
-                      <h3 className="text-lg font-medium mb-2 text-neutral-700">Bedrooms</h3>
-                      <p className="text-2xl font-bold text-gold">{property.bedrooms}</p>
+                
+                {/* Pricing section below image */}
+                <div className="mb-6">
+                  <h3 className="text-xl font-bold text-[#D99B32] mb-3">Pricing:</h3>
+                  {property.title.includes('Uchumi House') ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Ground Floor Rent:</span>
+                          <span className="font-bold">Ksh 230 / Sqft</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Other Floors Rent:</span>
+                          <span className="font-bold">Ksh 106 / Sqft</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Service Charge:</span>
+                          <span className="font-bold">Ksh 26 / Sqft</span>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Property Size:</span>
+                          <span className="font-bold">{property.size.toLocaleString()} sq ft</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Offices:</span>
+                          <span className="font-bold">10</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Parking Spots:</span>
+                          <span className="font-bold">20</span>
+                        </div>
+                      </div>
+                    </div>
+                  ) : property.title.includes('National Bank') ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Rent:</span>
+                          <span className="font-bold">Ksh {property.price} / Sqft</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Service Charge:</span>
+                          <span className="font-bold">Ksh 36 / Sqft</span>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Property Size:</span>
+                          <span className="font-bold">{property.size.toLocaleString()} sq ft</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Offices:</span>
+                          <span className="font-bold">5</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Parking Spots:</span>
+                          <span className="font-bold">10</span>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Price:</span>
+                          <span className="font-bold">{property.price.toLocaleString()} KSh</span>
+                        </div>
+                        {property.type === 'residential' && (
+                          <>
+                            <div className="flex items-center justify-between">
+                              <span className="text-gray-600">Bedrooms:</span>
+                              <span className="font-bold">{property.bedrooms}</span>
+                            </div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-gray-600">Bathrooms:</span>
+                              <span className="font-bold">{property.bathrooms}</span>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Property Size:</span>
+                          <span className="font-bold">{property.size.toLocaleString()} sq ft</span>
+                        </div>
+                        {property.type === 'commercial' && (
+                          <div className="flex items-center justify-between">
+                            <span className="text-gray-600">Offices:</span>
+                            <span className="font-bold">{property.title.includes('Blueshield') ? '14' : property.title.includes('Finance') ? '7' : '1'}</span>
+                          </div>
+                        )}
+                        <div className="flex items-center justify-between">
+                          <span className="text-gray-600">Parking Spots:</span>
+                          <span className="font-bold">10</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Property Overview */}
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-xl font-bold mb-4">Description</h2>
+                    <div className="space-y-4 text-neutral-dark">
+                      {property.description.split('\n\n')[0].split('\n').map((line, idx) => (
+                        <p key={idx} className="text-neutral-dark leading-relaxed">{line}</p>
+                      ))}
                     </div>
                   </div>
-                  <div className="bg-[#f9f5ed] p-4 rounded-lg border border-[#D99B32]/10">
-                    <div className="text-center">
-                      <h3 className="text-lg font-medium mb-2 text-neutral-700">Bathrooms</h3>
-                      <p className="text-2xl font-bold text-gold">{property.bathrooms}</p>
+                  
+                  {/* Additional Information Sections */}
+                  {property.description.split('\n\n').slice(1).map((paragraph, index) => {
+                    if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities') || paragraph.startsWith('Contact Information')) {
+                      // Extract the title and content
+                      const [title, ...content] = paragraph.split('\n');
+                      return (
+                        <div key={index} className="mt-6">
+                          <h3 className="text-lg font-bold mb-3">{title}</h3>
+                          <div className="whitespace-pre-line leading-relaxed text-neutral-dark">{content.join('\n')}</div>
+                        </div>
+                      );
+                    } else {
+                      return (
+                        <div key={index} className="mt-6">
+                          <h3 className="text-lg font-bold mb-3">Additional Information</h3>
+                          <p className="whitespace-pre-line leading-relaxed text-neutral-dark">{paragraph}</p>
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right Column - Contact and Property Info */}
+          <div className="lg:col-span-1">
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 mb-6">
+              {/* Contact Agents Section */}
+              <div className="space-y-4">
+                <h3 className="text-xl font-bold border-b border-gray-200 pb-2 mb-4">Contact</h3>
+                
+                <div className="space-y-4">
+                  <div className="space-y-1">
+                    <div className="font-bold">Contact Geoffrey Koros</div>
+                    <div className="text-red-600 hover:underline cursor-pointer flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                      <span>Show number</span>
                     </div>
                   </div>
-                </>
-              )}
-              
-              <div className="bg-[#f9f5ed] p-4 rounded-lg border border-[#D99B32]/10">
-                <div className="text-center">
-                  <h3 className="text-lg font-medium mb-2 text-neutral-700">Parking Spots</h3>
-                  <p className="text-2xl font-bold text-gold">{property.title.includes('Uchumi') ? '20' : '10'}</p>
+                  
+                  <div className="space-y-1">
+                    <div className="font-bold">Contact David Ruto</div>
+                    <div className="text-red-600 hover:underline cursor-pointer flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                      </svg>
+                      <span>Show number</span>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Form Fields */}
+                <div className="mt-6 space-y-3">
+                  <div>
+                    <input 
+                      type="text" 
+                      placeholder="Name *" 
+                      className="w-full p-2 border border-gray-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <input 
+                      type="text" 
+                      placeholder="Contact Number *" 
+                      className="w-full p-2 border border-gray-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <input 
+                      type="email" 
+                      placeholder="Email Address *" 
+                      className="w-full p-2 border border-gray-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <textarea 
+                      placeholder={`Please send me more information on LM-${property.id.toString().padStart(4, '0')} in ${property.location}`}
+                      className="w-full p-2 border border-gray-300 rounded h-24"
+                    ></textarea>
+                  </div>
+                  
+                  <button className="w-full bg-red-600 text-white py-2 px-4 rounded font-medium hover:bg-red-700 transition-colors">
+                    Send Message
+                  </button>
+                  
+                  <div className="text-xs text-gray-500 mt-2">
+                    <div className="mb-1">Subscribe to the <span className="text-red-600">Email Newsletter</span></div>
+                    <div className="mb-1">Subscribe to <span className="text-red-600">Property Email Alerts</span></div>
+                    <div className="mb-1">Add to <span className="text-red-600">My Favourites</span></div>
+                    <div className="mt-3 text-[11px]">
+                      We will communicate real estate related marketing information and related services. 
+                      We respect your privacy. See our Privacy Policy
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             
-            {/* Pricing Info */}
-            <div className="mb-6 bg-[#f9f5ed] p-4 rounded-lg border border-[#D99B32]/10">
-              <h3 className="text-xl font-semibold mb-3 text-[#D99B32]">Pricing:</h3>
-              
-              {property.title.includes('Uchumi House') ? (
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Ground Floor Rent:</span>
-                    <span className="text-primary font-bold text-xl">Ksh 230 / Sqft</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Other Floors Rent:</span>
-                    <span className="text-primary font-bold text-xl">Ksh 106 / Sqft</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
-                    <span className="text-primary font-bold text-xl">Ksh 26 / Sqft</span>
-                  </div>
+            {/* Property Information Box */}
+            <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
+              <h3 className="bg-gray-100 px-4 py-2 font-bold text-lg border-b border-gray-200">Property Information</h3>
+              <div className="p-4 space-y-3">
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Reference:</span>
+                  <span className="font-medium">LM-{property.id.toString().padStart(4, '0')}</span>
                 </div>
-              ) : property.title.includes('National Bank') ? (
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Rent:</span>
-                    <span className="text-primary font-bold text-xl">Ksh {property.price} / Sqft</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
-                    <span className="text-primary font-bold text-xl">Ksh 36 / Sqft</span>
-                  </div>
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Location:</span>
+                  <span className="font-medium">{property.location}</span>
                 </div>
-              ) : property.title.includes('Blueshield') ? (
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Rent:</span>
-                    <span className="text-primary font-bold text-xl">Ksh 130 / Sqft</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
-                    <span className="text-primary font-bold text-xl">Ksh 25 / Sqft</span>
-                  </div>
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Property Type:</span>
+                  <span className="font-medium capitalize">{property.type}</span>
                 </div>
-              ) : property.title.includes('Finance House') ? (
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Rent:</span>
-                    <span className="text-primary font-bold text-xl">Ksh 85 / Sqft</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="mr-2 text-neutral-dark font-medium">Service Charge:</span>
-                    <span className="text-primary font-bold text-xl">Ksh 30 / Sqft</span>
-                  </div>
+                <div className="flex justify-between border-b border-gray-100 pb-2">
+                  <span className="text-gray-600">Status:</span>
+                  <span className="font-medium">{property.status}</span>
                 </div>
-              ) : (
-                <div className="flex items-center">
-                  <span className="text-primary font-bold text-2xl">{property.price.toLocaleString()} KSh</span>
+                
+                {/* Quick Action Buttons */}
+                <div className="flex justify-center pt-4 space-x-3">
+                  <button
+                    onClick={() => window.open(`https://wa.me/254746369798?text=I'm interested in ${property.title}%0A%0A*Property Reference ID:* LM-${property.id.toString().padStart(4, '0')}%0A%0APlease send me more information about this property.`, '_blank')} 
+                    className="flex items-center justify-center px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                    </svg>
+                    <span>WhatsApp</span>
+                  </button>
+                  <button 
+                    onClick={() => window.open(`tel:+254791181166`, '_blank')}
+                    className="flex items-center justify-center px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                    </svg>
+                    <span>Call</span>
+                  </button>
                 </div>
-              )}
-              
-              <div className="mt-4 pt-4 border-t border-[#D99B32]/10">
-                <div className="flex items-center text-neutral">
-                  <span className="font-medium">Reference:</span>
-                  <span className="ml-2">LM-{property.id.toString().padStart(4, '0')}</span>
-                </div>
-              </div>
-            </div>
-            
-            {/* Property Description */}
-            <div className="mb-6">
-              <h3 className="text-xl font-semibold mb-3 text-[#D99B32]">Description</h3>
-              <div className="space-y-4 text-neutral-dark">
-                {property.description.split('\n\n')[0].split('\n').map((line, idx) => (
-                  <p key={idx} className="text-neutral-dark leading-relaxed">{line}</p>
-                ))}
-              </div>
-            </div>
-            
-            {/* Additional Information Sections */}
-            {property.description.split('\n\n').slice(1).map((paragraph, index) => {
-              if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities') || paragraph.startsWith('Contact Information')) {
-                // Extract the title and content
-                const [title, ...content] = paragraph.split('\n');
-                return (
-                  <div key={index} className="mb-6">
-                    <h3 className="text-xl font-semibold mb-3 text-[#D99B32]">{title}</h3>
-                    <div className="whitespace-pre-line leading-relaxed text-neutral-dark">{content.join('\n')}</div>
-                  </div>
-                );
-              } else {
-                return (
-                  <div key={index} className="mb-6">
-                    <h3 className="text-xl font-semibold mb-3 text-[#D99B32]">Additional Information</h3>
-                    <p className="whitespace-pre-line leading-relaxed text-neutral-dark">{paragraph}</p>
-                  </div>
-                );
-              }
-            })}
-            
-            {/* Contact Section */}
-            <div className="mt-8 pt-4 border-t border-[#D99B32]/10">
-              <h3 className="text-xl font-semibold mb-3 text-[#D99B32]">Contact Information</h3>
-              <p className="mb-2 text-neutral-dark">📞 To Arrange a Viewing or Get More Details:</p>
-              <p className="font-medium">Legend Management Ltd.</p>
-              <p className="text-neutral-dark">Tel: 0791181166</p>
-              <p className="text-neutral-dark">Email: joseph@propertylegend.com | dianaruto@propertylegend.com</p>
-              <p className="text-neutral-dark">Reference: LM-{property.id.toString().padStart(4, '0')}</p>
-              
-              {/* Quick Action Buttons */}
-              <div className="flex flex-wrap gap-4 mt-6">
-                <Button 
-                  className="bg-green-600 hover:bg-green-700 hover:scale-105 transform transition-all duration-300 flex items-center"
-                  onClick={() => window.open(`https://wa.me/254746369798?text=I'm interested in ${property.title}%0A%0A*Property Reference ID:* LM-${property.id.toString().padStart(4, '0')}%0A%0APlease send me more information about this property.`, '_blank')}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                  </svg>
-                  <span className="font-medium">Contact via WhatsApp</span>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="border-[#D99B32] text-[#D99B32] hover:bg-[#D99B32] hover:text-white hover:scale-105 transform transition-all duration-300"
-                  onClick={() => window.open(`tel:+254791181166`, '_blank')}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                  </svg>
-                  <span className="font-medium">Call Now</span>
-                </Button>
               </div>
             </div>
           </div>
