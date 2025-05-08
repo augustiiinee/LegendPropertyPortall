@@ -373,28 +373,20 @@ export default function PropertyCategoriesPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Hero Banner Section with Dark Overlay similar to the shared image */}
-      <div className="w-full relative">
-        <div className="h-[300px] w-full relative">
-          <img 
-            src="/images/categories/commercial/hazina.jpg" 
-            alt="Commercial Properties" 
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: '50% 50%', transform: 'scale(0.95)' }}
-          />
-          <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
-            <div className="bg-emerald-500/80 text-white px-4 py-1.5 rounded-full mb-4 text-sm font-medium">
-              {commercialProperties.length} Properties Available
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#98ccfd] mb-4">
-              Commercial Properties
-            </h2>
-            <div className="w-16 h-0.5 bg-[#D99B32] mb-4"></div>
-            <p className="text-white/90 max-w-2xl">
-              Explore our selection of commercial properties including premium office spaces, retail
-              outlets, and commercial buildings strategically located across Kenya.
-            </p>
+      {/* Simple Title Section */}
+      <div className="w-full bg-[#2C3E50] text-center py-14 px-4">
+        <div className="container mx-auto">
+          <div className="inline-block bg-emerald-500/80 text-white px-4 py-1.5 rounded-full mb-4 text-sm font-medium">
+            {commercialProperties.length} Properties Available
           </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#98ccfd] mb-4">
+            Commercial Properties
+          </h2>
+          <div className="w-16 h-0.5 bg-[#D99B32] mx-auto mb-4"></div>
+          <p className="text-white/90 max-w-2xl mx-auto">
+            Explore our selection of commercial properties including premium office spaces, retail
+            outlets, and commercial buildings strategically located across Kenya.
+          </p>
         </div>
       </div>
       
