@@ -46,8 +46,8 @@ function CategoryCard({
           />
         </div>
         
-        {/* Details Section */}
-        <div className="p-6 bg-white border-t border-[#D99B32]/20">
+        {/* Details Section - updated with themed background */}
+        <div className="p-6 bg-[#f9f5ed] border-t border-[#D99B32]/20 shadow-sm">
           <div className="flex flex-col space-y-4">
             {/* Property Type and Count */}
             <div className="flex items-center justify-between">
@@ -191,8 +191,8 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
         </div>
       </div>
       
-      {/* Enhanced Details Section with micro-interactions */}
-      <div className="p-6 bg-white border-t border-[#D99B32]/20">
+      {/* Enhanced Details Section with themed background */}
+      <div className="p-6 bg-[#f9f5ed] border-t border-[#D99B32]/20 shadow-sm">
         <div className="flex flex-col space-y-4">
           {/* Property Status and Navigation */}
           <div className="flex items-center justify-between mb-2">
@@ -274,7 +274,7 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
       </div>
       
       {/* Pagination Indicators */}
-      <div className="bg-white pt-0 pb-4 flex justify-center gap-2">
+      <div className="bg-[#f9f5ed] pt-0 pb-4 flex justify-center gap-2">
         {properties.map((_, index) => (
           <button
             key={index}
