@@ -62,9 +62,9 @@ export default function HeroSection() {
   };
   
   return (
-    <section id="home" className="relative h-[90vh] bg-white overflow-hidden">
-      {/* Hero Carousel - Optimized for landscape display of building images */}
-      <div className="carousel relative h-full w-full max-h-[1080px]">
+    <section id="home" className="relative h-auto overflow-hidden">
+      {/* Hero Carousel - Pure landscape display of building images with no extra background */}
+      <div className="carousel relative w-full" style={{ aspectRatio: '16/9' }}>
         {heroSlides.map((slide, index) => (
           <div 
             key={slide.id}
@@ -76,13 +76,13 @@ export default function HeroSection() {
               alt={`Legend Management Property ${slide.id}`}
               className="absolute inset-0 w-full h-full"
               style={{
-                maxHeight: '1080px', // Ensuring 1080p quality
-                objectFit: 'scale-down', // Use scale-down to show the entire image without cropping
+                width: '100%',
+                height: '100%',
+                objectFit: 'fill', // Fill the entire container
                 objectPosition: 'center'
               }}
             />
-            {/* Very light overlay for text readability */}
-            <div className="absolute inset-0 bg-black bg-opacity-5"></div>
+            {/* No overlay at all */}
           </div>
         ))}
         
@@ -101,8 +101,8 @@ export default function HeroSection() {
         </div>
         
         {/* Hero Content Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center text-center px-4 z-20">
-          <div className="max-w-4xl bg-[#2C3E50] bg-opacity-60 p-6 rounded-lg shadow-xl">
+        <div className="absolute bottom-20 inset-x-0 flex items-center justify-center text-center px-4 z-20">
+          <div className="max-w-4xl bg-[#2C3E50] bg-opacity-80 p-4 rounded-lg shadow-xl">
             <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl text-white mb-6 drop-shadow-lg text-shadow">
               Absolute Property Solutions
             </h1>
