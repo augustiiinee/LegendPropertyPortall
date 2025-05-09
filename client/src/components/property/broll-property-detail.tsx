@@ -79,7 +79,7 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                       <img 
                         src={image} 
                         alt={`Thumbnail ${index + 1}`} 
-                        className="h-16 w-24 object-cover rounded"
+                        className="h-16 w-24 object-contain bg-gray-100 rounded"
                         loading="lazy"
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
