@@ -105,11 +105,11 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     `}>
       {/* Property Image & Status Badge */}
       <div className="relative overflow-hidden">
-        <div className="aspect-[4/3] w-full"> 
+        <div className="flex items-center justify-center h-60 bg-black w-full"> 
           <img 
             src={primaryImage}
             alt={property.title} 
-            className="w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-105 filter group-hover:brightness-105"
+            className="w-full h-full object-contain transition-all duration-700 ease-in-out group-hover:scale-105 filter group-hover:brightness-105"
           />
         </div>
         
