@@ -7,9 +7,9 @@ async function addUtaliiHouse() {
     console.log("🏢 Adding Utalii House commercial property...");
 
     const utaliiHouseProperty = {
-      title: "Utalii House - Premium Office Space",
+      title: "Utalii House",
       description: 
-        "Utalii House is a 12-storey commercial building situated along Utalii Street in Nairobi. It has a total lettable area of approximately 117,522.42 square feet. It is divided into two wings i.e. North wing and South wing consisting of office block all of which are available for letting. The total vacant space is 32,088.43 square feet.\n\n" +
+        "Utalii House is a 12-storey commercial building situated along Utalii Street in Nairobi CBD. It has a total lettable area of approximately 117,522.42 square feet. It is divided into two wings i.e. North wing and South wing consisting of office block all of which are available for letting. The total vacant space is 32,088.43 square feet.\n\n" +
         "Available Spaces:\n" +
         "- GF Floor: 515 sq ft\n" +
         "- GF Floor: 849.92 sq ft\n" +
@@ -35,7 +35,7 @@ async function addUtaliiHouse() {
         "- 10th Floor: 149 sq ft\n" +
         "- 10th Floor: 888.21 sq ft\n" +
         "- 10th Floor: 149 sq ft\n" +
-        "- Total: 32088.43 sq ft\n\n" +
+        "- Total: 32,088.43 sq ft\n\n" +
         "Pricing:\n" +
         "• Rent per sq. ft: Kshs.85/= exclusive VAT\n" +
         "• Service charge per sq. ft: Kshs.30/= exclusive VAT\n" +

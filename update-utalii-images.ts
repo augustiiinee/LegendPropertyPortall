@@ -9,7 +9,7 @@ async function updateUtaliiImages() {
     // Find the Utalii House property by title
     const utaliiProperty = await db.select()
       .from(properties)
-      .where(eq(properties.title, "Utalii House - Premium Office Space"))
+      .where(eq(properties.title, "Utalii House"))
       .limit(1);
     
     if (utaliiProperty.length === 0) {
