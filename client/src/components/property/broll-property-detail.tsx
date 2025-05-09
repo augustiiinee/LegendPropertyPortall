@@ -10,9 +10,9 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left Column - Main Property Details */}
-        <div className="lg:col-span-2">
+      <div className="mb-8">
+        {/* Property Details */}
+        <div className="w-full">
           <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
             {/* Gallery Tab Header */}
             <div className="border-b border-gray-200">
@@ -63,9 +63,9 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                   </div>
                 )}
                 
-                {/* Web Ref */}
+                {/* Property Reference */}
                 <div className="absolute bottom-2 right-2 bg-black/70 text-white px-3 py-1 text-sm">
-                  Web Ref LM{property.id}
+                  Ref: LM-{property.id.toString().padStart(4, '0')}
                 </div>
               </div>
               
@@ -182,105 +182,10 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                 <div>
                   <h2 className="text-xl font-bold mb-4">Description</h2>
                   <div className="space-y-4 text-gray-700 leading-relaxed">
-                    {property.description.split('\n\n')[0].split('\n').map((line, idx) => (
-                      <p key={idx}>{line}</p>
-                    ))}
+                    <div className="whitespace-pre-line">{property.description}</div>
                   </div>
                 </div>
-                
-                {/* Additional Information Sections */}
-                {property.description.split('\n\n').slice(1).map((paragraph, index) => {
-                  if (paragraph.startsWith('Pricing') || paragraph.startsWith('Amenities') || paragraph.startsWith('Contact Information')) {
-                    // Extract the title and content
-                    const [title, ...content] = paragraph.split('\n');
-                    return (
-                      <div key={index} className="mt-6">
-                        <h3 className="text-lg font-bold mb-3">{title}</h3>
-                        <div className="whitespace-pre-line leading-relaxed text-gray-700">{content.join('\n')}</div>
-                      </div>
-                    );
-                  } else {
-                    return (
-                      <div key={index} className="mt-6">
-                        <h3 className="text-lg font-bold mb-3">Additional Information</h3>
-                        <p className="whitespace-pre-line leading-relaxed text-gray-700">{paragraph}</p>
-                      </div>
-                    );
-                  }
-                })}
-                
-                {/* Features List */}
-                {property.features && property.features.length > 0 && (
-                  <div className="mt-6">
-                    <h2 className="text-xl font-bold mb-4">Features</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {property.features.map((feature, index) => (
-                        <div key={index} className="flex items-center">
-                          <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center mr-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-green-700" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                          <span className="text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Right Column - Property Info */}
-        <div className="lg:col-span-1">
-          
-          {/* Property Information Box */}
-          <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
-            <h3 className="bg-gray-100 px-4 py-2 font-bold text-lg border-b border-gray-200">Property Information</h3>
-            <div className="p-4 space-y-3">
-              <div className="flex justify-between border-b border-gray-100 pb-2">
-                <span className="text-gray-600">Reference:</span>
-                <span className="font-medium">LM-{property.id.toString().padStart(4, '0')}</span>
-              </div>
-              <div className="flex justify-between border-b border-gray-100 pb-2">
-                <span className="text-gray-600">Location:</span>
-                <span className="font-medium">{property.location}</span>
-              </div>
-              <div className="flex justify-between border-b border-gray-100 pb-2">
-                <span className="text-gray-600">Property Type:</span>
-                <span className="font-medium capitalize">{property.type}</span>
-              </div>
-              <div className="flex justify-between border-b border-gray-100 pb-2">
-                <span className="text-gray-600">Status:</span>
-                <span className="font-medium">{property.status}</span>
-              </div>
-              {property.type === 'residential' && (
-                <>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-600">Bedrooms:</span>
-                    <span className="font-medium">{property.bedrooms}</span>
-                  </div>
-                  <div className="flex justify-between border-b border-gray-100 pb-2">
-                    <span className="text-gray-600">Bathrooms:</span>
-                    <span className="font-medium">{property.bathrooms}</span>
-                  </div>
-                </>
-              )}
-              <div className="flex justify-between border-b border-gray-100 pb-2">
-                <span className="text-gray-600">Property Manager:</span>
-                <span className="font-medium">
-                  {property.id === 10 ? 'Beth Mwendwa' : 'Legend Management Ltd'}
-                </span>
-              </div>
-            </div>
-          </div>
-          
-          {/* Similar Properties */}
-          <div className="mt-6 bg-white rounded-lg border border-gray-200 shadow-sm p-4">
-            <h3 className="font-bold text-lg mb-4">Similar Properties</h3>
-            <div className="text-center text-gray-500 py-4">
-              Explore more properties from Legend Management Ltd
             </div>
           </div>
         </div>
