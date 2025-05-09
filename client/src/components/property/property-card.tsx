@@ -104,12 +104,14 @@ export default function PropertyCard({ property }: PropertyCardProps) {
       ${isPremium ? 'shadow-lg ring-2 ring-[#D99B32]/40' : 'shadow-md'}
     `}>
       {/* Property Image & Status Badge */}
-      <div className="relative h-60 overflow-hidden bg-gray-100 flex justify-center items-center">
-        <img 
-          src={primaryImage}
-          alt={property.title} 
-          className="w-auto h-auto max-w-full max-h-60 object-contain transition-all duration-700 ease-in-out group-hover:scale-105 filter group-hover:brightness-105"
-        />
+      <div className="relative overflow-hidden">
+        <div className="aspect-[4/3] w-full"> 
+          <img 
+            src={primaryImage}
+            alt={property.title} 
+            className="w-full h-full object-cover transition-all duration-700 ease-in-out group-hover:scale-105 filter group-hover:brightness-105"
+          />
+        </div>
         
         {/* Color overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
