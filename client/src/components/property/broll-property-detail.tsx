@@ -37,13 +37,13 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                   </div>
                 )}
                 
-                {/* Property Image - Improved to show complete images */}
+                {/* Property Image - Updated to 9:16 aspect ratio */}
                 {property.images && property.images.length > 0 ? (
-                  <div className="w-full h-auto max-h-[600px] overflow-hidden flex justify-center items-center bg-gray-100">
+                  <div className="w-full pb-[177.78%] relative bg-white overflow-hidden">
                     <img 
                       src={property.images[activeImageIndex]} 
                       alt={property.title}
-                      className="w-auto h-auto max-w-full max-h-[600px] object-contain"
+                      className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
                       loading="eager"
                       fetchPriority="high"
                       onError={(e) => {
@@ -54,10 +54,12 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                     />
                   </div>
                 ) : (
-                  <div className="w-full h-full bg-gray-200 rounded flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                    </svg>
+                  <div className="w-full pb-[177.78%] relative bg-gray-200 rounded">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                      </svg>
+                    </div>
                   </div>
                 )}
                 
