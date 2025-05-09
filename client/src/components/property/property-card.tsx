@@ -105,7 +105,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
     `}>
       {/* Property Image & Status Badge */}
       <div className="relative">
-        <div className="w-full pb-[56.25%] relative bg-white overflow-hidden"> 
+        <div className="w-full pb-[177.78%] relative bg-white overflow-hidden"> 
           <img 
             src={primaryImage}
             alt={property.title} 
