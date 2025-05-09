@@ -23,17 +23,21 @@ async function updateBlueshieldImages() {
 
     // Copy images from attached_assets to public/images/properties/blueshield
     const sourceImages = [
-      "blueshield 1.jpg",
-      "blueshileld 2.jpg",
-      "blueshileld 3.jpg",
-      "blueshileld 4.jpg"
+      "WhatsApp Image 2025-05-09 at 10.10.21.jpeg",
+      "WhatsApp Image 2025-05-09 at 10.10.22.jpeg",
+      "WhatsApp Image 2025-05-09 at 10.10.24.jpeg",
+      "WhatsApp Image 2025-05-09 at 10.10.26 (1).jpeg",
+      "WhatsApp Image 2025-05-09 at 10.10.26 (2).jpeg",
+      "WhatsApp Image 2025-05-09 at 10.10.26.jpeg"
     ];
 
     const targetImages = [
-      "blueshield-towers-1.jpg",
-      "blueshield-towers-2.jpg",
-      "blueshield-towers-3.jpg",
-      "blueshield-towers-4.jpg"
+      "blueshield1.jpeg",
+      "blueshield2.jpeg",
+      "blueshield3.jpeg",
+      "blueshield4.jpeg",
+      "blueshield5.jpeg",
+      "blueshield6.jpeg"
     ];
 
     // Copy each image
