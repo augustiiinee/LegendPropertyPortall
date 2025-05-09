@@ -32,17 +32,12 @@ function CategoryCard({
   return (
     <Link href={href}>
       <div className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col transform hover:-translate-y-2">
-        {/* Image Section with custom aspect ratio (normal width, fine-tuned height) */}
-        <div className="relative overflow-hidden mx-auto" style={{ 
-          aspectRatio: '0.9/0.77', /* Standard width with adjusted height */
-          width: '100%',
-          maxWidth: '100%'
-        }}>
+        {/* Image Section with 9:16 aspect ratio */}
+        <div className="relative w-full pb-[177.78%] overflow-hidden">
           <img 
             src={image} 
             alt={title}
-            className="w-full h-full object-contain object-center transition-all duration-1000 ease-in-out group-hover:scale-105"
-            style={{ objectPosition: '50% 50%', objectFit: 'cover', transform: 'scale(0.9)' }}
+            className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
           />
         </div>
         
@@ -151,18 +146,13 @@ function CommercialPropertiesSlider({ properties }: { properties: Property[] }) 
   
   return (
     <div className="group flex flex-col rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
-      {/* Simple Image Section with custom aspect ratio (normal width, fine-tuned height) */}
-      <div className="relative overflow-hidden mx-auto" style={{ 
-        aspectRatio: '0.9/0.77', /* Standard width with adjusted height */
-        width: '100%',
-        maxWidth: '100%'
-      }}>
-        {/* Use our high-quality commercial building images with adjusted zoom level */}
+      {/* Image Section with 9:16 aspect ratio */}
+      <div className="relative w-full pb-[177.78%] overflow-hidden">
+        {/* Use our high-quality commercial building images with improved display */}
         <img 
           src={getBuildingImage(property)} 
           alt={property.title} 
-          className="w-full h-full object-contain object-center transition-all duration-1000 ease-in-out group-hover:scale-105"
-          style={{ objectPosition: '50% 50%', objectFit: 'cover', transform: 'scale(0.9)' }}
+          className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out group-hover:scale-105"
         />
         
         {/* Slider Controls - Kept for functionality but made more subtle */}
