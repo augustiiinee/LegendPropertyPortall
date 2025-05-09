@@ -28,7 +28,7 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
             
             {/* Property Image Carousel */}
             <div className="p-4">
-              <div className="relative mb-6 aspect-video">
+              <div className="relative mb-6">
                 {property.featured && (
                   <div className="absolute top-2 left-2 z-10">
                     <div className="bg-red-600 text-white px-3 py-1 text-sm font-medium">
@@ -37,20 +37,22 @@ export default function BrollPropertyDetail({ property }: BrollPropertyDetailPro
                   </div>
                 )}
                 
-                {/* Property Image */}
+                {/* Property Image - Improved to show complete images */}
                 {property.images && property.images.length > 0 ? (
-                  <img 
-                    src={property.images[activeImageIndex]} 
-                    alt={property.title}
-                    className="w-full h-full object-cover rounded"
-                    loading="eager"
-                    fetchPriority="high"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.onerror = null;
-                      target.src = '/images/properties/placeholder.jpg';
-                    }}
-                  />
+                  <div className="w-full h-auto max-h-[600px] overflow-hidden flex justify-center items-center bg-gray-100">
+                    <img 
+                      src={property.images[activeImageIndex]} 
+                      alt={property.title}
+                      className="w-auto h-auto max-w-full max-h-[600px] object-contain"
+                      loading="eager"
+                      fetchPriority="high"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.onerror = null;
+                        target.src = '/images/properties/placeholder.jpg';
+                      }}
+                    />
+                  </div>
                 ) : (
                   <div className="w-full h-full bg-gray-200 rounded flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
