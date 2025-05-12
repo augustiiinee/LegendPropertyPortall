@@ -20,7 +20,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 3,
-    imageUrl: '/images/buildings/new-blueshield-optimized.jpeg'
+    imageUrl: '/images/buildings/new-blueshield-fixed.jpeg'
   },
   {
     id: 4,
@@ -64,7 +64,7 @@ export default function HeroSection() {
   return (
     <section id="home" className="relative h-auto overflow-hidden">
       {/* Hero Carousel - Pure landscape display of building images with no extra background */}
-      <div className="carousel relative w-full" style={{ aspectRatio: '16/9' }}>
+      <div className="carousel relative w-full overflow-hidden" style={{ aspectRatio: '16/9', maxHeight: '80vh' }}>
         {heroSlides.map((slide, index) => (
           <div 
             key={slide.id}
@@ -79,8 +79,8 @@ export default function HeroSection() {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover', // Use cover for all images to maintain landscape format
-                objectPosition: slide.id === 3 ? 'center 40%' : 'center', // Special positioning for Blueshield
-                maxHeight: slide.id === 3 ? '60vh' : '100%' // Limit height of Blueshield image
+                objectPosition: 'center', // Center all images uniformly
+                maxHeight: '100%' // Full height for all images
               }}
             />
             {/* No overlay at all */}
