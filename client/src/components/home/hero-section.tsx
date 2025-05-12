@@ -20,7 +20,7 @@ const heroSlides: HeroSlide[] = [
   },
   {
     id: 3,
-    imageUrl: '/images/buildings/blueshield.jpeg'
+    imageUrl: '/images/buildings/new-blueshield-optimized.jpeg'
   },
   {
     id: 4,
